@@ -18,8 +18,16 @@ Requerimientos:
     * OS/Linux
     * Python >= 2.5
     * Django >=1.0
-    * python-sqlite
-    
+    * python-imaging
+    * Base de datos
+        * SQlite
+            * python-sqlite
+        * PostgreSQL
+            * python-psycopg2
+        * MySQL
+            * python-mysqldb
+
+
 Instalación:
 Para realizar pruebas y/o desarrollo puede ejecutarlo de la siguiente manera:
     * Descargar el fichero y descomprimir.
