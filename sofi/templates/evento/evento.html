@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+
+{% block head_title %}Evento{% endblock %}
+
+{% block body %}
+    {% if lista_eventos %}
+        
+        <div align="center">
+            <table id="evento">
+                <tbody>
+                    {% for evento in lista_eventos %}
+                    {% ifequal evento.publicar 'True' %}
+                        <tr id="borde">
+                            <td rowspan="4">
+                                <img src="/site_media/images/borde.png" />
+                            </td>
+                        </tr>
+                        <tr id="titulo">
+                            <td class="letra_negrita letra_grande">
+                                {% ifequal evento.presentaciones 'True' %}
+                                    <a href="detalle/{{evento.id}}/">{{ evento.nombre }}</a>
+                                {% else %}
+                                    {{ evento.nombre }}
+                                {% endifequal%}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="background: url('/site_media/images/fondo.png'); white-space:pre; padding-left: 15px;">
+{{ evento.resumen|wordwrap:"95" }}
+{% if evento.lugar %}
+Lugar:
+{{ evento.lugar|wordwrap:"95" }}
+{% endif %}
+Fecha:
+desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
+                            </td>
+                        </tr>
+                        <tr id="pie">
+                            <td>
+                                {% ifequal evento.presentaciones 'True' %}
+                                    <a href="detalle/{{evento.id}}/">presentaciones</a>
+                                {% endifequal %}
+                                {% ifequal evento.suscripciones 'True' %}
+                                    &nbsp;
+                                    &nbsp;
+                                    <a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
+                                    &nbsp;
+                                    &nbsp;
+                                    <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
+                                {% endifequal %}
+                            </td>
+                        </tr>
+                    {% endifequal %}
+                        <tr>
+                            <td>
+                                <br>
+                            </td>
+                        </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+        </div>
+
+    {% endif %}
+{% endblock %}

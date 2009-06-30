@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+
+{% block head_title %}Detalle{% endblock %}
+
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+    <div align="center">
+            {% for presentacion in evento.presentacion_set.all %}
+                <table id="presentacion">
+                    <tbody class="alinear_izquierda">
+                        <tr id="borde">
+                            <td rowspan="10">
+                                <img src="/site_media/images/borde.png" />
+                            </td>
+                        </tr>
+
+                        <tr id="titulo">
+                            <td colspan="2" class="letra_negrita letra_grande">{{presentacion.titulo}}</td>
+                        </tr>
+                        {% if presentacion.lugar %}
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Lugar</td>
+                            <td class="margen_izquierdo" style="white-space:pre;">
+{{presentacion.lugar|wordwrap:"50"}}
+                            </td>
+                        </tr>
+                        {% endif %}
+
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Fecha</td>
+                            <td class="margen_izquierdo">{{presentacion.fecha|date:"d/m/Y"}}</td>
+                        </tr>
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Hora</td>
+                            <td class="margen_izquierdo">{{presentacion.hora|time:"P"}}</td>
+                        </tr>
+                        {% if presentacion.url %}
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Url</td>
+                            <td class="margen_izquierdo"><a href="{{presentacion.url}}">{{presentacion.url}}</a></td>
+                        </tr>
+                        {% endif %}
+                        {% if presentacion.archivo %}
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Descargar</td>
+                            <td class="margen_izquierdo">
+                                <a href="{{presentacion.archivo.url}}"><img src="/site_media/images/down.png" alt="Descargar"/></a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Ponente(s)</td>
+                            <td>
+                                <br>
+                                <table>
+                                    <tbody>
+                                        {% for ponente in presentacion.ponente_set.all %}
+                                            <tr>
+                                                <td>
+                                                    {% if ponente.foto %}
+                                                    <img class="img_ponente margen_izquierdo" src="{{ponente.foto.url}}" alt="{{ponente.nombre}}" />
+                                                    {% else %}
+                                                    <img class="img_ponente margen_izquierdo" src="/site_media/images/no.png" alt="no image" />
+                                                    {% endif%}
+                                                </td>
+                                                <td>
+                                                    
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Nombre</td>
+                                                <td  class="margen_izquierdo">{{ponente.nombre}}</td>
+                                            </tr>
+                                            {% if ponente.profesion %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Profesi&#243;n</td>
+                                                <td class="margen_izquierdo">{{ponente.profesion}}</td>
+                                            </tr>
+                                            {% endif %}
+                                            {% if ponente.institucion %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Instituci&#243;n</td>
+                                                <td class="margen_izquierdo">{{ponente.institucion}}</td>
+                                            </tr>
+                                            {% endif %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Email</td>
+                                                <td class="margen_izquierdo"><a href="mailto:{{ponente.email}}">{{ponente.email}}</a></td>
+                                            </tr>
+                                            {% if ponente.estado %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Estado</td>
+                                                <td class="margen_izquierdo">{{ponente.estado}}</td>
+                                            </tr>
+                                            {% endif %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Pa&#237;s</td>
+                                                <td class="margen_izquierdo">{{ponente.pais}}</td>
+                                            </tr>
+                                        {% endfor %}
+    
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                        <tr id="pie">
+                            <td colspan="2">
+                                {% ifequal evento.suscripciones 'True' %}
+                                    &nbsp;
+                                    &nbsp;
+                                    <a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
+                                    &nbsp;
+                                    &nbsp;
+                                    <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
+                                {% endifequal %}
+                            </td>
+                        </tr>
+
+                    </tbody>
+                </table>
+                <br>
+            {%endfor%}
+    <a href="/">Regresar</a>
+    </div>
+{% endblock %}

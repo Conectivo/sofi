@@ -1,0 +1,157 @@
+body {
+    background-color: #FFF;
+    color: #333;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    font-size: 10pt;
+}
+
+body a:link, a:visited {
+    color: #333;
+}
+
+table{
+    border-collapse: collapse;
+    border-spacing: 0;
+    border: 0;
+   }
+
+td {
+    padding: 0;
+    padding-bottom: 0;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+}
+
+hr {
+    
+    background: #6ba631;
+}
+
+.letra_negrita {
+    font-weight: bold;
+}
+
+.letra_cursiva {
+    font-family: cursive;
+}
+
+.letra_grande {
+    font-size: 14pt;
+}
+
+.letra_pequena {
+    font-size: 8pt;
+}
+
+#evento{
+    width: 600px;
+}
+#presentacion {
+    width: 600px;
+}
+
+#presentacion td {
+    background: url('/site_media/images/fondo.png');
+}
+
+#titulo a:link{
+    color: #FFF;
+}
+
+#titulo {
+    color: #FFF
+}
+#titulo a:visited{
+    color: #FFF;
+}
+
+#titulo td {
+    height: 35px;
+    background: url('/site_media/images/cabeza.png') left top repeat-x;
+}
+#borde td {
+    vertical-align: top;
+    width: 10px;
+    background: #FFF;
+}
+
+#pie td {
+    height: 15px;
+    background: url('/site_media/images/pie.png') left top repeat-x;
+    vertical-align: center;
+    text-align: right;
+    padding-right: 10px;
+    font-size:12px;
+    font-weight: bold;
+}
+
+#pie a:link {
+    color: red;
+}
+
+#pie a:visited {
+    color: red;
+}
+
+#reporte table {
+    width: 800px;
+}
+
+#reporte table thead td {
+    text-align: center;
+    font-weight: bold;
+    height: 40px;
+}
+
+#reporte td {
+    height: 25px;
+    border-bottom: 1px solid;
+}
+
+#encabezado_logo {
+    position: fixed;
+    height: 120px;
+    width: 400px
+}
+
+body a:link img, a:visited img {
+    color: transparent;
+}
+
+#encabezado_titulo {
+    text-align: center;
+    font-weight: bold;
+    font-size: larger;
+    height: 100px;
+    background: url("/site_media/images/fondo_encabezado.png") repeat-x;
+}
+
+#encabezado_borde {
+    background: url("/site_media/images/borde_encabezado.png") repeat-x;
+
+}
+
+#logo_evento {
+    width: 150px;
+    height: 150px;
+}
+.margen_izquierdo {
+    padding-left: 15px;
+}
+
+.alinear_izquierda {
+    text-align: left;
+}
+.letra_centrar {
+    text-align: center;
+}
+
+.img_ponente {
+    height: 80px;
+    width: 80px;
+}
+
+.ancho_tabla {
+    width: 600px;
+}

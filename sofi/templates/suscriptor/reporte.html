@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block head_title %}Reporte{% endblock %}
+
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+    {% if suscriptores %}
+            <div id="reporte" align="center">
+                <table>
+                    <thead>
+                        <tr>
+                            <td>Nombre(s)</td>
+                            <td>Apellido(s)</td>
+                            <td>C&#233dula</td>
+                            <td>Email</td>
+                            <td>Profesi&#243;n</td>
+                            <td>Instituci&#243;n</td>
+                            <td>Estado</td>
+                            <td>Pa&#237;s</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for suscriptor in suscriptores %}
+                        <tr>
+                            <td>{{suscriptor.nombres}}</td>
+                            <td>{{suscriptor.apellidos}}</td>
+                            <td>{{suscriptor.cedula}}</td>
+                            <td>{{suscriptor.email}}</td>
+                            <td>{{suscriptor.profesion}}</td>
+                            <td>{{suscriptor.institucion}}</td>
+                            <td>{{suscriptor.estado}}</td>
+                            <td>{{suscriptor.pais}}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br>
+                <a href="/detalle/{{evento.id}}/">Regresar a evento</a>
+            </div>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block head_title %}Suscriptor{% endblock %}
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+    <div align="center">
+        <h3
+            <label>
+            {% if ok %}
+                Sus datos fueron guardados, gracias por suscribirse a este evento.
+            {% else %}
+                Sus datos ya se encuentran en nuestro sistema para este evento.
+            {% endif %}
+            </label>
+        </h3
+        <a href="/detalle/{{evento.id}}/">Regresar a evento</a>
+             
+    </div>
+{% endblock %}
