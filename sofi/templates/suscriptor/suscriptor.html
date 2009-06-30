@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block head_title %}Suscriptor{% endblock %}
+
+{% block extra_head%}
+    <style type="text/css">
+        ul.errorlist {
+            margin: 0;
+            padding: 0;
+        }
+        .errorlist li {
+            background-color: red;
+            color: white;
+            display: block;
+            font-size: 10px;
+            margin: 0 0 3px;
+            padding: 4px 5px;
+        }
+    </style>
+{% endblock %}
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+    <div align="center">
+        <form action="." method="post">
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" value="Suscribir"/>
+        </form>
+    </div>
+{% endblock %}

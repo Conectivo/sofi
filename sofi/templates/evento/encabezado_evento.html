@@ -1,0 +1,25 @@
+    <div align="center">
+        <table style="width: 800px;">
+            <tbody>
+                <tr>
+                    <td style="width: 0;">
+                        <img id= "logo_evento" src="{{evento.logo.url}}" alt=""/>
+                    </td>
+                    <td class="letra_centrar">
+                        <label class="letra_negrita letra_grande">{{evento.nombre}}</label>
+                        <br>
+                        <label class="">
+<pre>
+{{evento.resumen|wordwrap:"95"}}
+</pre>
+                        </label>
+                        <br>
+                        <label class="letra_negrita ">desde el {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}</label>
+    
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <br>
+
