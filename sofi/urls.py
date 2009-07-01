@@ -4,6 +4,14 @@ import os
 from django.contrib import admin
 from django.views.generic.simple import direct_to_template
 
+from tools.feed import Rss, Atom
+
+feeds = {
+    'rss': Rss,
+    'atom': Atom,
+}
+
+
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -13,6 +21,7 @@ urlpatterns = patterns('',
     (r'^acercade/', direct_to_template, {'template': 'acercade/acercade.html'}),
     (r'^licencia/', direct_to_template, {'template': 'acercade/licencia.html'}),
     (r'^admin/(.*)', admin.site.root),
+    (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
 )
 
 if settings.DEBUG:
