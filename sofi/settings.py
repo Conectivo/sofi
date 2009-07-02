@@ -85,6 +85,6 @@ INSTALLED_APPS = (
     'suscriptor',
 )
 
-EMAIL_HOST = 'mail.centv.net'
+EMAIL_HOST = 'mail.cantv.net'
 EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'eventos@sofi.org'
