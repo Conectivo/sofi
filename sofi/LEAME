@@ -4,6 +4,8 @@ Sofi es ideal como portal web de publicación de eventos tipo blog.
 Sofi es una aplicación liberada bajo la licencia GPLv2, por lo tanto usted tendrá derecho de utilizar, estudiar, modificar y distribuir libremente según los términos de la licencia
 Sofi esta desarrollada con el lenguaje de programación Python utilizando Django como framework
 
+Página del proyecto: http://sofi.cenditel.gob.ve
+
 Módulos:
     * Eventos
           o Agregar, modificar, eliminar, activar opciones de suscripción y publicación, fecha, logo del evento.
