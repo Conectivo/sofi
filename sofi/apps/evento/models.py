@@ -30,5 +30,5 @@ class Evento(models.Model):
         return self.nombre
     
     class Meta:
-        ordering = ['fecha_ini']
+        ordering = ['-fecha_ini', '-fecha_fin']
 
