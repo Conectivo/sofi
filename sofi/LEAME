@@ -56,10 +56,10 @@ Para un sistema de producción, se recomienda utilizar apache/mod_python:
 
         <Location "/">
             SetHandler python-program
-            PythonHandler sofi.servidor.modpython
+            PythonHandler django.core.handlers.modpython
             SetEnv DJANGO_SETTINGS_MODULE sofi.settings
             PythonDebug On
-            PythonPath "['/home/<USUARIO>'] + sys.path"
+            PythonPath "['/home/<USUARIO>', '/home/<USUARIO>/sofi', '/home/<USUARIO>/sofi/apps'] + sys.path"
         </Location>
 
         Alias /media/ /var/lib/python-support/python2.5/django/contrib/admin/media/
