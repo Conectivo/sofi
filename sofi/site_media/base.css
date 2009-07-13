@@ -3,6 +3,7 @@ body {
     color: #333;
     font-family: "Helvetica Neue", Arial, sans-serif;
     font-size: 10pt;
+    height: 100%;
 }
 
 body a:link, a:visited {
@@ -110,7 +111,9 @@ hr {
 }
 
 #encabezado_logo {
-    position: fixed;
+    top: 10px;
+    left: 20px;
+    position:absolute;
     height: 120px;
     width: 400px
 }
@@ -124,11 +127,23 @@ body a:link img, a:visited img {
     font-weight: bold;
     font-size: larger;
     height: 100px;
+    width: 100%;
     background: url("/site_media/images/fondo_encabezado.png") repeat-x;
 }
 
 #encabezado_borde {
     background: url("/site_media/images/borde_encabezado.png") repeat-x;
+    height: 8px;
+    width: 100%;
+}
+
+#encabezado_opciones{
+    text-align: right;
+    padding-right: 20px;
+    font-size: 10px;
+    top: 95px;
+    right:0px;
+    position:absolute;
 
 }
 
