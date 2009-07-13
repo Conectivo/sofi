@@ -24,7 +24,7 @@ class SuscriptorForm(forms.Form):
         if not Suscriptor.objects.filter(cedula=self.cleaned_data['cedula']):
             suscriptor.save()
             
-            email.enviar_mail('Suscripcion a evento', u'Estimado(a) %s %s su suscripci\xc3\xb3n al evento %s en http://%s, se ha realizado con \xc3\xa9xito.\n\ngracias...' % (self.cleaned_data['nombres'], self.cleaned_data['apellidos'], evento, Site.objects.get(id=1).domain), settings.DEFAULT_FROM_EMAIL, [self.cleaned_data['email']])
+            email.enviar_mail('Suscripci\xc3\xb3n a evento', u'Estimado(a) %s %s su suscripci\xc3\xb3n al evento %s en http://%s, se ha realizado con \xc3\xa9xito.\n\ngracias...' % (self.cleaned_data['nombres'], self.cleaned_data['apellidos'], evento, Site.objects.get(id=1).domain), settings.DEFAULT_FROM_EMAIL, [self.cleaned_data['email']])
             
             return render_to_response('suscriptor/registro_ok.html', {'evento': evento, 'ok': True, 'site_name': Site.objects.get(id=1).name})
         else:
