@@ -1,5 +1,6 @@
 from django.db import models
 from evento.models import Evento
+from tools.thumbs import ImageWithThumbsField
 
 class Presentacion(models.Model):
     titulo = models.CharField(max_length=120, verbose_name='t\xc3\xadtulo')
@@ -21,7 +22,8 @@ class Ponente(models.Model):
     nombre = models.CharField(max_length=42)
     profesion = models.CharField(max_length=21, blank=True, verbose_name='prefesi\xc3\xb3n')
     email = models.EmailField()
-    foto = models.ImageField(upload_to='detalle/files', blank=True)
+    #foto = models.ImageField(upload_to='detalle/files', blank=True)
+    foto = ImageWithThumbsField(upload_to='detalle/files', blank=True, sizes=((80,100),))
     institucion = models.CharField(max_length=50, blank=True, verbose_name='instituci\xc3\xb3n')
     estado = models.CharField(max_length=15, blank= True)
     pais = models.CharField(max_length=10, verbose_name='pa\xc3\xads')

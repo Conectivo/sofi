@@ -117,8 +117,8 @@ hr {
     width: 400px
 }
 
-body a:link img, a:visited img {
-    color: transparent;
+body a:link img, a:visited  img{
+    border: none;
 }
 
 #encabezado_titulo {
@@ -146,13 +146,8 @@ body a:link img, a:visited img {
 
 }
 
-#logo_evento {
-    width: 150px;
-    height: 150px;
-}
-
 #body{
-    height: 500px;
+    height: 500px auto;
 }
 
 .margen_izquierdo {
@@ -164,11 +159,6 @@ body a:link img, a:visited img {
 }
 .letra_centrar {
     text-align: center;
-}
-
-.img_ponente {
-    height: 80px;
-    width: 80px;
 }
 
 .ancho_tabla {

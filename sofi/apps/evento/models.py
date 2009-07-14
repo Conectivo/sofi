@@ -1,4 +1,6 @@
 from django.db import models
+from tools.thumbs import ImageWithThumbsField
+
 PUBLICAR = (
     (True, 'Si'),
     (False, 'No')
@@ -23,8 +25,8 @@ class Evento(models.Model):
     publicar = models.CharField(max_length=4, choices=PUBLICAR)
     fecha_ini = models.DateField(verbose_name='fecha inicial')
     fecha_fin = models.DateField(verbose_name='fecha final')
-    logo = models.ImageField(upload_to='evento/files')
-    
+    #logo = models.ImageField(upload_to='evento/files')
+    logo = ImageWithThumbsField(upload_to='evento/files', sizes=((180,150),))
 
     def __unicode__(self):
         return self.nombre
