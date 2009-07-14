@@ -1,3 +1,8 @@
+0.1.1 - SVN
+    - Modificación de pagina de estilos
+    - Agregada la librería Thumbs, para redimencionar la imágenes
+    - Modificado modelo de eventos
+    
 0.1.1 - SVN r11
     - Agregado sindicación rss: /feed/rss, atom: /feed/atom
     - Cambiado locale a "es-ve"
