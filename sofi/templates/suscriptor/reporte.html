@@ -6,13 +6,14 @@
     {% include "evento/encabezado_evento.html" %}
     {% if suscriptores %}
             <div id="reporte" align="center">
+                <label><h2>Suscriptores</h2></label>
                 <table>
                     <thead>
                         <tr>
                             <td>Nombre(s)</td>
                             <td>Apellido(s)</td>
-                            <td>C&#233dula</td>
-                            <td>Email</td>
+                            <!--<td>C&#233dula</td>-->
+                            <!--<td>Email</td>-->
                             <td>Profesi&#243;n</td>
                             <td>Instituci&#243;n</td>
                             <td>Estado</td>
@@ -24,12 +25,12 @@
                         <tr>
                             <td>{{suscriptor.nombres}}</td>
                             <td>{{suscriptor.apellidos}}</td>
-                            <td>{{suscriptor.cedula}}</td>
-                            <td>{{suscriptor.email}}</td>
+                            <!--<td>{{suscriptor.cedula}}</td>-->
+                            <!--<td>{{suscriptor.email}}</td>-->
                             <td>{{suscriptor.profesion}}</td>
                             <td>{{suscriptor.institucion}}</td>
-                            <td>{{suscriptor.estado}}</td>
-                            <td>{{suscriptor.pais}}</td>
+                            <td>{{suscriptor.estado|upper}}</td>
+                            <td>{{suscriptor.pais|upper}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>

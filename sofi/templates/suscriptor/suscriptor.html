@@ -21,11 +21,15 @@
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     <div align="center">
+        <label><h2>Suscribir</h2></label>
         <form action="." method="post">
             <table>
                 {{form.as_table}}
             </table>
             <input type="submit" value="Suscribir"/>
         </form>
+        <br>
+        <br>
+        <a href="/">Regresar</a>
     </div>
 {% endblock %}

@@ -106,7 +106,9 @@ hr {
 
 #reporte td {
     height: 25px;
-    border-bottom: 1px solid;
+    padding: 4px;
+    border: 1px solid;
+    border-color: #eee;
 }
 
 #encabezado_logo {
