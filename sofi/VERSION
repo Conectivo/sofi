@@ -1,7 +1,8 @@
-0.1.1 - SVN
+0.1.2 - SVN
     - Modificación de pagina de estilos
-    - Agregada la librería Thumbs, para redimencionar la imágenes
+    - Agregada la librería tools.thumbs, para redimencionar imágenes
     - Modificado modelo de eventos
+    - Modificado README, instalación con Apache/mod_python
     
 0.1.1 - SVN r11
     - Agregado sindicación rss: /feed/rss, atom: /feed/atom
