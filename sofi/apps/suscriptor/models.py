@@ -4,7 +4,6 @@ from evento.models import Evento
 class Suscriptor(models.Model):
     nombres = models.CharField(max_length=21)
     apellidos = models.CharField(max_length=21)
-    #cedula = models.CharField(max_length=8, verbose_name='c\xc3\xa9dula', unique=True)
     cedula = models.IntegerField(max_length=8, verbose_name='c\xc3\xa9dula', unique=True)
     email = models.EmailField()
     profesion = models.CharField(max_length=21, blank=True, verbose_name='prefesi\xc3\xb3n')

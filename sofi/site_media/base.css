@@ -147,7 +147,7 @@ body a:link img, a:visited  img{
 }
 
 #body{
-    height: 500px auto;
+    height: auto;
 }
 
 .margen_izquierdo {

@@ -1,17 +1,7 @@
 from django.db import models
 from tools.thumbs import ImageWithThumbsField
 
-PUBLICAR = (
-    (True, 'Si'),
-    (False, 'No')
-)
-
-SUSCRIPCIONES = (
-    (True, 'Si'),
-    (False, 'No')
-)
-
-PRESENTACIONES = (
+SINO = (
     (True, 'Si'),
     (False, 'No')
 )
@@ -20,9 +10,9 @@ class Evento(models.Model):
     nombre = models.CharField(max_length=120)
     resumen = models.TextField()
     lugar = models.TextField(blank=True)
-    presentaciones = models.CharField(max_length=4, choices=PRESENTACIONES)
-    suscripciones = models.CharField(max_length=4, choices=SUSCRIPCIONES)
-    publicar = models.CharField(max_length=4, choices=PUBLICAR)
+    presentaciones = models.BooleanField(choices=SINO)
+    suscripciones = models.BooleanField(choices=SINO)
+    publicar = models.BooleanField(choices=SINO)
     fecha_ini = models.DateField(verbose_name='fecha inicial')
     fecha_fin = models.DateField(verbose_name='fecha final')
     #logo = models.ImageField(upload_to='evento/files')

@@ -9,7 +9,7 @@
             <table id="evento">
                 <tbody>
                     {% for evento in lista_eventos %}
-                    {% ifequal evento.publicar 'True' %}
+                    {% if evento.publicar %}
                         <tr id="borde">
                             <td rowspan="4">
                                 <img src="/site_media/images/borde.png" />
@@ -17,11 +17,11 @@
                         </tr>
                         <tr id="titulo">
                             <td class="letra_negrita letra_grande">
-                                {% ifequal evento.presentaciones 'True' %}
+                                {% if evento.presentaciones %}
                                     <a href="detalle/{{evento.id}}/">{{ evento.nombre }}</a>
                                 {% else %}
                                     {{ evento.nombre }}
-                                {% endifequal%}
+                                {% endif %}
                             </td>
                         </tr>
                         <tr>
@@ -37,20 +37,20 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                         </tr>
                         <tr id="pie">
                             <td>
-                                {% ifequal evento.presentaciones 'True' %}
+                                {% if evento.presentaciones %}
                                     <a href="detalle/{{evento.id}}/">presentaciones</a>
-                                {% endifequal %}
-                                {% ifequal evento.suscripciones 'True' %}
+                                {% endif %}
+                                {% if evento.suscripciones %}
                                     &nbsp;
                                     &nbsp;
                                     <a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
                                     &nbsp;
                                     &nbsp;
                                     <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
-                                {% endifequal %}
+                                {% endif %}
                             </td>
                         </tr>
-                    {% endifequal %}
+                    {% endif %}
                         <tr>
                             <td>
                                 <br>
