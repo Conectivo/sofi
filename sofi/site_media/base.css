@@ -5,6 +5,10 @@ body {
     font-size: 10pt;
 }
 
+div table {
+    text-align: left;
+}
+
 body a:link, a:visited {
     color: #333;
 }
