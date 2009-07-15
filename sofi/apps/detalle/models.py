@@ -1,9 +1,11 @@
+# -*- coding: utf-8 -*-
+
 from django.db import models
 from evento.models import Evento
 from tools.thumbs import ImageWithThumbsField
 
 class Presentacion(models.Model):
-    titulo = models.CharField(max_length=120, verbose_name='t\xc3\xadtulo')
+    titulo = models.CharField(max_length=120, verbose_name='título')
     fecha = models.DateField()
     hora = models.TimeField()
     url = models.URLField(blank=True)
@@ -20,14 +22,14 @@ class Presentacion(models.Model):
 
 class Ponente(models.Model):
     nombre = models.CharField(max_length=42)
-    profesion = models.CharField(max_length=21, blank=True, verbose_name='prefesi\xc3\xb3n')
+    profesion = models.CharField(max_length=21, blank=True, verbose_name='profesión')
     email = models.EmailField()
     #foto = models.ImageField(upload_to='detalle/files', blank=True)
     foto = ImageWithThumbsField(upload_to='detalle/files', blank=True, sizes=((80,100),))
-    institucion = models.CharField(max_length=50, blank=True, verbose_name='instituci\xc3\xb3n')
+    institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
     estado = models.CharField(max_length=15, blank= True)
-    pais = models.CharField(max_length=10, verbose_name='pa\xc3\xads')
-    presentacion = models.ManyToManyField(Presentacion, verbose_name='presentaci\xc3\xb3n')
+    pais = models.CharField(max_length=10, verbose_name='país')
+    presentacion = models.ManyToManyField(Presentacion, verbose_name='presentación')
     
     
     def __unicode__(self):

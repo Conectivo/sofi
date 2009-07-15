@@ -1,4 +1,5 @@
 0.1.2 - SVN
+    - Agregado (# -*- coding: utf-8 -*-) a ficheros .py donde se utilizan caracteres especiales
     - Modificación de pagina de estilos
     - Agregada la librería tools.thumbs, para redimencionar imágenes
     - Modificado modelo de eventos
