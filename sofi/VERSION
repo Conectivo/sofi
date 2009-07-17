@@ -1,4 +1,4 @@
-0.1.2 - SVN r27
+0.1.2 - SVN r28
     - Agregado (# -*- coding: utf-8 -*-) a ficheros .py donde se utilizan caracteres especiales
     - Modificación de página de estilos
     - Agregada la librería tools.thumbs, para sobredimensionar imágenes
