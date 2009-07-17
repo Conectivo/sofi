@@ -1,9 +1,9 @@
-0.1.2 - SVN
+0.1.2 - SVN r27
     - Agregado (# -*- coding: utf-8 -*-) a ficheros .py donde se utilizan caracteres especiales
-    - Modificación de pagina de estilos
-    - Agregada la librería tools.thumbs, para redimencionar imágenes
+    - Modificación de página de estilos
+    - Agregada la librería tools.thumbs, para sobredimensionar imágenes
     - Modificado modelo de eventos
-    - Modificado README, instalación con Apache/mod_python
+    - Modificado LEAME, instalación con Apache/mod_python
     
 0.1.1 - SVN r11
     - Agregado sindicación rss: /feed/rss, atom: /feed/atom
@@ -13,4 +13,6 @@
     - Corregida dirección de cantv.net a fichero de configuración
         colaboración: Wuilliam Lacruz <wuilliam321@gmail.com>
 
-0.1.0 - SVN r4 
+0.1.0 - SVN r4
+    - Versión inicial
+
