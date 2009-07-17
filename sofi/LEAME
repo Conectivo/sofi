@@ -68,7 +68,7 @@ Para un sistema de producción, se recomienda utilizar apache/mod_python:
             SetHandler none
         </Location>
 
-        Alias /site_media/ /home/<USUARIO>/sofi/site_media/
+        Alias /site_media/ /<RUTA>/sofi/site_media/
         <location /site_media/>
             SetHandler none
         </Location>
