@@ -45,7 +45,8 @@ Para realizar pruebas y/o desarrollo puede ejecutarlo de la siguiente manera:
         http://localhost:8000/admin
 
 Para un sistema de producción, se recomienda utilizar apache/mod_python:
-
+    * Descargar el fichero y descomprimir.
+        tar -zxvf sofi-0.x.x.tar.gz
     * Instalar apache, mod_python y configurar un VirtualHost de la siguiente manera:
 
     <VirtualHost *:80>
@@ -59,7 +60,7 @@ Para un sistema de producción, se recomienda utilizar apache/mod_python:
             PythonHandler django.core.handlers.modpython
             SetEnv DJANGO_SETTINGS_MODULE sofi.settings
             PythonDebug On
-            PythonPath "['/home/<USUARIO>', '/home/<USUARIO>/sofi', '/home/<USUARIO>/sofi/apps'] + sys.path"
+            PythonPath "['/<RUTA>/sofi-0.x.x', '/<RUTA>/sofi-0.x.x/sofi', '/<RUTA>/sofi-0.x.x/sofi/apps'] + sys.path"
         </Location>
 
         Alias /media/ /var/lib/python-support/python2.5/django/contrib/admin/media/
