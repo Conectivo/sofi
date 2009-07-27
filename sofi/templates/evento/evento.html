@@ -18,7 +18,7 @@
                         <tr id="titulo">
                             <td class="letra_negrita letra_grande">
                                 {% if evento.presentaciones %}
-                                    <a href="detalle/{{evento.id}}/">{{ evento.nombre }}</a>
+                                    <a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a>
                                 {% else %}
                                     {{ evento.nombre }}
                                 {% endif %}
@@ -38,7 +38,7 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                         <tr id="pie">
                             <td>
                                 {% if evento.presentaciones %}
-                                    <a href="detalle/{{evento.id}}/">presentaciones</a>
+                                    <a href="/detalle/{{evento.id}}/">presentaciones</a>
                                 {% endif %}
                                 {% if evento.suscripciones %}
                                     &nbsp;
