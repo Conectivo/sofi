@@ -3,12 +3,12 @@
 {% block head_title %}Evento{% endblock %}
 
 {% block body %}
-    {% if lista_eventos %}
+    {% if eventos.object_list %}
         
         <div align="center">
             <table id="evento">
                 <tbody>
-                    {% for evento in lista_eventos %}
+                    {% for evento in eventos.object_list %}
                     {% if evento.publicar %}
                         <tr id="borde">
                             <td rowspan="4">
@@ -59,6 +59,26 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                     {%endfor%}
                 </tbody>
             </table>
+            <!-- Codigo que permite mostrar el avance en la paginacion de los eventos -->
+            <div id="paginacion">
+        		{% if eventos.has_previous %}
+            		  <a href="/{{ eventos.previous_page_number }}/">Anterior</a>&nbsp;
+        		{% endif %}
+                        
+			{% if rango_paginas %}
+			    {% for p in rango_paginas %}
+				{% ifnotequal eventos.number p %}
+				    <a href="/{{ p }}/">{{p}}</a>
+				{% else %}
+				    <a>{{p}}</a>
+				{% endifnotequal %}
+			    {% endfor %}
+        		{% endif %}
+        		
+			{% if eventos.has_next %}
+            		&nbsp;<a href="/{{ eventos.next_page_number }}/">Siguiente</a>
+        		{% endif %}
+	    </div>
         </div>
 
     {% endif %}

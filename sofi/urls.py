@@ -15,7 +15,7 @@ feeds = {
 admin.autodiscover()
 
 urlpatterns = patterns('',
-    (r'^$', include('evento.urls')),
+    (r'^', include('evento.urls')),
     (r'^detalle/', include('detalle.urls')),
     (r'^suscriptor/', include('suscriptor.urls')),
     (r'^acercade/', direct_to_template, {'template': 'acercade/acercade.html'}),

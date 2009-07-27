@@ -1,3 +1,6 @@
+0.1.3 -
+    - Agregada Paginación de Eventos, por Joger Quintero <jogerq@gmail.com>.
+    
 0.1.2 - SVN r30
     - Agregado (# -*- coding: utf-8 -*-) a ficheros .py donde se utilizan caracteres especiales
     - Modificación de página de estilos
