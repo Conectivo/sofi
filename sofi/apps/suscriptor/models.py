@@ -19,4 +19,4 @@ class Suscriptor(models.Model):
         return "%s %s" % (self.nombres, self.apellidos)
     
     class Meta:
-        ordering = ['-pais', '-estado', '-nombres', '-apellidos']
+        ordering = ['pais', 'nombres', 'apellidos']
