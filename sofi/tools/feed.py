@@ -13,7 +13,7 @@ class Rss(Feed):
         return "/detalle/%s" % (str(obj.id))
     
     def items(self, obj):
-        return Evento.objects.order_by('-fecha_ini')[:5]
-
+        return Evento.objects.filter(publicar=True)[:5]
+        
 class Atom(Rss):
     feed_type = Atom1Feed
