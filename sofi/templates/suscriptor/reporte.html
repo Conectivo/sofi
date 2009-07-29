@@ -10,21 +10,23 @@
                 <table>
                     <thead>
                         <tr>
+                            <td>#</td>
                             <td>Nombre(s)</td>
                             <td>Apellido(s)</td>
                             <!--<td>C&#233dula</td>-->
                             <!--<td>Email</td>-->
                             <td>Profesi&#243;n</td>
                             <td>Instituci&#243;n</td>
-                            <td>Estado</td>
+                            <td>Estado/Regi&#243;n</td>
                             <td>Pa&#237;s</td>
                         </tr>
                     </thead>
                     <tbody>
                         {% for suscriptor in suscriptores %}
                         <tr>
-                            <td>{{suscriptor.nombres}}</td>
-                            <td>{{suscriptor.apellidos}}</td>
+                            <td>{{forloop.counter}}</td>
+                            <td>{{suscriptor.nombres|capfirst}}</td>
+                            <td>{{suscriptor.apellidos|capfirst}}</td>
                             <!--<td>{{suscriptor.cedula}}</td>-->
                             <!--<td>{{suscriptor.email}}</td>-->
                             <td>{{suscriptor.profesion}}</td>
