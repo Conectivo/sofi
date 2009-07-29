@@ -1,5 +1,7 @@
 0.1.3 -
-    - Agregada lista de países a formulario de eventos, modificaciones a reporte de suscriptores
+    - Agregada lista de países a formulario de eventos, modificaciones a reporte de suscriptores,
+      Modificado modelo de eventos campo pais ampliado a 58, los cambios manuales en la bd:
+      ALTER TABLE suscriptor_suscriptor ALTER COLUMN pais TYPE character varying(58);
     - Modificado feeds, agregado  filtrado por publicado=True
     - Agregada Paginación de Eventos, por Joger Quintero <jogerq@gmail.com>.
     
