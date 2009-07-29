@@ -4,7 +4,7 @@ from django.contrib.sites.models import Site
 #Libreria que nos va a permitir realizar la paginacion
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 
-EVENTOS_PAG = 2
+EVENTOS_PAG = 5
 
 def listEventos(request, pagina=1, template_name='evento/evento.html'):
     
