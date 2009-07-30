@@ -264,7 +264,7 @@ PAIS = ((u'Afganist\xe1n', u'Afganist\xe1n'),
 class SuscriptorForm(forms.Form):
     nombres = forms.CharField(max_length=21, widget=forms.TextInput(attrs={'size':'21'}))
     apellidos = forms.CharField(max_length=21, widget=forms.TextInput(attrs={'size':'21'}))
-    cedula = forms.IntegerField(label='Cédula / #ID', widget=forms.TextInput(attrs={'size':'8'}), min_value=2000000, max_value=90000000)
+    cedula = forms.IntegerField(label='Cédula / #ID', widget=forms.TextInput(attrs={'size':'12'}), min_value=2000000, max_value=999999999999)
     email = forms.EmailField()
     profesion = forms.CharField(max_length=21, label='Profesión', widget=forms.TextInput(attrs={'size':'21'}), required=False)
     institucion = forms.CharField(max_length=50, label='Institución', widget=forms.TextInput(attrs={'size':'50'}), required=False)
