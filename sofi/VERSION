@@ -1,4 +1,9 @@
 0.1.3 -
+    - Modificado modelo de detalle agregado campo descripción, cambio manual de la bd:
+      ALTER TABLE detalle_presentacion ADD COLUMN descripcion text;
+      UPDATE detalle_presentacion SET descripcion='';
+      ALTER TABLE detalle_presentacion ALTER COLUMN descripcion SET NOT NULL;
+
     - Modificado modelo y formulario de suscriptores campo cedula cambiado a 12 dígitos,
       cambio anual en la bd:
       ALTER TABLE suscriptor_suscriptor ALTER COLUMN cedula TYPE numeric(12, 0);
