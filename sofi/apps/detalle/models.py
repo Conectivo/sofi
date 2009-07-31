@@ -6,11 +6,11 @@ from tools.thumbs import ImageWithThumbsField
 
 class Presentacion(models.Model):
     titulo = models.CharField(max_length=120, verbose_name='título')
-    descripcion = models.TextField(blank=True)
+    descripcion = models.TextField(blank=True, verbose_name='Descripción')
+    lugar = models.TextField(blank=True)
     fecha = models.DateField()
     hora = models.TimeField()
     url = models.URLField(blank=True)
-    lugar = models.TextField(blank=True)
     evento = models.ForeignKey(Evento)
     archivo = models.FileField(upload_to='detalle/files', blank=True)
     
