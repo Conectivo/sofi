@@ -6,6 +6,7 @@ from tools.thumbs import ImageWithThumbsField
 
 class Presentacion(models.Model):
     titulo = models.CharField(max_length=120, verbose_name='título')
+    descripcion = models.TextField(blank=True)
     fecha = models.DateField()
     hora = models.TimeField()
     url = models.URLField(blank=True)
@@ -24,7 +25,6 @@ class Ponente(models.Model):
     nombre = models.CharField(max_length=42)
     profesion = models.CharField(max_length=21, blank=True, verbose_name='profesión')
     email = models.EmailField()
-    #foto = models.ImageField(upload_to='detalle/files', blank=True)
     foto = ImageWithThumbsField(upload_to='detalle/files', blank=True, sizes=((80,100),))
     institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
     estado = models.CharField(max_length=15, blank= True)

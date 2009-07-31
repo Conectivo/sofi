@@ -18,6 +18,14 @@
                         <tr id="titulo">
                             <td colspan="2" class="letra_negrita letra_grande">{{presentacion.titulo}}</td>
                         </tr>
+                        {% if presentacion.descripcion %}
+                        <tr>
+                            <td class="letra_negrita margen_izquierdo">Descripci&#243;n</td>
+                            <td class="margen_izquierdo" style="white-space:pre;">
+{{presentacion.descripcion|wordwrap:"50"}}
+                            </td>
+                        </tr>
+                        {% endif %}
                         {% if presentacion.lugar %}
                         <tr>
                             <td class="letra_negrita margen_izquierdo">Lugar</td>
