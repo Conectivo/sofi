@@ -1,4 +1,4 @@
-0.1.3 -
+0.1.3 - SVN r41
     - Modificado modelo de detalle agregado campo descripción, cambio manual de la bd:
       ALTER TABLE detalle_presentacion ADD COLUMN descripcion text;
       UPDATE detalle_presentacion SET descripcion='';
