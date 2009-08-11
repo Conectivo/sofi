@@ -1,3 +1,7 @@
+0.1.4 -
+    - Modificado modelo de suscriptores, cambio manual de la bd:
+      ALTER TABLE suscriptor_suscriptor DROP CONSTRAINT suscriptor_suscriptor_cedula_key;
+
 0.1.3 - SVN r41
     - Modificado modelo de detalle agregado campo descripción, cambio manual de la bd:
       ALTER TABLE detalle_presentacion ADD COLUMN descripcion text;
