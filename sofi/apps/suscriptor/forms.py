@@ -277,7 +277,7 @@ class SuscriptorForm(forms.Form):
                                 profesion=self.cleaned_data['profesion'], institucion= self.cleaned_data['institucion'],
                                 estado=self.cleaned_data['estado'], pais=self.cleaned_data['pais'], evento=evento)
         
-        if not Suscriptor.objects.filter(cedula=self.cleaned_data['cedula']):
+        if not Suscriptor.objects.filter(cedula=self.cleaned_data['cedula'], evento=evento):
             suscriptor.save()
             
             try:
