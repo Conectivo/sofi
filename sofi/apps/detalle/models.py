@@ -14,6 +14,12 @@ class Presentacion(models.Model):
     evento = models.ForeignKey(Evento)
     archivo = models.FileField(upload_to='detalle/files', blank=True)
     
+    def ponentes(self):
+        nombre = ""
+        for i in Ponente.objects.filter(presentacion=self.pk):
+            nombre += i.nombre + ", "
+        return nombre
+    
     def __unicode__(self):
         return self.titulo
     
@@ -31,6 +37,18 @@ class Ponente(models.Model):
     pais = models.CharField(max_length=10, verbose_name='país')
     presentacion = models.ManyToManyField(Presentacion, verbose_name='presentación')
     
+
+    def eventos(self):
+        nombre = ""
+        for i in self.presentacion.all():
+            nombre += str(i.evento) + ", "
+        return nombre
+    
+    def presentaciones(self):
+        nombre = ""
+        for i in self.presentacion.all():
+            nombre += str(i) + ", "
+        return nombre
     
     def __unicode__(self):
         return self.nombre

@@ -1,4 +1,15 @@
 from detalle.models import Presentacion, Ponente
 from django.contrib import admin
 
-admin.site.register((Ponente, Presentacion))
+class PonenteAdmin(admin.ModelAdmin):
+    list_display = ('nombre', 'email', 'eventos', 'presentaciones')
+    search_fields = ('nombre', 'email')
+    
+admin.site.register(Ponente, PonenteAdmin)
+
+class PresentacionAdmin(admin.ModelAdmin):
+    list_display = ('titulo', 'fecha', 'evento', 'ponentes')
+    search_fields = ('titulo', 'fecha')
+    list_filter = ['evento']
+
+admin.site.register(Presentacion, PresentacionAdmin)
