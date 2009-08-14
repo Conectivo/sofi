@@ -1,5 +1,5 @@
-0.1.4 -
-    - Modificaciones en los modelos, humanizada la parte administrativa.
+0.1.4 - SVN r45
+    - Modificaciones en los modelos, mejorada la parte administrativa.
     - Modificado modelo de suscriptores, cambio manual de la bd:
       ALTER TABLE suscriptor_suscriptor DROP CONSTRAINT suscriptor_suscriptor_cedula_key;
 
