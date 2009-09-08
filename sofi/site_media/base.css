@@ -44,6 +44,10 @@ hr {
     font-size: 14pt;
 }
 
+.letra_media {
+    font-size: 12pt;
+}
+
 .letra_pequena {
     font-size: 8pt;
 }
@@ -64,7 +68,8 @@ hr {
 }
 
 #titulo {
-    color: #FFF
+    color: #FFF;
+    background: url('/site_media/images/fondo.png');
 }
 #titulo a:visited{
     color: #FFF;
