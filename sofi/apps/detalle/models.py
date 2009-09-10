@@ -33,9 +33,11 @@ class Ponente(models.Model):
     email = models.EmailField()
     foto = ImageWithThumbsField(upload_to='detalle/files', blank=True, sizes=((80,100),))
     institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
+    curriculum = models.TextField(blank=True, verbose_name='Curriculum')
     estado = models.CharField(max_length=15, blank= True)
     pais = models.CharField(max_length=10, verbose_name='país')
     presentacion = models.ManyToManyField(Presentacion, verbose_name='presentación')
+    
     
 
     def eventos(self):

@@ -1,3 +1,9 @@
+0.1.5
+    - Modificado modelo de detalle ponente agregado campo currículum, cambio manual de la bd:
+      ALTER TABLE detalle_ponente ADD COLUMN curriculum text;
+      UPDATE detalle_ponente SET curriculum='';
+      ALTER TABLE detalle_ponente ALTER COLUMN curriculum SET NOT NULL;
+       
 0.1.4 - SVN r45
     - Modificaciones en los modelos, mejorada la parte administrativa.
     - Modificado modelo de suscriptores, cambio manual de la bd:
