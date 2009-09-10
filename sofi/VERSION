@@ -3,6 +3,7 @@
       ALTER TABLE detalle_ponente ADD COLUMN curriculum text;
       UPDATE detalle_ponente SET curriculum='';
       ALTER TABLE detalle_ponente ALTER COLUMN curriculum SET NOT NULL;
+    - Modificaciones en reporte de suscriptores, los usuarios autenticados podrán visualizar los campos de Cedula/Id y email.
        
 0.1.4 - SVN r45
     - Modificaciones en los modelos, mejorada la parte administrativa.
