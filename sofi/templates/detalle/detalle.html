@@ -92,6 +92,14 @@
                                                 <td class="margen_izquierdo">{{ponente.institucion}}</td>
                                             </tr>
                                             {% endif %}
+                                            {% if ponente.institucion %}
+                                            <tr>
+                                                <td class="letra_negrita margen_izquierdo">Currículum</td>
+                                                <td class="margen_izquierdo" style="white-space:pre;">
+{{ponente.curriculum|wordwrap:"50"}}
+                                                </td>
+                                            </tr>
+                                            {% endif %}
                                             <tr>
                                                 <td class="letra_negrita margen_izquierdo">Email</td>
                                                 <td class="margen_izquierdo"><a href="mailto:{{ponente.email}}">{{ponente.email}}</a></td>
