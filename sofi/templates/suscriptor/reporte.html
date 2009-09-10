@@ -13,8 +13,10 @@
                             <td>#</td>
                             <td>Nombre(s)</td>
                             <td>Apellido(s)</td>
-                            <!--<td>C&#233dula</td>-->
-                            <!--<td>Email</td>-->
+                            {% if user.is_authenticated %}
+                            <td>C&#233dula</td>
+                            <td>Email</td>
+                            {% endif %}
                             <td>Profesi&#243;n</td>
                             <td>Instituci&#243;n</td>
                             <td>Estado/Regi&#243;n</td>
@@ -27,8 +29,10 @@
                             <td>{{forloop.counter}}</td>
                             <td>{{suscriptor.nombres|capfirst}}</td>
                             <td>{{suscriptor.apellidos|capfirst}}</td>
-                            <!--<td>{{suscriptor.cedula}}</td>-->
-                            <!--<td>{{suscriptor.email}}</td>-->
+                            {% if user.is_authenticated %}
+                            <td>{{suscriptor.cedula}}</td>
+                            <td>{{suscriptor.email}}</td>
+                            {% endif %}
                             <td>{{suscriptor.profesion}}</td>
                             <td>{{suscriptor.institucion}}</td>
                             <td>{{suscriptor.estado|upper}}</td>
