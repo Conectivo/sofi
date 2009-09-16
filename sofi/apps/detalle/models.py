@@ -10,7 +10,7 @@ class Presentacion(models.Model):
     lugar = models.TextField(blank=True)
     fecha = models.DateField()
     hora = models.TimeField()
-    url = models.URLField(blank=True)
+    url = models.URLField(blank=True, verify_exists=False)
     evento = models.ForeignKey(Evento)
     archivo = models.FileField(upload_to='detalle/files', blank=True)
     
