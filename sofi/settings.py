@@ -91,6 +91,7 @@ INSTALLED_APPS = (
     'evento',
     'detalle',
     'suscriptor',
+    'certificado',
 )
 
 EMAIL_HOST = 'mail.cantv.net'
