@@ -22,6 +22,7 @@ urlpatterns = patterns('',
     (r'^licencia/', direct_to_template, {'template': 'acercade/licencia.html'}),
     (r'^admin/(.*)', admin.site.root),
     (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
+    (r'^certificado/', include('certificado.urls')),
 )
 
 if settings.DEBUG:
