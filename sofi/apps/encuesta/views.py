@@ -20,8 +20,8 @@ def realizar(request, evento, key):
                 return render_to_response('encuesta/encuesta.html', {'evento': evento_suscriptor, 'form': form.as_table()})
             else:    
                 form = EncuestaForm(request.POST)
+                
                 if form.is_valid():
-                    
                     form_update = form.save(commit=False)
                     form_update.evento = evento_suscriptor
                     form_update.suscriptor = suscriptor.suscriptor
