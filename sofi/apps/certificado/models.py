@@ -40,8 +40,13 @@ class Certificado(models.Model):
             suscriptor = i
             key = md5.md5("%s%s" % (i.nombre_completo(), str(random.randrange(1000, 1000000000)))).hexdigest()
             certificado = self
-            certificado_suscriptor = CertificadoSuscriptor(suscriptor=suscriptor, key=key, certificado=certificado, otorgar=False)
-            certificado_suscriptor.save()
+            
+            # exception para determinar si ya fue generado el CertificadoSuscriptor
+            try:
+                CertificadoSuscriptor.objects.get(suscriptor=suscriptor, certificado=certificado)
+            except Exception, error:
+                certificado_suscriptor = CertificadoSuscriptor(suscriptor=suscriptor, key=key, certificado=certificado, otorgar=False)
+                certificado_suscriptor.save()
             
     
 class CertificadoSuscriptor(models.Model):
@@ -50,6 +55,8 @@ class CertificadoSuscriptor(models.Model):
     certificado = models.ForeignKey(Certificado, editable=False)
     otorgar = models.BooleanField(choices=SINO)
     
+    def evento(self):
+        return self.certificado.evento
 
     def save(self, force_insert=False, force_update=False):
         if self.otorgar:
@@ -57,8 +64,14 @@ class CertificadoSuscriptor(models.Model):
             nombre = self.suscriptor.nombre_completo()
             evento = self.suscriptor.evento.nombre
             evento_id =  self.suscriptor.evento.id
-            url = 'http://%s/certificado/descargar/%s/%s/' % (Site.objects.get(id=1).domain, evento_id, self.key)
+            
+            if self.certificado.encuesta:
+                url = 'http://%s/encuesta/%s/%s/' % (Site.objects.get(id=1).domain, evento_id, self.key)
+            else:
+                url = 'http://%s/certificado/descargar/%s/%s/' % (Site.objects.get(id=1).domain, evento_id, self.key)
+                
             mensaje = u'Estimado(a) %s su certificado del evento "%s", puede descargarlo en el siguiente enlace:\n%s\n\nGracias por su participación...' % (nombre, evento, url)
+            
             
             try:
                 email_tools.enviar_mail(u'Certificado de asistencia a evento', mensaje, settings.DEFAULT_FROM_EMAIL, [email])

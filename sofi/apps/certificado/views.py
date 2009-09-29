@@ -6,8 +6,6 @@ from certificado.models import CertificadoSuscriptor
 from tools.certificado.certificado import Certificado
 import os
 
-#a = Certificado()
-#b = a.generar('/home/olivaresa/Desktop/fondocertificados.png', 10, 10, 'alexander', '1265487')
 
 def descargar(request, evento, key, encuesta=None):
     #evento = Evento.objects.get(id=evento)
@@ -29,7 +27,6 @@ def descargar(request, evento, key, encuesta=None):
             response.write(pdf)
             return response
 
-            #return render_to_response('certificado/descargar.html', {'evento': evento})
 
     raise Http404()
     
