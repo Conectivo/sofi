@@ -8,7 +8,7 @@ import os
 
 
 def descargar(request, evento, key, encuesta=None):
-    #evento = Evento.objects.get(id=evento)
+    
     certificado =  CertificadoSuscriptor()
     try:
         suscriptor = CertificadoSuscriptor.objects.get(key=key)
