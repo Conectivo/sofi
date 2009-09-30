@@ -18,7 +18,6 @@ class Certificado(models.Model):
     imagen_de_fondo = models.ImageField(upload_to='certificado/files')
     evento = models.ForeignKey(Evento, unique=True)
     encuesta = models.BooleanField(choices=SINO)
-    posicion_x_nombre = models.IntegerField()
     posicion_y_nombre = models.IntegerField()
     posicion_x_key = models.IntegerField()
     posicion_y_key = models.IntegerField()

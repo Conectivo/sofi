@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load smart_if %}
 
 {% block head_title %}Evento{% endblock %}
 
@@ -41,9 +42,11 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                                     <a href="/detalle/{{evento.id}}/">presentaciones</a>
                                 {% endif %}
                                 {% if evento.suscripciones %}
-                                    &nbsp;
-                                    &nbsp;
-                                    <a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
+                                    {% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
+					&nbsp;
+					&nbsp;
+					<a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
+                                {% endif %}
                                     &nbsp;
                                     &nbsp;
                                     <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
