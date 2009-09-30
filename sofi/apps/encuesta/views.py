@@ -2,6 +2,7 @@ from django.shortcuts import render_to_response
 from django.http import HttpResponse, Http404, HttpResponseRedirect
 from encuesta.forms import EncuestaForm
 from certificado.models import CertificadoSuscriptor
+from encuesta.models import Encuesta
 
 def realizar(request, evento, key):
     
@@ -14,6 +15,10 @@ def realizar(request, evento, key):
         evento_suscriptor = suscriptor.certificado.evento
         
         if str(evento_suscriptor.id) == evento and suscriptor.certificado.encuesta:
+            
+            encuesta = Encuesta.objects.filter(suscriptor=suscriptor, evento=evento_suscriptor)
+            if encuesta:
+                return HttpResponseRedirect('http://%s/certificado/descargar/%s/%s/'% (request.get_host(),evento, key))
             
             if not request.POST:
                 form = EncuestaForm()
