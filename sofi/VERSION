@@ -1,4 +1,7 @@
 0.1.5
+    - Agregada modulo para generar certificados digitales y encuestas sobre eventos
+    - Modificado el template de administración
+    - Agregado templatetag smart_if en eventos para realizar extender las comparaciones de if en los templates
     - Modificado modelo de detalle ponente agregado campo currículum, cambio manual de la bd:
       ALTER TABLE detalle_ponente ADD COLUMN curriculum text;
       UPDATE detalle_ponente SET curriculum='';
