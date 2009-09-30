@@ -16,7 +16,8 @@ def realizar(request, evento, key):
         
         if str(evento_suscriptor.id) == evento and suscriptor.certificado.encuesta:
             
-            encuesta = Encuesta.objects.filter(suscriptor=suscriptor, evento=evento_suscriptor)
+            encuesta = Encuesta.objects.filter(suscriptor=suscriptor.suscriptor, evento=evento_suscriptor)
+
             if encuesta:
                 return HttpResponseRedirect('http://%s/certificado/descargar/%s/%s/'% (request.get_host(),evento, key))
             

@@ -3,6 +3,7 @@ from django.shortcuts import render_to_response
 from django.contrib.sites.models import Site
 #Libreria que nos va a permitir realizar la paginacion
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
+import datetime
 
 EVENTOS_PAG = 5
 
@@ -15,6 +16,8 @@ def listEventos(request, pagina=1, template_name='evento/evento.html'):
 
     eventos = paginador.page(pagina)
     
+    fecha_hoy = datetime.datetime.date(datetime.datetime.now())
+    
     #Enviamos la variable evento que contiene los eventos de la pagina seleccionada
-    template = render_to_response(template_name, {'eventos': eventos,'rango_paginas':rango_paginas, 'site_name': Site.objects.get(id=1).name})
+    template = render_to_response(template_name, {'eventos': eventos,'rango_paginas':rango_paginas, 'site_name': Site.objects.get(id=1).name, 'fecha_hoy': fecha_hoy})
     return template
