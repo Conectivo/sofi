@@ -25,11 +25,17 @@ def descargar(request, evento, key, encuesta=None):
             ancho_nombre = (len(nombre_suscriptor) * 22 ) / 2
             posicion_x_nombre = ancho_certificado - ancho_nombre
             posicion_nombre = posicion_x_nombre, suscriptor.certificado.posicion_y_nombre
+            
             posicion_key = suscriptor.certificado.posicion_x_key, suscriptor.certificado.posicion_y_key
-
+            
+            cedula_id = "ID: %s" % str(suscriptor.suscriptor.cedula)
+            ancho_cedula_id = (len(cedula_id) * 14 ) / 2
+            posicion_x_cedula_id = ancho_certificado - ancho_cedula_id
+            posicion_cedula_id = posicion_x_cedula_id, suscriptor.certificado.posicion_y_nombre + 44
             
             key = suscriptor.key
-            pdf = gen_certificado.generar(url, nombre_suscriptor, posicion_nombre, key, posicion_key)
+            tematica = suscriptor.certificado.tematica
+            pdf = gen_certificado.generar(url, nombre_suscriptor, posicion_nombre, cedula_id, posicion_cedula_id, key, posicion_key, tematica)
             response = HttpResponse(mimetype='application/pdf')
             response['Content-Disposition'] = ('attachment; filename=%s.pdf' % key)
             response.write(pdf)
