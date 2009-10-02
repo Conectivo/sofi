@@ -6,8 +6,7 @@ from django.forms import ModelForm
 class EncuestaForm(ModelForm):
     class Meta:
         model = Encuesta
-        #fields = ('comentario',)
-        exclude = ('suscriptor', 'evento',)
+        exclude = ('suscriptor', 'evento', 'fecha')
 
 
 

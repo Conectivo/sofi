@@ -21,7 +21,7 @@ class Certificado(models.Model):
     posicion_y_nombre = models.IntegerField()
     posicion_x_key = models.IntegerField()
     posicion_y_key = models.IntegerField()
-    
+    tematica = models.TextField(verbose_name="Temática")
     
     def save(self, force_insert=False, force_update=False):
         super(Certificado, self).save(force_insert, force_update)

@@ -15,12 +15,15 @@ Módulos:
           o Agregar, modificar, eliminar, nombre, email, profesión, foto, institución, estado, país, presentaciones asociadas.
     * Suscripción
           o Formulario de suscripción a eventos, confirmación de email, reporte de suscriptores.
+    * Certificados
+          o Genera certificados digitales y encuestas a suscriptores de eventos.
 
 Requerimientos:
     * OS/Linux
     * Python >= 2.5
     * Django >=1.0
     * python-imaging
+    *python-reportlab
     * Base de datos
         * SQlite
             * python-sqlite

@@ -1,4 +1,5 @@
 0.1.5
+    - Agregada librería ReportLab para generar los pdf de certificados.
     - Agregada modulo para generar certificados digitales y encuestas sobre eventos
     - Modificado el template de administración
     - Agregado templatetag smart_if en eventos para realizar extender las comparaciones de if en los templates

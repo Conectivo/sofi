@@ -17,6 +17,23 @@
             margin: 0 0 3px;
             padding: 4px 5px;
         }
+        
+        table th {
+            width: 600px;
+            padding-top: 10px;
+            padding-right: 20px;
+        }
+        
+        table td {
+            width: 150px;
+            padding-top: 10px;
+        }
+        
+        #instruccion {
+            width: 800px;
+            text-align: left;
+        }
+
     </style>
     
     <script type="text/javascript">
@@ -37,16 +54,32 @@
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     <center>
-        <div id="encuesta" style="width:400px;">
-            <h3>Encuesta</h3>
+        <label><h2>Encuesta</h2></label>
+        <br/>
+        <div id="instruccion">
+            El presente instrumento tiene por objeto evaluar la experiencia del evento denominado “{{evento}}”.
+            <br/>
+            <br/>
+            El mismo abarca la evaluación desde 4 aspectos considerados significativos en la proyección de futuros encuentros:
+            1. Contenidos; 2. Interacción; 3. Información y 4. recursos técnicos utilizados en el desarrollo del evento.
+            <br/>
+            <br/>
+            A tales efectos, le agradecemos seleccionar la casilla del indicador que, en su criterio, evalúe apropiadamente cada consideración expuesta. Agradecemos de antemano su participación y colaboración mediante sus respuestas al presente.
+            <br/>
+            <br/>
+        </div>
+        <br/>
+        <div id="encuesta">
             <form method="post" action=".">
-                {{form}}
+                <table>
+                    {{form.as_table}}    
+                </table>
                 <br/>
                 <input name="guardar" id="guardar" type="submit" value="Descargar certificado"/>
             </form>
         </div>
-        <div id="decargar" style="width:400px;">
-            <h3>Gracias, descargando certificado...</h3>
+        <div id="decargar">
+            <h2>Gracias, descargando certificado...</h2>
         </div>
     </center>
 {% endblock %}
