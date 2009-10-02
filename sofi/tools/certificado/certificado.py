@@ -15,7 +15,7 @@ class Certificado():
     
     def generar(self, certificado, suscriptor, suscriptor_xy, id, id_xy, key, key_xy, tematica):
         fuente = Image.open(certificado)
-        fuente = fuente.convert('RGB')
+        #fuente = fuente.convert('RGB')
         draw = ImageDraw.Draw(fuente)
         draw.text((suscriptor_xy[0],suscriptor_xy[1]), suscriptor, font=self.font_suscriptor, fill="blue")
         draw.text((id_xy[0],id_xy[1]), id, font=self.font_id, fill="blue")
