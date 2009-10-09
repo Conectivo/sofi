@@ -40,9 +40,11 @@
         $(document).ready(function(){
             $("#decargar").hide();
             $("#encuesta").show();
+            $("#instruccion").show();
             
             $("#guardar").click(function () {  
                 $("#encuesta").hide();
+                $("#instruccion").hide();
                 $("#decargar").show("hola");
             });
         });
@@ -54,9 +56,9 @@
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     <center>
-        <label><h2>Encuesta</h2></label>
-        <br/>
         <div id="instruccion">
+            <h2  style="text-align: center;">Encuesta</h2>
+            <br/>
             El presente instrumento tiene por objeto evaluar la experiencia del evento denominado “{{evento}}”.
             <br/>
             <br/>
