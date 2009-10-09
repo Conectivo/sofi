@@ -15,10 +15,10 @@ class Suscriptor(models.Model):
     evento = models.ForeignKey(Evento)
     
     def nombre_completo(self):
-        return "%s %s" % (self.nombres.capitalize(), self.apellidos.capitalize())
+        return "%s %s" % (self.nombres.title(), self.apellidos.title())
 
     def __unicode__(self):
-        return "%s %s" % (self.nombres.capitalize(), self.apellidos.capitalize())
+        return "%s %s" % (self.nombres.title(), self.apellidos.title())
     
     class Meta:
         ordering = ['pais', 'nombres', 'apellidos']

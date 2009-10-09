@@ -17,13 +17,14 @@ Módulos:
           o Formulario de suscripción a eventos, confirmación de email, reporte de suscriptores.
     * Certificados
           o Genera certificados digitales y encuestas a suscriptores de eventos.
+    * Sindicación de contenido rss y atom. 
 
 Requerimientos:
     * OS/Linux
     * Python >= 2.5
     * Django >=1.0
     * python-imaging
-    *python-reportlab
+    * python-reportlab
     * Base de datos
         * SQlite
             * python-sqlite
