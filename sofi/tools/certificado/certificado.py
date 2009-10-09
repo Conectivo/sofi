@@ -5,6 +5,10 @@ import ImageFont, ImageDraw, Image, sys, StringIO
 import md5
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter,landscape
+import os.path
+
+RUTA = os.path.join(os.path.dirname(__file__))
+
 
 class Certificado():
     def __init__(self):

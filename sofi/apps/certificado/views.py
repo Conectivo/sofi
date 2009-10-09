@@ -4,8 +4,6 @@ from django.shortcuts import render_to_response
 from evento.models import Evento
 from certificado.models import CertificadoSuscriptor
 from tools.certificado.certificado import Certificado
-import os
-
 
 def descargar(request, evento, key, encuesta=None):
     
@@ -18,7 +16,7 @@ def descargar(request, evento, key, encuesta=None):
     if suscriptor and suscriptor.otorgar:
         if suscriptor.certificado.evento.id == int(evento):
             gen_certificado = Certificado()
-            url = os.getcwd() + suscriptor.certificado.imagen_de_fondo.url
+            url = suscriptor.certificado.imagen_de_fondo.path
             nombre_suscriptor = suscriptor.suscriptor.nombre_completo()
             
             ancho_certificado = suscriptor.certificado.imagen_de_fondo.width / 2

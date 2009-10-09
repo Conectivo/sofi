@@ -37,7 +37,7 @@ class Certificado(models.Model):
         
         for i in lista_suscritos:
             suscriptor = i
-            key = md5.md5("%s%s" % (i.nombre_completo(), str(random.randrange(1000, 1000000000)))).hexdigest()
+            key = md5.md5("%s%s" % (i.nombre_completo().encode("ascii", "replace"), str(random.randrange(1000, 1000000000)))).hexdigest()
             certificado = self
             
             # exception para determinar si ya fue generado el CertificadoSuscriptor
