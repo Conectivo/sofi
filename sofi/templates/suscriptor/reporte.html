@@ -27,8 +27,8 @@
                         {% for suscriptor in suscriptores %}
                         <tr>
                             <td>{{forloop.counter}}</td>
-                            <td>{{suscriptor.nombres|capfirst}}</td>
-                            <td>{{suscriptor.apellidos|capfirst}}</td>
+                            <td>{{suscriptor.nombres|title}}</td>
+                            <td>{{suscriptor.apellidos|title}}</td>
                             {% if user.is_authenticated %}
                             <td>{{suscriptor.cedula}}</td>
                             <td>{{suscriptor.email}}</td>
