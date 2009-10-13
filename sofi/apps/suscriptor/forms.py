@@ -4,7 +4,6 @@ from django import forms
 from models import Suscriptor
 from django.shortcuts import render_to_response
 from tools import email
-from django.conf import settings
 from django.contrib.sites.models import Site
 
 PAIS = ((u'Afganist\xe1n', u'Afganist\xe1n'),
@@ -281,7 +280,7 @@ class SuscriptorForm(forms.Form):
             suscriptor.save()
             
             try:
-                email.enviar_mail(u'Suscripción a evento', u'Estimado(a) %s %s su suscripción al evento %s en http://%s, se ha realizado con Éxito.\n\ngracias...' % (self.cleaned_data['nombres'], self.cleaned_data['apellidos'], evento, Site.objects.get(id=1).domain), settings.DEFAULT_FROM_EMAIL, [self.cleaned_data['email']])
+                email.enviar_mail(u'Suscripción a evento', u'Estimado(a) %s %s su suscripción al evento %s en http://%s, se ha realizado con Éxito.\n\ngracias...' % (self.cleaned_data['nombres'], self.cleaned_data['apellidos'], evento, Site.objects.get(id=1).domain), evento.email, [self.cleaned_data['email']])
             except Exception, error:
                 pass
             finally:
