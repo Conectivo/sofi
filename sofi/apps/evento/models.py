@@ -10,6 +10,7 @@ class Evento(models.Model):
     nombre = models.CharField(max_length=120)
     resumen = models.TextField()
     lugar = models.TextField(blank=True)
+    email = models.EmailField()
     presentaciones = models.BooleanField(choices=SINO)
     suscripciones = models.BooleanField(choices=SINO)
     publicar = models.BooleanField(choices=SINO)

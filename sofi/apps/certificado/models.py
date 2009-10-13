@@ -6,7 +6,6 @@ from suscriptor.models import Suscriptor
 import md5
 import random
 from tools import email as email_tools
-from django.conf import settings
 from django.contrib.sites.models import Site
 
 SINO = (
@@ -63,6 +62,7 @@ class CertificadoSuscriptor(models.Model):
             nombre = self.suscriptor.nombre_completo()
             evento = self.suscriptor.evento.nombre
             evento_id =  self.suscriptor.evento.id
+            evento_email = self.suscriptor.evento.email
             
             if self.certificado.encuesta:
                 url = 'http://%s/encuesta/%s/%s/' % (Site.objects.get(id=1).domain, evento_id, self.key)
@@ -73,7 +73,7 @@ class CertificadoSuscriptor(models.Model):
             
             
             try:
-                email_tools.enviar_mail(u'Certificado de asistencia a evento', mensaje, settings.DEFAULT_FROM_EMAIL, [email])
+                email_tools.enviar_mail(u'Certificado de asistencia a evento', mensaje, evento_email, [email])
             except Exception, error:
                 pass
 
