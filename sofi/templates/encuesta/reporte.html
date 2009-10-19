@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block head_title %}Encuesta{% endblock %}
+
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+    <center>
+        <div id="grafico">
+            <h2  style="text-align: center;">Encuesta</h2>
+            <table>
+                <tr>
+                    <td style="white-space:pre; font-size: 08pt;">
+{{ items|wordwrap:"95" }}
+                    </td>
+                    <td>
+                        <img src="{{ grafico }}" alt="{{ grafico }}" />
+                    </td>
+                </tr>
+            </table>
+            <a href="/">Regresar</a>    
+        </div>
+        
+    </center>
+{% endblock %}
