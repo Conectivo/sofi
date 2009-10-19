@@ -50,7 +50,12 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                                     &nbsp;
                                     &nbsp;
                                     <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
-                                {% endif %}
+                                {% endif %} 
+				{% if evento.encuesta_set.all %}
+                                    &nbsp;
+                                    &nbsp;
+                                    <a href="/encuesta/reporte/{{evento.id}}/">encuesta</a> 
+				{% endif %}
                             </td>
                         </tr>
                     {% endif %}

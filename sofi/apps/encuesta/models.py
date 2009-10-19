@@ -26,10 +26,10 @@ class Encuesta(models.Model):
     item10 = models.IntegerField(verbose_name="3.2 La antelación con que recibió la información le facilitó su participación en las  mismas", choices=MSPN)
 
     item11 = models.IntegerField(verbose_name="4.1 El empleo de tecnologías no-libres fué un obstaculo para su participación", choices=MSPN)
-    item12 = models.IntegerField(verbose_name="4.4 La plataforma del evento estuvo disponible durante todo el tiempo en que se desarrollo el evento", choices=MSPN)
-    item13 = models.IntegerField(verbose_name="4.5 Fue sencillo el acceso a las herramientas empleadas para el desarrollo del evento (blog, inscripciones, aulavirtual, foros, canales de tv, repositorios de audio)", choices=MSPN)
+    item12 = models.IntegerField(verbose_name="4.2 La plataforma del evento estuvo disponible durante todo el tiempo en que se desarrollo el evento", choices=MSPN)
+    item13 = models.IntegerField(verbose_name="4.3 Fue sencillo el acceso a las herramientas empleadas para el desarrollo del evento (blog, inscripciones, aulavirtual, foros, canales de tv, repositorios de audio)", choices=MSPN)
     
-    item14 = models.IntegerField(verbose_name="5 Calificaría usted el desarrollo general del evento como un accionar colaborativo y cooperativo que ha generado insumos a la construcción de la idea del Conocimiento como Bien Público en América Latina", choices=MSPN)
+    item14 = models.IntegerField(verbose_name="5.1 Calificaría usted el desarrollo general del evento como un accionar colaborativo y cooperativo que ha generado insumos a la construcción de la idea del Conocimiento como Bien Público en América Latina", choices=MSPN)
     
     fecha = models.DateField()
     suscriptor = models.ForeignKey(Suscriptor)

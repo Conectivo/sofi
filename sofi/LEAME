@@ -25,6 +25,8 @@ Requerimientos:
     * Django >=1.0
     * python-imaging
     * python-reportlab
+    * python-numpy
+    * python-matplotlib
     * Base de datos
         * SQlite
             * python-sqlite
