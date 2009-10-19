@@ -11,5 +11,6 @@ admin.site.register(Certificado, CertificadoAdmin)
 class CertificadoSuscriptorAdmin(admin.ModelAdmin):
     list_display = ('suscriptor', 'key', 'evento','certificado', 'otorgar',)
     list_filter = ('certificado',)
+    search_fields = ('^suscriptor__nombres', '^suscriptor__apellidos')
     
 admin.site.register(CertificadoSuscriptor, CertificadoSuscriptorAdmin)

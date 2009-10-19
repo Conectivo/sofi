@@ -40,3 +40,19 @@ def realizar(request, evento, key):
             
         
     raise Http404()
+
+def reporte(request, evento):
+    import tools.graph_encuesta
+    from evento.models import Evento
+    
+    if Evento.objects.filter(id=evento) and Encuesta.objects.filter(evento=evento):
+        evento = Evento.objects.get(id=evento)
+        url = tools.graph_encuesta.generar_encuesta(evento.id, evento.nombre)
+        items = ""
+        
+        for i in range(1,15):
+            items += Encuesta._meta.fields[i].verbose_name + "\n\n"
+
+        return render_to_response('encuesta/reporte.html', {'evento': evento, 'items': items, 'grafico': url})
+    else:
+        raise Http404

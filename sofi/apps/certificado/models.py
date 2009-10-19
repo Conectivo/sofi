@@ -28,7 +28,7 @@ class Certificado(models.Model):
         
 
     def __unicode__(self):
-        return self.imagen_de_fondo.url
+        return "Certificado - %s" % self.evento
 
     def __agregaCertificadoSuscriptor(self):
         lista_suscritos = Suscriptor.objects.filter(evento=self.evento)
@@ -46,7 +46,10 @@ class Certificado(models.Model):
                 certificado_suscriptor = CertificadoSuscriptor(suscriptor=suscriptor, key=key, certificado=certificado, otorgar=False)
                 certificado_suscriptor.save()
             
-    
+    class Meta:
+        verbose_name = "Configurar"
+        verbose_name_plural = "Configurar"
+        
 class CertificadoSuscriptor(models.Model):
     suscriptor = models.ForeignKey(Suscriptor, editable=False)
     key = models.CharField(max_length=32, editable=False)
@@ -82,3 +85,7 @@ class CertificadoSuscriptor(models.Model):
     
     def __unicode__(self):
         return self.suscriptor.nombre_completo()
+        
+    class Meta:
+        verbose_name = "Otorgar"
+        verbose_name_plural = "Otorgar"
