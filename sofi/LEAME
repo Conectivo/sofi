@@ -16,7 +16,7 @@ Módulos:
     * Suscripción
           o Formulario de suscripción a eventos, confirmación de email, reporte de suscriptores.
     * Certificados
-          o Genera certificados digitales y encuestas a suscriptores de eventos.
+          o Genera certificados digitales, encuestas a suscriptores, gráfico y reporte de encuesta.
     * Sindicación de contenido rss y atom. 
 
 Requerimientos:
