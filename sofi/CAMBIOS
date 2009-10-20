@@ -1,7 +1,9 @@
-0.2.0
+0.2.0 - SVN r91
     - Agregado reporte y enlaces a encuestas
     - En caso de servidor apache crear el directorio .matplotlib con permisos www-data.www-data
-      en el directorio del usuario www-data, ejemplo: "/var/www"
+      en el directorio del usuario www-data, ejemplo:
+      #mkdir /var/www/.matplotlib
+      #chown www-data.www-data /var/www/.matplotlib
 
 0.1.5 - SVN r78
     - Agregado campo email en eventos, cambio manual de la bd:
