@@ -1,3 +1,13 @@
+1.0.0 - desarrollo
+    - Agregado aplicación de comentarios a eventos:  
+      ALTER TABLE evento_evento ADD COLUMN comentario bool;
+      UPDATE evento_evento SET comentario=False;
+      ALTER TABLE evento_evento ALTER COLUMN comentario SET NOT NULL;
+      Sincronizar la bd (python manage.py syncdb)
+      Sobreescribir apps/evento
+      Copiar apps/comentario , templates/comentario , template/comments
+      Editar ficheros urls.py y settings.py
+      
 0.2.0 - SVN r91
     - Agregado reporte y enlaces a encuestas
     - En caso de servidor apache crear el directorio .matplotlib con permisos www-data.www-data
