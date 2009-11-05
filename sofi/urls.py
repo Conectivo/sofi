@@ -24,6 +24,8 @@ urlpatterns = patterns('',
     (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
     (r'^certificado/', include('certificado.urls')),
     (r'^encuesta/', include('encuesta.urls')),
+    (r'^comments/', include('django.contrib.comments.urls')),
+    (r'^comentario/', include('comentario.urls')),
 )
 
 if settings.DEBUG:

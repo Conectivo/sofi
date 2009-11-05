@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+{% load comments i18n %}
+
+{% block head_title %}Comentarios{% endblock %}
+
+{% block extra_head%}
+        <style type="text/css">
+            p {
+                width: 200px;
+            }
+            
+            form {
+                background-color: #f5f5f5;
+                width: 350px;
+                padding-left: 20px;
+                border: solid 1px;
+                #margin-left: 20px;
+                text-align: left;
+            }
+
+            .comentario {
+                background-color: #f7ffd9; /*#feffe4;*/
+                border: solid 1px;
+                border-color: #bcd35f;
+                margin-bottom: 8px;
+                text-align: left;
+                
+            }
+            
+            #comentario {
+                text-align: left;
+            }
+            
+            #comentadopor {
+                /*font-size: 10px;*/
+                font-weight: bold;
+                color: #6b8017;
+                
+            }
+
+        </style>
+
+{% endblock %}
+
+{% block body %}
+    {% include "evento/encabezado_evento.html" %}
+        <center>
+            
+            <div id="comentario" style="width: 600px;">
+            
+                {% get_comment_list for evento as cm1 %}
+                {% for cmm1 in cm1 %}
+                    <label style="font-size: 10px;">{{ forloop.counter }}.</label>
+                    <div id="c{{ cmm1.id }}" class="comentario">
+
+<label  style="white-space:pre;">{{ cmm1.comment|wordwrap:"95" }}</label>
+                        <br />
+                        <br />
+                        <label id="comentadopor">comentario por {{ cmm1.user_name|title }} - {{ cmm1.submit_date|date:"d F Y P" }}</label>
+        
+                    </div>
+                    
+                {% endfor %}
+                <br />
+                <label style="text-align: left">Dejar un comentario</label>
+                
+                {% render_comment_form for evento %}            
+            </div>
+            <br />
+            <a href="/">Regresar</a>
+        </center>
+
+{% endblock %}

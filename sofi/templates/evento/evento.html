@@ -1,5 +1,6 @@
 {% extends "base.html" %}
 {% load smart_if %}
+{% load comments i18n %}
 
 {% block head_title %}Evento{% endblock %}
 
@@ -55,6 +56,16 @@ desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
                                     &nbsp;
                                     &nbsp;
                                     <a href="/encuesta/reporte/{{evento.id}}/">encuesta</a> 
+				{% endif %}
+				{% if evento.comentario %}
+				    &nbsp;
+				    &nbsp;
+				    {% get_comment_count for evento as comment_count %}
+				    {% if comment_count %}
+					<a href="/comentario/{{evento.id}}/" >comentarios ({{ comment_count }})</a>
+				    {% else %}
+					<a href="/comentario/{{evento.id}}/" >dejar comentario</a>
+				    {% endif %}
 				{% endif %}
                             </td>
                         </tr>

@@ -87,12 +87,14 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
+    'django.contrib.comments',
     #'django_extensions',
     'evento',
     'detalle',
     'suscriptor',
     'certificado',
     'encuesta',
+    'comentario',
 )
 
 EMAIL_HOST = 'mail.cantv.net'
