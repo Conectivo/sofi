@@ -14,6 +14,7 @@ class Evento(models.Model):
     presentaciones = models.BooleanField(choices=SINO)
     suscripciones = models.BooleanField(choices=SINO)
     publicar = models.BooleanField(choices=SINO)
+    comentario = models.BooleanField(default=True)
     fecha_ini = models.DateField(verbose_name='fecha inicial')
     fecha_fin = models.DateField(verbose_name='fecha final')
     #logo = models.ImageField(upload_to='evento/files')
