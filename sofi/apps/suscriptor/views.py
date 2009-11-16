@@ -16,7 +16,13 @@ def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
         if form.is_valid():
             return form.save(evento)
     else:
+        from django.forms import widgets
         form = SuscriptorForm()
+        if not evento.patrocinio:
+            form.fields['comida'].widget = widgets.HiddenInput()
+            form.fields['transporte'].widget = widgets.HiddenInput()
+            form.fields['hospedaje'].widget = widgets.HiddenInput()
+        
     return render_to_response(template, {'form': form, 'evento': evento, 'site_name': Site.objects.get(id=1).name})
   
 def reporte(request, id_evento, template='suscriptor/reporte.html'):

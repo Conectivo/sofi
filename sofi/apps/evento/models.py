@@ -19,6 +19,7 @@ class Evento(models.Model):
     fecha_fin = models.DateField(verbose_name='fecha final')
     #logo = models.ImageField(upload_to='evento/files')
     logo = ImageWithThumbsField(upload_to='evento/files', sizes=((180,150),))
+    patrocinio = models.BooleanField(verbose_name='Patrocinio a Suscriptores')
 
     def __unicode__(self):
         return self.nombre
