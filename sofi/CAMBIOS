@@ -1,6 +1,10 @@
 1.0.0 - desarrollo
     - Agregado patrocinio a eventos, suscriptores pueden solicitar comida, transporte u hospedaje
       mediante el formulario de inscripción.
+      Nuevos campos:
+        Eventos: patrocinio = BooleanField
+        Suscriptor: comida = BooleanField, transporte = BooleanField, hospedaje = BooleanField
+        
     - Agregado aplicación de comentarios a eventos:  
       ALTER TABLE evento_evento ADD COLUMN comentario bool;
       UPDATE evento_evento SET comentario=False;
