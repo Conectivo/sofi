@@ -12,6 +12,9 @@ class Suscriptor(models.Model):
     institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
     estado = models.CharField(max_length=15)
     pais = models.CharField(max_length=58, verbose_name='país')
+    comida = models.BooleanField()
+    transporte = models.BooleanField()
+    hospedaje = models.BooleanField()
     evento = models.ForeignKey(Evento)
     
     def nombre_completo(self):
