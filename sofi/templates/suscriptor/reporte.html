@@ -21,6 +21,9 @@
                             <td>Instituci&#243;n</td>
                             <td>Estado/Regi&#243;n</td>
                             <td>Pa&#237;s</td>
+                            {% if user.is_authenticated %}
+                            <td>Patrocinio</td>
+                            {% endif %}
                         </tr>
                     </thead>
                     <tbody>
@@ -37,6 +40,19 @@
                             <td>{{suscriptor.institucion}}</td>
                             <td>{{suscriptor.estado|upper}}</td>
                             <td>{{suscriptor.pais|upper}}</td>
+                            {% if user.is_authenticated %}
+                            <td>
+                                {% if suscriptor.comida %}
+                                    <labe> C </labe>
+                                {% endif %}
+                                {% if suscriptor.transporte %}
+                                    <labe> T </labe>
+                                {% endif %}
+                                {% if suscriptor.hospedaje %}
+                                    <labe> H </labe>
+                                {% endif %}
+                            </td>
+                            {% endif %}
                         </tr>
                         {% endfor %}
                     </tbody>
