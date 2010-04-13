@@ -8,7 +8,7 @@ Página del proyecto: http://sofi.cenditel.gob.ve
 
 Módulos:
     * Eventos
-          o Agregar, modificar, eliminar, activar opciones de suscripción y publicación, fecha, logo del evento.
+          o Agregar, modificar, eliminar, activar opciones de suscripción, publicación y comentarios, fecha, logo del evento.
     * Presentaciones
           o Agregar, modificar, eliminar, fecha, hora, url, fichero de descarga.
     * Ponentes
