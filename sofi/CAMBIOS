@@ -1,3 +1,14 @@
+1.1.0 - Desarrollo
+    - Agregando opción para asociar un presentación a varios eventos, cambio manual de la bd:
+      ALTER TABLE  detalle_presentacion DROP COLUMN evento_id;
+
+      CREATE TABLE "detalle_presentacion_evento" (
+          "id" integer NOT NULL PRIMARY KEY,
+          "presentacion_id" integer NOT NULL REFERENCES "detalle_presentacion" ("id"),
+          "evento_id" integer NOT NULL REFERENCES "evento_evento" ("id"),
+          UNIQUE ("presentacion_id", "evento_id")
+      );
+
 1.0.0 - SVN r102
     - Agregado patrocinio a eventos, suscriptores pueden solicitar comida, transporte u hospedaje
       mediante el formulario de inscripción.
