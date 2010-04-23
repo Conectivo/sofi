@@ -8,7 +8,7 @@ class PonenteAdmin(admin.ModelAdmin):
 admin.site.register(Ponente, PonenteAdmin)
 
 class PresentacionAdmin(admin.ModelAdmin):
-    list_display = ('titulo', 'fecha', 'evento', 'ponentes')
+    list_display = ('titulo', 'fecha', 'eventos', 'ponentes')
     search_fields = ('titulo', 'fecha')
     list_filter = ['evento']
 

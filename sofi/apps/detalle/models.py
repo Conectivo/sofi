@@ -11,7 +11,7 @@ class Presentacion(models.Model):
     fecha = models.DateField()
     hora = models.TimeField()
     url = models.URLField(blank=True, verify_exists=False)
-    evento = models.ForeignKey(Evento)
+    evento = models.ManyToManyField(Evento)
     archivo = models.FileField(upload_to='detalle/files', blank=True)
     
     def ponentes(self):
@@ -20,6 +20,12 @@ class Presentacion(models.Model):
             nombre += i.nombre + ", "
         return nombre
     
+    def eventos(self):
+        eventos = ""
+        for i in self.evento.all():
+            eventos += str(i) + ", "
+        return eventos
+        
     def __unicode__(self):
         return self.titulo
     
