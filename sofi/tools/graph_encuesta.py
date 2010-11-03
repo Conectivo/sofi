@@ -17,8 +17,7 @@ def generar_encuesta(evento_id, evento_nombre):
     suficiente = []
     poco = []
     nada = []
-    total_encuestados = Encuesta.objects.count()
-    
+    total_encuestados = Encuesta.objects.filter(evento=evento_id).count() 
     
     for i in range(1,15):
         mucho.append(eval("Encuesta.objects.filter(evento=%s, item%s=1).count() * 100 / total_encuestados" % (evento_id, str(i))))
