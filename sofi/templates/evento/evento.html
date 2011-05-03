@@ -6,78 +6,61 @@
 
 {% block body %}
     {% if eventos.object_list %}
-        
-        <div align="center">
-            <table id="evento">
-                <tbody>
+   
                     {% for evento in eventos.object_list %}
                     {% if evento.publicar %}
-                        <tr id="borde">
-                            <td rowspan="4">
-                                <img src="/site_media/images/borde.png" />
-                            </td>
-                        </tr>
-                        <tr id="titulo">
-                            <td class="letra_negrita letra_grande">
-                                {% if evento.presentaciones %}
-                                    <a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a>
-                                {% else %}
-                                    {{ evento.nombre }}
-                                {% endif %}
-                            </td>
-                        </tr>
-                        <tr>
-                            <td style="background: url('/site_media/images/fondo.png'); white-space:pre; padding-left: 15px;">
-{{ evento.resumen|wordwrap:"95" }}
-{% if evento.lugar %}
-Lugar:
-{{ evento.lugar|wordwrap:"95" }}
-{% endif %}
-Fecha:
-desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}
-                            </td>
-                        </tr>
-                        <tr id="pie">
-                            <td>
-                                {% if evento.presentaciones %}
-                                    <a href="/detalle/{{evento.id}}/">presentaciones</a>
-                                {% endif %}
-                                {% if evento.suscripciones %}
-                                    {% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
-					&nbsp;
-					&nbsp;
-					<a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
-                                {% endif %}
-                                    &nbsp;
-                                    &nbsp;
-                                    <a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a> 
-                                {% endif %} 
-				{% if evento.encuesta_set.all %}
-                                    &nbsp;
-                                    &nbsp;
-                                    <a href="/encuesta/reporte/{{evento.id}}/">encuesta</a> 
-				{% endif %}
-				{% if evento.comentario %}
-				    &nbsp;
-				    &nbsp;
-				    {% get_comment_count for evento as comment_count %}
-				    {% if comment_count %}
-					<a href="/comentario/{{evento.id}}/" >comentarios ({{ comment_count }})</a>
-				    {% else %}
-					<a href="/comentario/{{evento.id}}/" >dejar comentario</a>
-				    {% endif %}
-				{% endif %}
-                            </td>
-                        </tr>
+					<div class="post">
+						<div class="title">
+							{% if evento.presentaciones %}
+								<h2><a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a></h2>
+							{% else %}
+								<h2>{{ evento.nombre }}</h2>
+							{% endif %}
+
+							<p><small>Posted on August 20th, 2007 by <a href="#">Free CSS Templates</a></small></p>
+						</div>
+						<div class="entry">
+							<p>{{ evento.resumen|wordwrap:"95" }}
+							{% if evento.lugar %}
+							<br>
+							Lugar:
+							<br>
+							{{ evento.lugar|wordwrap:"95" }}
+							{% endif %}
+							<br>
+							Fecha:
+							<br>
+							desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}</p>
+						</div>
+
+						<p class="links">
+							{% if evento.presentaciones %}
+								<a href="/detalle/{{evento.id}}/">presentaciones</a>
+							{% endif %}
+							{% if evento.suscripciones %}
+								{% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
+									<a href="/suscriptor/registro/{{evento.id}}/">suscribir</a>
+								{% endif %}
+								<a href="/suscriptor/reporte/{{evento.id}}/">suscriptores</a>
+                            {% endif %}
+							{% if evento.encuesta_set.all %}
+								<a href="/encuesta/reporte/{{evento.id}}/">encuesta</a> 
+							{% endif %}
+							{% if evento.comentario %}
+								{% get_comment_count for evento as comment_count %}
+								{% if comment_count %}
+									<a href="/comentario/{{evento.id}}/" >comentarios ({{ comment_count }})</a>
+								{% else %}
+									<a href="/comentario/{{evento.id}}/" >dejar comentario</a>
+								{% endif %}
+							{% endif %}
+						</p>
+					</div>
                     {% endif %}
-                        <tr>
-                            <td>
-                                <br>
-                            </td>
-                        </tr>
                     {%endfor%}
-                </tbody>
-            </table>
+
+
+
             <!-- Codigo que permite mostrar el avance en la paginacion de los eventos -->
             <div id="paginacion">
         		{% if eventos.has_previous %}
