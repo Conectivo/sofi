@@ -3,7 +3,7 @@
 from django.db import models
 from evento.models import Evento
 from suscriptor.models import Suscriptor
-import md5
+from hashlib import md5
 import random
 from tools import email as email_tools
 from django.contrib.sites.models import Site
