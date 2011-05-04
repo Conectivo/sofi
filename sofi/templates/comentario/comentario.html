@@ -1,7 +1,8 @@
 {% extends "base.html" %}
+{% load i18n %}
 {% load comments i18n %}
 
-{% block head_title %}Comentarios{% endblock %}
+{% block head_title %}{% trans "Comentarios" %}{% endblock %}
 
 {% block extra_head%}
         <style type="text/css">
@@ -56,18 +57,18 @@
 <label  style="white-space:pre;">{{ cmm1.comment|wordwrap:"95" }}</label>
                         <br />
                         <br />
-                        <label id="comentadopor">comentario por {{ cmm1.user_name|title }} - {{ cmm1.submit_date|date:"d F Y P" }}</label>
+                        <label id="comentadopor">{% trans "comentario por" %} {{ cmm1.user_name|title }} - {{ cmm1.submit_date|date:"d F Y P" }}</label>
         
                     </div>
                     
                 {% endfor %}
                 <br />
-                <label style="text-align: left">Dejar un comentario</label>
+                <label style="text-align: left">{% trans "Dejar un comentario" %}</label>
                 
                 {% render_comment_form for evento %}            
             </div>
             <br />
-            <a href="/">Regresar</a>
+            <a href="/">{% trans "Regresar" %}</a>
         </center>
 
 {% endblock %}

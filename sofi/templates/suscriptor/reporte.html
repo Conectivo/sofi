@@ -1,28 +1,28 @@
 {% extends "base.html" %}
-
-{% block head_title %}Reporte{% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Reporte" %}{% endblock %}
 
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     {% if suscriptores %}
             <div id="reporte" align="center">
-                <label><h2>Suscriptores</h2></label>
+                <label><h2>{% trans "Suscriptores" %}</h2></label>
                 <table>
                     <thead>
                         <tr>
                             <td>#</td>
-                            <td>Nombre(s)</td>
-                            <td>Apellido(s)</td>
+                            <td>{% trans "Nombre(s)" %}</td>
+                            <td>{% trans "Apellido(s)" %}</td>
                             {% if user.is_authenticated %}
-                            <td>C&#233dula</td>
-                            <td>Email</td>
+                            <td>{% trans "C&#233dula" %}</td>
+                            <td>{% trans "Email" %}</td>
                             {% endif %}
-                            <td>Profesi&#243;n</td>
-                            <td>Instituci&#243;n</td>
-                            <td>Estado/Regi&#243;n</td>
-                            <td>Pa&#237;s</td>
+                            <td>{% trans "Profesi&#243;n" %}</td>
+                            <td>{% trans "Instituci&#243;n" %}</td>
+                            <td>{% trans "Estado/Regi&#243;n" %}</td>
+                            <td>{% trans "Pa&#237;s" %}</td>
                             {% if user.is_authenticated %}
-                            <td>Patrocinio</td>
+                            <td>{% trans "Patrocinio" %}</td>
                             {% endif %}
                         </tr>
                     </thead>
@@ -58,7 +58,7 @@
                     </tbody>
                 </table>
                 <br>
-                <a href="/detalle/{{evento.id}}/">Regresar a evento</a>
+                <a href="/detalle/{{evento.id}}/">{% trans "Regresar a evento" %}</a>
             </div>
     {% endif %}
 {% endblock %}

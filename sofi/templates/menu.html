@@ -1,6 +1,8 @@
+{% load i18n %}
 <div id="menu">
 	<ul>
-		<li class="current_page_item"><a href="#">Inicio</a></li>
-		<li><a href="http://sofi.cenditel.gob.ve">Acerca de...</a></li>
+		<li class="current_page_item"><a href="#">{% trans "Inicio" %}</a></li>
+		<li><a href="http://sofi.cenditel.gob.ve">{% trans "Acerca de..." %}</a></li>
+		<li><a href="/admin">{% trans "Administrar" %}</a></li>
 	</ul>
 </div>
