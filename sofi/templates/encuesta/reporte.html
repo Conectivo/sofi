@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
-{% block head_title %}Encuesta{% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Encuesta" %}{% endblock %}
 
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     <center>
         <div id="grafico">
-            <h2  style="text-align: center;">Encuesta</h2>
+            <h2  style="text-align: center;">{% trans "Encuesta" %}</h2>
             <table>
                 <tr>
                     <td style="white-space:pre; font-size: 08pt;">
@@ -17,7 +17,7 @@
                     </td>
                 </tr>
             </table>
-            <a href="/">Regresar</a>    
+            <a href="/">{% trans "Regresar" %}</a>    
         </div>
         
     </center>

@@ -160,5 +160,5 @@ EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'olivaresa@cenditel.gob.ve'
 EMAIL_HOST_USER = 'aolivares'
 
-# Theme site, default THEME = 'mrtechie_1'
+# Theme site directory, default THEME = 'mrtechie_1'
 THEME = 'mrtechie_1'

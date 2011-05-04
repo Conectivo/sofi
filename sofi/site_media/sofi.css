@@ -1,3 +1,19 @@
 .post .links .comments {
-	background: url(images/logo.png) no-repeat;
+	background: url(images/023.png) no-repeat;
+}
+
+.post .links .suscriptors {
+	background: url(images/025.png) no-repeat;
+}
+
+.post .links .suscribe {
+	background: url(images/001.png) no-repeat;
+}
+
+.post .links .presentations {
+	background: url(images/028.png) no-repeat;
+}
+
+.post .links .poll {
+	background: url(images/014.png) no-repeat;
 }

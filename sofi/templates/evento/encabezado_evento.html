@@ -1,3 +1,4 @@
+{% load i18n %}
     <div align="center">
         <table style="width: 800px;">
             <tbody>
@@ -14,7 +15,7 @@
 </pre>
                         </label>
                         <br>
-                        <label class="letra_negrita ">desde el {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}</label>
+                        <label class="letra_negrita ">{% trans "desde el" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</label>
     
                     </td>
                 </tr>

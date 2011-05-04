@@ -1,6 +1,6 @@
 {% extends "base.html" %}
-
-{% block head_title %}Suscriptor{% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Suscriptor" %}{% endblock %}
 
 {% block extra_head%}
     <style type="text/css">
@@ -21,15 +21,15 @@
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     <div align="center">
-        <label><h2>Suscribir</h2></label>
+        <label><h2>{% trans "Suscribir" %}</h2></label>
         <form action="." method="post">
             <table>
                 {{form.as_table}}
             </table>
-            <input type="submit" value="Suscribir"/>
+            <input type="submit" value="{% trans "Suscribir" %}"/>
         </form>
         <br>
         <br>
-        <a href="/">Regresar</a>
+        <a href="/">{% trans "Regresar" %}</a>
     </div>
 {% endblock %}

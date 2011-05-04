@@ -26,6 +26,7 @@ urlpatterns = patterns('',
     (r'^encuesta/', include('encuesta.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^comentario/', include('comentario.urls')),
+    (r'^i18n/', include('django.conf.urls.i18n')),
 )
 
 if settings.DEBUG:

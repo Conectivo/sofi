@@ -1,12 +1,12 @@
 {% extends "base.html" %}
-
-{% block head_title %}Acerca de sofi{% endblock %}
+{% load i18n %}
+{% block head_title %}{% trans "Acerca de sofi" %}{% endblock %}
 
 {% block body %}    
     <div align="center">
-        <label><h2>Acerca de sofi</h2></label>
-        Sofi es una aplicaci&#243;n que gestiona eventos, presentaciones, ponentes y suscripciones.
+        <label><h2>{% trans "Acerca de sofi" %}</h2></label>
+        {% trans "Sofi es una aplicaci&#243;n que gestiona eventos, presentaciones, ponentes y suscripciones." %}
         <br>
-        Puede conseguir m&#225;s informaci&#243;n sobre sofi en <a href="http://sofi.cenditel.gob.ve">http://sofi.cenditel.gob.ve</a>
+        {% trans "Puede conseguir m&#225;s informaci&#243;n sobre sofi en" %} <a href="http://sofi.cenditel.gob.ve">http://sofi.cenditel.gob.ve</a>
     </div>
 {% endblock %}
