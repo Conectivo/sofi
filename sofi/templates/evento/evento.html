@@ -36,23 +36,23 @@
 
 						<p class="links">
 							{% if evento.presentaciones %}
-								<a class="presentations" href="/detalle/{{evento.id}}/">{% trans "presentaciones" %}</a>
+								<a class="presentations" href="/detalle/{{evento.id}}/" title="{% trans "presentaciones" %}"></a>
 							{% endif %}
 							{% if evento.suscripciones %}
 								{% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
-									<a class="suscribe" href="/suscriptor/registro/{{evento.id}}/">{% trans "suscribir" %}</a>
+									<a class="suscribe" href="/suscriptor/registro/{{evento.id}}/" title="{% trans "suscribir" %}"></a>
 								{% endif %}
-								<a class="suscriptors" href="/suscriptor/reporte/{{evento.id}}/">{% trans "suscriptores" %}</a>
+								<a class="suscriptors" href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"></a>
                             {% endif %}
 							{% if evento.encuesta_set.all %}
-								<a class="poll" href="/encuesta/reporte/{{evento.id}}/">{% trans "encuesta" %}</a> 
+								<a class="poll" href="/encuesta/reporte/{{evento.id}}/" title="{% trans "encuesta" %}"></a> 
 							{% endif %}
 							{% if evento.comentario %}
 								{% get_comment_count for evento as comment_count %}
 								{% if comment_count %}
-									<a class="comments" href="/comentario/{{evento.id}}/" >{% trans "comentarios" %} ({{ comment_count }})</a>
+									<a class="comments" href="/comentario/{{evento.id}}/" title="{% trans "comentarios" %}"> ({{ comment_count }})</a>
 								{% else %}
-									<a class="comments" href="/comentario/{{evento.id}}/" >{% trans "dejar comentario" %}</a>
+									<a class="comments" href="/comentario/{{evento.id}}/" title="{% trans "dejar comentario" %}"></a>
 								{% endif %}
 							{% endif %}
 						</p>
