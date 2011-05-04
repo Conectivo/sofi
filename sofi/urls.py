@@ -1,8 +1,10 @@
-from django.conf.urls.defaults import *
+from django.conf.urls.defaults import patterns, include, url
 from django.conf import settings
 import os
-from django.contrib import admin
 from django.views.generic.simple import direct_to_template
+from django.contrib import admin
+admin.autodiscover()
+
 
 from tools.feed import Rss, Atom
 
@@ -12,7 +14,6 @@ feeds = {
 }
 
 
-admin.autodiscover()
 
 urlpatterns = patterns('',
     (r'^', include('evento.urls')),
@@ -20,13 +21,13 @@ urlpatterns = patterns('',
     (r'^suscriptor/', include('suscriptor.urls')),
     (r'^acercade/', direct_to_template, {'template': 'acercade/acercade.html'}),
     (r'^licencia/', direct_to_template, {'template': 'acercade/licencia.html'}),
-    (r'^admin/(.*)', include(admin.site.urls)),
     (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
     (r'^certificado/', include('certificado.urls')),
     (r'^encuesta/', include('encuesta.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
     (r'^comentario/', include('comentario.urls')),
     (r'^i18n/', include('django.conf.urls.i18n')),
+    url(r'^admin/', include(admin.site.urls)),
 )
 
 if settings.DEBUG:
