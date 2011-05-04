@@ -1,0 +1,294 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-05-04 11:51-0430\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: templates/404.html:7
+msgid "P&#225;gina no encontrada"
+msgstr ""
+
+#: templates/500.html:7
+msgid "Se ha producido un error en el servidor"
+msgstr ""
+
+#: templates/footer.html:4
+msgid "Licencia de uso"
+msgstr ""
+
+#: templates/footer.html:4 templates/acercade/acercade.html:3
+#: templates/acercade/acercade.html.py:7
+msgid "Acerca de sofi"
+msgstr ""
+
+#: templates/menu.html:4
+msgid "Inicio"
+msgstr ""
+
+#: templates/menu.html:5
+msgid "Acerca de..."
+msgstr ""
+
+#: templates/menu.html:6
+msgid "Administrar"
+msgstr ""
+
+#: templates/sidebar.html:5
+msgid "Información"
+msgstr ""
+
+#: templates/sidebar.html:9
+msgid "Enlaces de interes"
+msgstr ""
+
+#: templates/acercade/acercade.html:8
+msgid ""
+"Sofi es una aplicaci&#243;n que gestiona eventos, presentaciones, ponentes y "
+"suscripciones."
+msgstr ""
+
+#: templates/acercade/acercade.html:10
+msgid "Puede conseguir m&#225;s informaci&#243;n sobre sofi en"
+msgstr ""
+
+#: templates/acercade/licencia.html:7
+msgid "Licencia"
+msgstr ""
+
+#: templates/admin/base_site.html:4 templates/admin/base_site.html.py:7
+msgid "Administración sofi"
+msgstr ""
+
+#: templates/comentario/comentario.html:5 templates/comments/posted.html:3
+msgid "Comentarios"
+msgstr ""
+
+#: templates/comentario/comentario.html:60
+msgid "comentario por"
+msgstr ""
+
+#: templates/comentario/comentario.html:66
+msgid "Dejar un comentario"
+msgstr ""
+
+#: templates/comentario/comentario.html:71 templates/comments/posted.html:13
+#: templates/comments/preview.html:69 templates/detalle/detalle.html:140
+#: templates/encuesta/reporte.html:20 templates/suscriptor/suscriptor.html:33
+msgid "Regresar"
+msgstr ""
+
+#: templates/comments/form.html:17 templates/comments/preview.html:65
+msgid "Post"
+msgstr ""
+
+#: templates/comments/posted.html:6 templates/comments/preview.html:4
+#: templates/comments/preview.html.py:39
+msgid "Comentario"
+msgstr ""
+
+#: templates/comments/posted.html:8
+msgid "Su comentario se encuentra en lista de espera para ser aprobado."
+msgstr ""
+
+#: templates/comments/posted.html:10
+msgid "Gracias por su participación."
+msgstr ""
+
+#: templates/comments/preview.html:44
+msgid "Please correct the error below"
+msgid_plural "Please correct the errors below"
+msgstr[0] ""
+msgstr[1] ""
+
+#: templates/comments/preview.html:46
+msgid "Preview your comment"
+msgstr ""
+
+#: templates/comments/preview.html:49
+msgid "and"
+msgstr ""
+
+#: templates/comments/preview.html:49
+msgid "Post your comment"
+msgstr ""
+
+#: templates/comments/preview.html:49
+msgid "or make changes"
+msgstr ""
+
+#: templates/detalle/detalle.html:3
+msgid "Detalle"
+msgstr ""
+
+#: templates/detalle/detalle.html:8
+msgid "Presentaciones"
+msgstr ""
+
+#: templates/detalle/detalle.html:23
+msgid "Descripci&#243;n"
+msgstr ""
+
+#: templates/detalle/detalle.html:31
+msgid "Lugar"
+msgstr ""
+
+#: templates/detalle/detalle.html:39
+msgid "Fecha"
+msgstr ""
+
+#: templates/detalle/detalle.html:43
+msgid "Hora"
+msgstr ""
+
+#: templates/detalle/detalle.html:48
+msgid "Url"
+msgstr ""
+
+#: templates/detalle/detalle.html:54
+msgid "Descargar"
+msgstr ""
+
+#: templates/detalle/detalle.html:61
+msgid "Ponente(s)"
+msgstr ""
+
+#: templates/detalle/detalle.html:80
+msgid "Nombre"
+msgstr ""
+
+#: templates/detalle/detalle.html:85 templates/suscriptor/reporte.html:20
+msgid "Profesi&#243;n"
+msgstr ""
+
+#: templates/detalle/detalle.html:91 templates/suscriptor/reporte.html:21
+msgid "Instituci&#243;n"
+msgstr ""
+
+#: templates/detalle/detalle.html:97
+msgid "Currículum"
+msgstr ""
+
+#: templates/detalle/detalle.html:104 templates/suscriptor/reporte.html:18
+msgid "Email"
+msgstr ""
+
+#: templates/detalle/detalle.html:109
+msgid "Estado"
+msgstr ""
+
+#: templates/detalle/detalle.html:114 templates/suscriptor/reporte.html:23
+msgid "Pa&#237;s"
+msgstr ""
+
+#: templates/detalle/detalle.html:128 templates/evento/evento.html:43
+msgid "suscribir"
+msgstr ""
+
+#: templates/detalle/detalle.html:131 templates/evento/evento.html:45
+msgid "suscriptores"
+msgstr ""
+
+#: templates/encuesta/encuesta.html:3 templates/encuesta/reporte.html:3
+#: templates/encuesta/reporte.html.py:9
+msgid "Encuesta"
+msgstr ""
+
+#: templates/evento/encabezado_evento.html:18
+msgid "desde el"
+msgstr ""
+
+#: templates/evento/encabezado_evento.html:18
+msgid "al"
+msgstr ""
+
+#: templates/evento/evento.html:6
+msgid "Evento"
+msgstr ""
+
+#: templates/evento/evento.html:39
+msgid "presentaciones"
+msgstr ""
+
+#: templates/evento/evento.html:48
+msgid "encuesta"
+msgstr ""
+
+#: templates/evento/evento.html:53
+msgid "comentarios"
+msgstr ""
+
+#: templates/evento/evento.html:55
+msgid "dejar comentario"
+msgstr ""
+
+#: templates/evento/evento.html:68
+msgid "Anterior"
+msgstr ""
+
+#: templates/evento/evento.html:82
+msgid "Siguiente"
+msgstr ""
+
+#: templates/suscriptor/registro_ok.html:3
+#: templates/suscriptor/suscriptor.html:3
+msgid "Suscriptor"
+msgstr ""
+
+#: templates/suscriptor/registro_ok.html:10
+msgid "Sus datos fueron guardados, gracias por suscribirse a este evento."
+msgstr ""
+
+#: templates/suscriptor/registro_ok.html:12
+msgid "Sus datos ya se encuentran en nuestro sistema para este evento."
+msgstr ""
+
+#: templates/suscriptor/registro_ok.html:16
+#: templates/suscriptor/reporte.html:61
+msgid "Regresar a evento"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:3
+msgid "Reporte"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:9
+msgid "Suscriptores"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:14
+msgid "Nombre(s)"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:15
+msgid "Apellido(s)"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:17
+msgid "C&#233dula"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:22
+msgid "Estado/Regi&#243;n"
+msgstr ""
+
+#: templates/suscriptor/reporte.html:25
+msgid "Patrocinio"
+msgstr ""
+
+#: templates/suscriptor/suscriptor.html:24
+#: templates/suscriptor/suscriptor.html:29
+msgid "Suscribir"
+msgstr ""
