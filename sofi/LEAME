@@ -20,20 +20,7 @@ Módulos:
     * Sindicación de contenido rss y atom. 
 
 Requerimientos:
-    * OS/Linux
-    * Python >= 2.5
-    * Django >=1.0
-    * python-imaging
-    * python-reportlab
-    * python-numpy
-    * python-matplotlib
-    * Base de datos
-        * SQlite
-            * python-sqlite
-        * PostgreSQL
-            * python-psycopg2
-        * MySQL
-            * python-mysqldb
+    * Revisar fichero VIRTUALENV
 
 
 Instalación:
