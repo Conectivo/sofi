@@ -2,6 +2,7 @@
 {% load i18n %}
 {% load smart_if %}
 {% load comments i18n %}
+{% load app %}
 
 {% block head_title %}{% trans "Evento" %}{% endblock %}
 
@@ -36,23 +37,23 @@
 
 						<p class="links">
 							{% if evento.presentaciones %}
-								<a class="presentations" href="/detalle/{{evento.id}}/" title="{% trans "presentaciones" %}"></a>
+								<a href="/detalle/{{evento.id}}/" title="{% trans "presentaciones" %}"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
 							{% endif %}
 							{% if evento.suscripciones %}
 								{% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
-									<a class="suscribe" href="/suscriptor/registro/{{evento.id}}/" title="{% trans "suscribir" %}"></a>
+									<a href="/suscriptor/registro/{{evento.id}}/" title="{% trans "suscribir" %}"><img src="{% media_url %}images/childish_Plus.png"/></a>
 								{% endif %}
-								<a class="suscriptors" href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"></a>
+								<a href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"><img src="{% media_url %}images/childish_Archive.png"/></a>
                             {% endif %}
 							{% if evento.encuesta_set.all %}
-								<a class="poll" href="/encuesta/reporte/{{evento.id}}/" title="{% trans "encuesta" %}"></a> 
+								<a href="/encuesta/reporte/{{evento.id}}/" title="{% trans "encuesta" %}"><img src="{% media_url %}images/childish_Chart-Bar.png"/></a> 
 							{% endif %}
 							{% if evento.comentario %}
 								{% get_comment_count for evento as comment_count %}
 								{% if comment_count %}
-									<a class="comments" href="/comentario/{{evento.id}}/" title="{% trans "comentarios" %}"> ({{ comment_count }})</a>
+									<a href="/comentario/{{evento.id}}/" title="{% trans "comentarios" %}"><img src="{% media_url %}images/childish_Comments.png"/>({{ comment_count }})</a>
 								{% else %}
-									<a class="comments" href="/comentario/{{evento.id}}/" title="{% trans "dejar comentario" %}"></a>
+									<a href="/comentario/{{evento.id}}/" title="{% trans "dejar comentario" %}"><img src="{% media_url %}images/childish_Comments.png"/></a>
 								{% endif %}
 							{% endif %}
 						</p>

@@ -1,27 +1,12 @@
-.post .links .comments {
-	background: url(images/023.png) no-repeat;
-	font-size: x-small;
-}
 
-.post .links .suscriptors {
-	background: url(images/025.png) no-repeat;
-	font-size: x-small;
-}
+
 
 .post .links .suscribe {
-	background: url(images/001.png) no-repeat;
+	background: url(images/childish_Plus.png) no-repeat;
 	font-size: x-small;
 }
 
-.post .links .presentations {
-	background: url(images/028.png) no-repeat;
-	font-size: x-small;
-}
 
-.post .links .poll {
-	background: url(images/014.png) no-repeat;
-	font-size: x-small;
-}
 
 ul.errorlist {
 	margin: 0;
