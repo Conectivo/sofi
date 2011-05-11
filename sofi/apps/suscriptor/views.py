@@ -5,8 +5,10 @@ from django.contrib.sites.models import Site
 from evento.models import Evento
 from forms import SuscriptorForm
 from models import Suscriptor
+from django.contrib.auth.decorators import login_required
+from django.template import RequestContext
 
-
+@login_required
 def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
     evento = Evento.objects.get(id=id_evento)
     if request.method == "POST":
@@ -23,7 +25,7 @@ def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
             form.fields['transporte'].widget = widgets.HiddenInput()
             form.fields['hospedaje'].widget = widgets.HiddenInput()
         
-    return render_to_response(template, {'form': form, 'evento': evento, 'site_name': Site.objects.get(id=1).name})
+    return render_to_response(template, {'form': form, 'evento': evento, 'site_name': Site.objects.get(id=1).name}, context_instance=RequestContext(request))
   
 def reporte(request, id_evento, template='suscriptor/reporte.html'):
     evento = Evento.objects.get(id=id_evento)

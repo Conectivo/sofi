@@ -6,17 +6,37 @@
 	font-size: x-small;
 }
 
-
-
+/*.errornote {
+	font-size: 20px;
+}
+*/
 ul.errorlist {
 	margin: 0;
 	padding: 0;
 }
 .errorlist li {
-	background-color: red;
-	color: white;
+	color: red;
 	display: block;
 	font-size: 10px;
-	margin: 0 0 3px;
-	padding: 4px 5px;
+}
+
+.form-row {
+    overflow: hidden;
+    padding: 8px 12px;
+    font-size: 11px;
+}
+
+.user{
+	/*padding: 30px 39px 20px 20px;*/
+	padding: 20px 10px 10px 20px;
+	text-align: right;
+}
+
+#paginacion {
+	width: 890px;
+	height: 20px;
+	margin: 0 auto;
+	padding-top: 10px;
+	text-align: center;
+	clear: both;
 }

@@ -40,7 +40,7 @@
 								<a href="/detalle/{{evento.id}}/" title="{% trans "presentaciones" %}"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
 							{% endif %}
 							{% if evento.suscripciones %}
-								{% if fecha_hoy.toordinal <= evento.fecha_ini.toordinal %}
+								{% if evento.fecha_ini.toordinal <= fecha_hoy.toordinal and evento.fecha_fin.toordinal >= fecha_hoy.toordinal%}
 									<a href="/suscriptor/registro/{{evento.id}}/" title="{% trans "suscribir" %}"><img src="{% media_url %}images/childish_Plus.png"/></a>
 								{% endif %}
 								<a href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"><img src="{% media_url %}images/childish_Archive.png"/></a>
@@ -60,30 +60,31 @@
 					</div>
                     {% endif %}
                     {%endfor%}
-
-
-
-            <!-- Codigo que permite mostrar el avance en la paginacion de los eventos -->
-            <div id="paginacion">
-        		{% if eventos.has_previous %}
-            		  <a href="/{{ eventos.previous_page_number }}/">{% trans "Anterior" %}</a>&nbsp;
-        		{% endif %}
-                        
-			{% if rango_paginas %}
-			    {% for p in rango_paginas %}
-				{% ifnotequal eventos.number p %}
-				    <a href="/{{ p }}/">{{p}}</a>
-				{% else %}
-				    <a>{{p}}</a>
-				{% endifnotequal %}
-			    {% endfor %}
-        		{% endif %}
-        		
-			{% if eventos.has_next %}
-            		&nbsp;<a href="/{{ eventos.next_page_number }}/">{% trans "Siguiente" %}</a>
-        		{% endif %}
-	    </div>
         </div>
+	{% else %}
+		<h2><p>{% trans "No se encuentran Eventos" %}</p></h2>
+	{% endif %}
+{% endblock %}
 
-    {% endif %}
+<!-- Codigo que permite mostrar el avance en la paginacion de los eventos -->
+{% block pagination %}
+<div id="paginacion">
+	{% if eventos.has_previous %}
+		  <a href="/{{ eventos.previous_page_number }}/">{% trans "Anterior" %}</a>&nbsp;
+	{% endif %}
+			
+{% if rango_paginas %}
+	{% for p in rango_paginas %}
+	{% ifnotequal eventos.number p %}
+		<a href="/{{ p }}/">{{p}}</a>
+	{% else %}
+		<a>{{p}}</a>
+	{% endifnotequal %}
+	{% endfor %}
+	{% endif %}
+	
+{% if eventos.has_next %}
+		&nbsp;<a href="/{{ eventos.next_page_number }}/">{% trans "Siguiente" %}</a>
+	{% endif %}
+</div>
 {% endblock %}

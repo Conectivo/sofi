@@ -4,6 +4,7 @@ from encuesta.forms import EncuestaForm
 from certificado.models import CertificadoSuscriptor
 from encuesta.models import Encuesta
 from datetime import datetime
+from django.template import RequestContext
 
 def realizar(request, evento, key):
     
@@ -24,7 +25,7 @@ def realizar(request, evento, key):
             
             if not request.POST:
                 form = EncuestaForm()
-                return render_to_response('encuesta/encuesta.html', {'evento': evento_suscriptor, 'form': form})
+                return render_to_response('encuesta/encuesta.html', {'evento': evento_suscriptor, 'form': form}, context_instance=RequestContext(request))
             else:    
                 form = EncuestaForm(request.POST)
                 
@@ -36,7 +37,7 @@ def realizar(request, evento, key):
                     form_update.save()
                     return HttpResponseRedirect('http://%s/certificado/descargar/%s/%s/'% (request.get_host(),evento, key))
                 else:
-                    return render_to_response('encuesta/encuesta.html', {'evento': evento_suscriptor, 'form': form})
+                    return render_to_response('encuesta/encuesta.html', {'evento': evento_suscriptor, 'form': form}, context_instance=RequestContext(request))
             
         
     raise Http404()
@@ -53,6 +54,6 @@ def reporte(request, evento):
         for i in range(1,15):
             items += Encuesta._meta.fields[i].verbose_name + "\n\n"
 
-        return render_to_response('encuesta/reporte.html', {'evento': evento, 'items': items, 'grafico': url})
+        return render_to_response('encuesta/reporte.html', {'evento': evento, 'items': items, 'grafico': url}, context_instance=RequestContext(request))
     else:
         raise Http404
