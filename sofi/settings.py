@@ -124,12 +124,14 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
     # 'django.contrib.admindocs',
+    'django.contrib.humanize',
     'django.contrib.comments',
     #'django_extensions',
+    'profiles',
+    'registration',
     'evento',
     'detalle',
     'suscriptor',
@@ -161,6 +163,9 @@ LOGGING = {
     }
 }
 
+# Close session 
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'olivaresa@cenditel.gob.ve'
@@ -168,3 +173,7 @@ EMAIL_HOST_USER = 'aolivares'
 
 # Theme site directory, default THEME = 'mrtechie_1'
 THEME = 'mrtechie_1'
+
+ACCOUNT_ACTIVATION_DAYS = 7
+
+AUTH_PROFILE_MODULE = "suscriptor.UserProfile"

@@ -2,27 +2,48 @@
 
 from django.db import models
 from evento.models import Evento
+from django.contrib.auth.models import User, Group
+from django.db.models import signals
+from django.utils.translation import ugettext as _
+from tools.constantes import NACIONALIDAD
+
+# Creación del perfil luego del registro para evitar problemas
+def user_post_save(sender, instance, **kwargs):
+    profile, new = UserProfile.objects.get_or_create(user=instance)
+
+
+class UserProfile(models.Model):
+    user = models.ForeignKey(User,unique=True,verbose_name=_('Usuario'))
+    nombre = models.CharField(max_length=21)
+    apellido = models.CharField(max_length=21)
+    cedula = models.CharField(verbose_name='ID', max_length=12)
+    profesion = models.CharField(max_length=21, blank=True, verbose_name=_(u'profesión'))
+    organizacion = models.CharField(max_length=50, blank=True, verbose_name=_(u'organizacion'))
+    nacionalidad = models.CharField(max_length=58, verbose_name=_('nacionalidad'), choices=NACIONALIDAD)
+
+    class Admin():
+        pass
+    
+    def __unicode__(self):
+            return unicode("%s" % self.user.username)
+
+    class Meta:
+        verbose_name = _('Perfil')
+        verbose_name_plural = _('Perfiles')
+    
+signals.post_save.connect(user_post_save, User)
+
 
 class Suscriptor(models.Model):
-    nombres = models.CharField(max_length=21)
-    apellidos = models.CharField(max_length=21)
-    cedula = models.DecimalField(verbose_name='cédula', max_digits=12, decimal_places=0)
-    email = models.EmailField()
-    profesion = models.CharField(max_length=21, blank=True, verbose_name='profesión')
-    institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
-    estado = models.CharField(max_length=15)
-    pais = models.CharField(max_length=58, verbose_name='país')
-    comida = models.BooleanField()
-    transporte = models.BooleanField()
-    hospedaje = models.BooleanField()
-    evento = models.ForeignKey(Evento)
+    suscriptor = models.ForeignKey(UserProfile)
+    evento = models.ManyToManyField(Evento)
     
     def nombre_completo(self):
-        return "%s %s" % (self.nombres.title(), self.apellidos.title())
-
+        return "%s %s" % (self.suscriptor.nombre.title(), self.suscriptor.apellido.title())
+    
     def __unicode__(self):
-        return "%s %s" % (self.nombres.title(), self.apellidos.title())
+        return "%s %s" % (self.suscriptor.nombre.title(), self.suscriptor.apellido.title())
     
     class Meta:
-        ordering = ['pais', 'nombres', 'apellidos']
+        ordering = ['suscriptor__nacionalidad', 'suscriptor__nombre', 'suscriptor__apellido']
         

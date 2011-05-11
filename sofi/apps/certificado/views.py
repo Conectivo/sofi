@@ -4,6 +4,7 @@ from django.shortcuts import render_to_response
 from evento.models import Evento
 from certificado.models import CertificadoSuscriptor
 from tools.certificado.certificado import Certificado
+from django.template import RequestContext
 
 def descargar(request, evento, key, encuesta=None):
     

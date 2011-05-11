@@ -1,6 +1,30 @@
 {% load i18n %}
 <div id="sidebar">
 	<ul>
+		<li id="usuario">
+			
+			<h2>{% trans "Opciones de usuario" %}</h2>
+			{% if user.is_authenticated %}
+			<ul>
+				<li><a href="/profiles/edit/">{% trans "Ver perfil" %}</a></li>
+				<li><a href="/accounts/password/change/">{% trans "Cambiar contraseña" %}</a></li>
+				{% if user.is_authenticated and user.is_staff %}
+				<li><a href="/admin/">{% trans "Panel de administración" %}</a></li>
+				{% endif %}
+				<li><a href="/accounts/logout/">{% trans "Salir del sistema" %}</a></li>
+			</ul>
+			{% else %}
+			<ul>
+				<li><a href="/accounts/login/">{% trans "Entrar al sistema" %}</a></li>
+				<li><a href="/accounts/register/">{% trans "No estoy registrado" %}</a></li>
+				<li><a href="/accounts/password/reset/">{% trans "Recuperar contraseña" %}</a></li>
+			</ul>
+			
+			{% endif %}
+
+			
+		</li>
+
 		<li>
 			<h2>{% trans "Información" %}</h2>
 			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat venenatis erat eget convallis. Aenean vel orci sapien. Aenean diam enim, pretium vitae egestas sed, volutpat a est. Suspendisse velit neque, tristique dictum euismod ut, elementum vel eros.</p>
