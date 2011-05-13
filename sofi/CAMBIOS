@@ -1,5 +1,24 @@
-1.1.0 - Desarrollo
-    - Agregando opción para asociar un presentación a varios eventos, cambio manual de la bd:
+2.0.0 - Desarrollo
+    - Mejorada interfaz gráfica
+    - Agregado tema a interfaz gráfica
+    - Agregada internacionalización
+    - Agregado módulo para registros de usuarios en el site
+    - Mejorado la suscripción de usuarios a eventos
+    
+    - Sofi Virtual Environment
+        Django==1.3
+        PIL==1.1.7
+        distribute==0.6.10
+        django-profiles==0.2
+        django-registration==0.7
+        ipython==0.10.2
+        matplotlib==1.0.0
+        numpy==1.5.1
+        reportlab==2.5
+        wsgiref==0.1.2
+
+1.1.0 - SVN r?
+    - Agregando opción para asociar una presentación a varios eventos, cambio manual de la bd:
       ALTER TABLE  detalle_presentacion DROP COLUMN evento_id;
 
       CREATE TABLE "detalle_presentacion_evento" (
