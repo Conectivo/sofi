@@ -8,7 +8,6 @@
 				<th align="left">{% trans "Username" %}</th>
 				<td>{{profile.user}} </td>
 			</tr>
-
 			<tr>
 				<th align="left">{% trans "Nombre" %}</th>
 				<td>{{profile.nombre}} </td>
@@ -16,6 +15,10 @@
 			<tr>
 				<th align="left">{% trans "Apellido" %}</th>
 				<td>{{profile.apellido}} </td>
+			</tr>
+			<tr>
+				<th align="left">{% trans "E-mail:" %}</th>
+				<td>{{ profile.user.email }} </td>
 			</tr>
 			<tr>
 				<th align="left">{% trans "Nacionalidad" %}</th>
