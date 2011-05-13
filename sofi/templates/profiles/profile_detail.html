@@ -5,7 +5,7 @@
 {% block body %}
 <div>
 	<div>
-		<h3>{% trans "Perfil de Usuario para" %} {{ profile.user }}: </h3>
+		<h3>{% trans "Perfil de usuario para" %} {{ profile.user }}: </h3>
 		<table> 
 			<tr>
 				<th align="left">{% trans "Usuario:" %}</th>
@@ -23,6 +23,8 @@
 				<th align="left">{% trans "E-mail:" %}</th>
 				<td>{{ profile.user.email }} </td>
 			</tr>
+			
+			{% if profile.user|lower == user.username|lower %}
 			<tr>
 				<th align="left">{% trans "ID:" %}</th>
 				<td>{{ profile.cedula }} </td>
@@ -35,6 +37,7 @@
 				<th align="left">{% trans "Organización:" %}</th>
 				<td>{{ profile.organizacion }} </td>
 			</tr>
+			{% endif %}
 			<tr>
 				<th align="left">{% trans "Nacionalidad:" %}</th>
 				<td>{{ profile.nacionalidad }} </td>

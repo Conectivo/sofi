@@ -19,7 +19,7 @@
 								<h2>{{ evento.nombre }}</h2>
 							{% endif %}
 
-							<p><small>Posted on August 20th, 2007 by <a href="#">Free CSS Templates</a></small></p>
+							<p><small>{% trans "Publicado el" %} {{ evento.fecha }} {% trans "por" %} <a href="/profiles/{{ evento.admin }}">{{ evento.admin }}</a></small></p>
 						</div>
 						<div class="entry">
 							<p>{{ evento.resumen|wordwrap:"95" }}
