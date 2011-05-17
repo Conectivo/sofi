@@ -1,4 +1,7 @@
 {% load i18n %}
+{% load app %}
+{% load enlaces %}
+
 <div id="sidebar">
 	<ul>
 		<li id="usuario">
@@ -27,14 +30,11 @@
 
 		<li>
 			<h2>{% trans "Información" %}</h2>
-			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat venenatis erat eget convallis. Aenean vel orci sapien. Aenean diam enim, pretium vitae egestas sed, volutpat a est. Suspendisse velit neque, tristique dictum euismod ut, elementum vel eros.</p>
+			<p>{% site_informacion %}</p>
 		</li>
 		<li id="categories">
 			<h2>{% trans "Enlaces de interes" %}</h2>
-			<ul>
-				<li><a href="http://wwww.cenditel.gob.ve">CENDITEL</a></li>
-				<li><a href="http://radecon..cenditel.gob.ve">RADECON</a></li>
-			</ul>
+			{% show_enlaces 0 %}
 		</li>
 	</ul>
 </div>

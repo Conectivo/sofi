@@ -92,13 +92,14 @@ img {
 
 #logo h1 {
 	height: 88px;
-	padding: 20px 90px 0 0;
-	background: url(images/img01.jpg) no-repeat right bottom;
+	padding: 20px 120px 0 0;
+	/*background: url(images/img01.jpg) no-repeat right bottom;*/
+	/*background: url(/site_media/configuracion/files/logo.120x100.png) no-repeat right bottom;*/
 	font-size: 4em;
 }
 
 #logo p {
-	margin: 0 0 0 -30px;
+	margin: 0 0 0 -5px;
 	padding: 70px 0 0 0;
 	line-height: normal;
 	letter-spacing: -1px;
