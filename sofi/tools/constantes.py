@@ -1,3 +1,11 @@
+# -*- coding: utf-8 -*-
+from django.utils.translation import ugettext as _
+
+SINO = (
+    (True, _('Si')),
+    (False, _('No'))
+)
+
 NACIONALIDAD = ((u'Afganist\xe1n', u'Afganist\xe1n'),
  ('Albania', 'Albania'),
  ('Alemania', 'Alemania'),

@@ -132,6 +132,7 @@ INSTALLED_APPS = (
     #'django_extensions',
     'profiles',
     'registration',
+    'configuracion',
     'evento',
     'detalle',
     'suscriptor',

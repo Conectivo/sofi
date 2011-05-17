@@ -5,7 +5,7 @@ from evento.models import Evento
 from django.contrib.auth.models import User, Group
 from django.db.models import signals
 from django.utils.translation import ugettext as _
-from tools.constantes import NACIONALIDAD
+from tools.constantes import NACIONALIDAD, SINO
 
 # Creación del perfil luego del registro para evitar problemas
 def user_post_save(sender, instance, **kwargs):
@@ -20,6 +20,9 @@ class UserProfile(models.Model):
     profesion = models.CharField(max_length=21, blank=True, verbose_name=_(u'profesión'))
     organizacion = models.CharField(max_length=50, blank=True, verbose_name=_(u'organizacion'))
     nacionalidad = models.CharField(max_length=58, verbose_name=_('nacionalidad'), choices=NACIONALIDAD)
+    cta_twitter = models.CharField(max_length=50, blank=True, verbose_name=_(u'twitter'))
+    cta_facebook = models.CharField(max_length=50, blank=True, verbose_name=_(u'facebook'))
+    informacion = models.BooleanField(choices=SINO, verbose_name=_(u'recibir información'))
 
     class Admin():
         pass

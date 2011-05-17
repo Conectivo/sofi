@@ -1,8 +1,10 @@
 {% load i18n %}
+{% load app %}
+
 <div id="header">
 	<div id="logo">
-		<h1><a href="#">Desarrollo</a></h1>
-		<p><a href="http://www.freecsstemplates.org/">Sofi v2.0</a></p>
+		<h1 style="background: url({% logo %}) no-repeat right bottom;"><a href="/">{% site_title %}</a></h1>
+		<p><a href="/">{% site_subtitle %}</a></p>
 	</div>
 	<div id="rss"><a href="/feed/rss">{% trans "Suscribirse" %} RSS Feed</a></div>
 	<div>

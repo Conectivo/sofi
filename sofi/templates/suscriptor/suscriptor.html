@@ -1,35 +1,11 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% block head_title %}{% trans "Suscriptor" %}{% endblock %}
-
-{% block extra_head%}
-    <style type="text/css">
-        ul.errorlist {
-            margin: 0;
-            padding: 0;
-        }
-        .errorlist li {
-            background-color: red;
-            color: white;
-            display: block;
-            font-size: 10px;
-            margin: 0 0 3px;
-            padding: 4px 5px;
-        }
-    </style>
-{% endblock %}
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
-    <div align="center">
-        <label><h2>{% trans "Suscribir" %}</h2></label>
-        <form action="." method="post">
-            <table>
-                {{form.as_table}}
-            </table>
-            <input type="submit" value="{% trans "Suscribir" %}"/>
-        </form>
-        <br>
-        <br>
-        <a href="/">{% trans "Regresar" %}</a>
-    </div>
+    {% if ok %}
+        <h3><p>{% trans "Sus datos fueron guardados, gracias por suscribirse a este evento." %}</p></h3>
+    {% else %}
+        <h3><p>{% trans "Sus datos ya se encuentran en nuestro sistema para este evento." %}</p></h3>
+    {% endif %}
 {% endblock %}
