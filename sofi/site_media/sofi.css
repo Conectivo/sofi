@@ -40,3 +40,21 @@ ul.errorlist {
 	text-align: center;
 	clear: both;
 }
+
+#encabezado table {
+	width: 430px;
+}
+
+.centrar {
+	text-align: center;
+}
+
+.izquierda{
+	text-align: left;
+}
+
+.logo_encabezado {
+	width: 200px;
+	height: 170px;
+}
+

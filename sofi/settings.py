@@ -1,4 +1,4 @@
-# Django settings for sofi project.
+# -*- coding: utf-8 -*-
 import os.path
 
 DEBUG = True
@@ -178,3 +178,6 @@ THEME = 'mrtechie_1'
 ACCOUNT_ACTIVATION_DAYS = 7
 
 AUTH_PROFILE_MODULE = "suscriptor.UserProfile"
+
+# Cantidad de eventos a mostrar para empezar la paginación
+EVENTOS_PAG = 6

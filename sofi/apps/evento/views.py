@@ -4,14 +4,13 @@ from django.contrib.sites.models import Site
 #Libreria que nos va a permitir realizar la paginacion
 from django.core.paginator import Paginator, InvalidPage, EmptyPage
 from django.template import RequestContext
+from django.conf import settings
 import datetime
-
-EVENTOS_PAG = 5
 
 def listEventos(request, pagina=1, template_name='evento/evento.html'):
     
     #Obtenemos los objetos de la clase Evento y los paginamos de EVENTOS_PAG por pagina
-    paginador = Paginator(Evento.objects.all(), EVENTOS_PAG)
+    paginador = Paginator(Evento.objects.all(), settings.EVENTOS_PAG)
     #Esta variable almacena el rango de las paginas encontradas
     rango_paginas = paginador.page_range
 

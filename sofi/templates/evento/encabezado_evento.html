@@ -1,22 +1,19 @@
 {% load i18n %}
-    <div align="center">
-        <table style="width: 800px;">
+    <div id="encabezado">
+        <table>
             <tbody>
                 <tr>
-                    <td style="width: 0;">
-                        <img id= "logo_evento" src="{{evento.logo.url_180x150}}" alt=""/>
+                    <td class="izquierda logo_encabezado">
+                        <img src="{{evento.logo.url_180x150}}" alt=""/>
                     </td>
-                    <td class="letra_centrar">
-                        <label class="letra_negrita letra_grande">{{evento.nombre}}</label>
-                        <br>
-                        <label class="">
+                    <td>
+                        <p><h3 class="centrar">{{evento.nombre}}</h3></p>
+                        <p>
 <pre>
 {{evento.resumen|wordwrap:"95"}}
 </pre>
-                        </label>
-                        <br>
-                        <label class="letra_negrita ">{% trans "desde el" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</label>
-    
+                        </p>
+                        <p class="centrar">{% trans "desde el" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</p>
                     </td>
                 </tr>
             </tbody>
