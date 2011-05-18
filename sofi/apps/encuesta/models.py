@@ -1,7 +1,9 @@
 # -*- coding: utf-8 -*-
 from django.db import models
 from evento.models import Evento
-from suscriptor.models import Suscriptor
+#from suscriptor.models import Suscriptor
+from suscriptor.models import Suscriptores as Suscriptor
+from suscriptor.models import UserProfile
 
 MSPN = (
     (1, 'Mucho'),
@@ -32,7 +34,7 @@ class Encuesta(models.Model):
     item14 = models.IntegerField(verbose_name="5.1 Calificaría usted el desarrollo general del evento como un accionar colaborativo y cooperativo que ha generado insumos a la construcción de la idea del Conocimiento como Bien Público en América Latina", choices=MSPN)
     
     fecha = models.DateField()
-    suscriptor = models.ForeignKey(Suscriptor)
+    suscriptor = models.ForeignKey(UserProfile)
     evento = models.ForeignKey(Evento)
     
     def __unicode__(self):

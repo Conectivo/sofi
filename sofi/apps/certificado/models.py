@@ -2,7 +2,7 @@
 
 from django.db import models
 from evento.models import Evento
-from suscriptor.models import Suscriptor
+from suscriptor.models import Suscriptores as Suscriptor
 from hashlib import md5
 import random
 from tools import email as email_tools

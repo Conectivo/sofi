@@ -24,8 +24,8 @@ class Evento(models.Model):
     publicar = models.BooleanField(choices=SINO)
     comentario = models.BooleanField(default=True)
     fecha = models.DateField(verbose_name=_(u'fecha publicación'))
-    fecha_ini = models.DateField(verbose_name=_('fecha inicial'))
-    fecha_fin = models.DateField(verbose_name=_('fecha final'))
+    fecha_ini = models.DateField(verbose_name=_(u'fecha inicial'))
+    fecha_fin = models.DateField(verbose_name=_(u'fecha final'))
     logo = ImageWithThumbsField(upload_to='evento/files', sizes=((180,150),))
     admin = models.ForeignKey(User)
 

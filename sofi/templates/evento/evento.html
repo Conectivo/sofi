@@ -45,9 +45,8 @@
 								{% endif %}
 								<a href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"><img src="{% media_url %}images/childish_Archive.png"/></a>
                             {% endif %}
-							{% if evento.encuesta_set.all %}
-								<a href="/encuesta/reporte/{{evento.id}}/" title="{% trans "encuesta" %}"><img src="{% media_url %}images/childish_Chart-Bar.png"/></a> 
-							{% endif %}
+							
+							
 							{% if evento.comentario %}
 								{% get_comment_count for evento as comment_count %}
 								{% if comment_count %}
