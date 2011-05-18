@@ -45,6 +45,9 @@ ul.errorlist {
 	width: 430px;
 }
 
+#reporte table {
+	width: 430px;
+}
 .centrar {
 	text-align: center;
 }
@@ -58,3 +61,6 @@ ul.errorlist {
 	height: 170px;
 }
 
+.negrita {
+	font-weight: bold;
+}
