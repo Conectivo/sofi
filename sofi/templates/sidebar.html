@@ -11,6 +11,7 @@
 			<ul>
 				<li><a href="/profiles/edit/">{% trans "Ver perfil" %}</a></li>
 				<li><a href="/accounts/password/change/">{% trans "Cambiar contraseña" %}</a></li>
+				<li><a href="/suscriptor/mis_suscripciones/">{% trans "Mis suscripciones" %}</a></li>
 				{% if user.is_authenticated and user.is_staff %}
 				<li><a href="/admin/">{% trans "Panel de administración" %}</a></li>
 				{% endif %}

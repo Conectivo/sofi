@@ -13,13 +13,13 @@ def user_post_save(sender, instance, **kwargs):
 
 
 class UserProfile(models.Model):
-    user = models.ForeignKey(User,unique=True,verbose_name=_('Usuario'))
+    user = models.ForeignKey(User,unique=True,verbose_name=_(u'Usuario'))
     nombre = models.CharField(max_length=21)
     apellido = models.CharField(max_length=21)
     cedula = models.CharField(verbose_name='ID', max_length=12)
     profesion = models.CharField(max_length=21, blank=True, verbose_name=_(u'profesión'))
     organizacion = models.CharField(max_length=50, blank=True, verbose_name=_(u'organizacion'))
-    nacionalidad = models.CharField(max_length=58, verbose_name=_('nacionalidad'), choices=NACIONALIDAD)
+    nacionalidad = models.CharField(max_length=58, verbose_name=_(u'nacionalidad'), choices=NACIONALIDAD)
     cta_twitter = models.CharField(max_length=50, blank=True, verbose_name=_(u'twitter'))
     cta_facebook = models.CharField(max_length=50, blank=True, verbose_name=_(u'facebook'))
     informacion = models.BooleanField(choices=SINO, verbose_name=_(u'recibir información'))
@@ -29,17 +29,20 @@ class UserProfile(models.Model):
     
     def __unicode__(self):
             return unicode("%s" % self.user.username)
+    
+    def nombre_completo(self):
+        return "%s %s" % (self.nombre.title(), self.apellido.title())
 
     class Meta:
-        verbose_name = _('Perfil')
-        verbose_name_plural = _('Perfiles')
+        verbose_name = _(u'Perfil')
+        verbose_name_plural = _(u'Perfiles')
     
 signals.post_save.connect(user_post_save, User)
 
 
-class Suscriptor(models.Model):
+class Suscriptores(models.Model):
     suscriptor = models.ForeignKey(UserProfile)
-    evento = models.ManyToManyField(Evento)
+    evento = models.ForeignKey(Evento)
     
     def nombre_completo(self):
         return "%s %s" % (self.suscriptor.nombre.title(), self.suscriptor.apellido.title())

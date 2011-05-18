@@ -7,11 +7,11 @@
 	<div>
 		<h3>{% trans "Perfil de usuario para" %} {{ profile.user }}: </h3>
 		<table> 
-			<tr>
+<!--			<tr>
 				<th align="left">{% trans "Usuario:" %}</th>
 				<td>{{ profile.user }} </td>
 			</tr>
-			<tr>
+-->			<tr>
 				<th align="left">{% trans "Nombre:" %}</th>
 				<td>{{ profile.nombre }} </td>
 			</tr>
@@ -36,6 +36,18 @@
 			<tr>
 				<th align="left">{% trans "Organización:" %}</th>
 				<td>{{ profile.organizacion }} </td>
+			</tr>
+			<tr>
+				<th align="left">{% trans "Twitter:" %}</th>
+				<td>{{ profile.cta_twitter }} </td>
+			</tr>
+			<tr>
+				<th align="left">{% trans "Facebook:" %}</th>
+				<td>{{ profile.cta_facebook }} </td>
+			</tr>
+			<tr>
+				<th align="left">{% trans "Recibir información:" %}</th>
+				<td>{{ profile.informacion }} </td>
 			</tr>
 			{% endif %}
 			<tr>
