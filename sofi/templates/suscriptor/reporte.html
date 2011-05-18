@@ -5,54 +5,24 @@
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
     {% if suscriptores %}
-            <div id="reporte" align="center">
-                <label><h2>{% trans "Suscriptores" %}</h2></label>
+            <div id="reporte">
+                <p><h3>{% trans "Suscriptores" %}</h3></p>
                 <table>
                     <thead>
                         <tr>
                             <td>#</td>
-                            <td>{% trans "Nombre(s)" %}</td>
-                            <td>{% trans "Apellido(s)" %}</td>
-                            {% if user.is_authenticated %}
-                            <td>{% trans "C&#233dula" %}</td>
-                            <td>{% trans "Email" %}</td>
-                            {% endif %}
-                            <td>{% trans "Profesi&#243;n" %}</td>
-                            <td>{% trans "Instituci&#243;n" %}</td>
-                            <td>{% trans "Estado/Regi&#243;n" %}</td>
-                            <td>{% trans "Pa&#237;s" %}</td>
-                            {% if user.is_authenticated %}
-                            <td>{% trans "Patrocinio" %}</td>
-                            {% endif %}
+                            <td class="negrita">{% trans "Usuario" %}</td>
+                            <td class="negrita">{% trans "Organización" %}</td>
+                            <td class="negrita">{% trans "Nacionalidad" %}</td>
                         </tr>
                     </thead>
                     <tbody>
                         {% for suscriptor in suscriptores %}
                         <tr>
-                            <td>{{forloop.counter}}</td>
-                            <td>{{suscriptor.nombres|title}}</td>
-                            <td>{{suscriptor.apellidos|title}}</td>
-                            {% if user.is_authenticated %}
-                            <td>{{suscriptor.cedula}}</td>
-                            <td>{{suscriptor.email}}</td>
-                            {% endif %}
-                            <td>{{suscriptor.profesion}}</td>
-                            <td>{{suscriptor.institucion}}</td>
-                            <td>{{suscriptor.estado|upper}}</td>
-                            <td>{{suscriptor.pais|upper}}</td>
-                            {% if user.is_authenticated %}
-                            <td>
-                                {% if suscriptor.comida %}
-                                    <labe> C </labe>
-                                {% endif %}
-                                {% if suscriptor.transporte %}
-                                    <labe> T </labe>
-                                {% endif %}
-                                {% if suscriptor.hospedaje %}
-                                    <labe> H </labe>
-                                {% endif %}
-                            </td>
-                            {% endif %}
+                            <td class="negrita">{{forloop.counter}}</td>
+                            <td><a href="/profiles/{{suscriptor.suscriptor.user}}">{{suscriptor.suscriptor.user}}</a></td>
+                            <td>{{suscriptor.suscriptor.organizacion|title}}</td>
+                            <td>{{suscriptor.suscriptor.nacionalidad|upper}}</td>
                         </tr>
                         {% endfor %}
                     </tbody>
