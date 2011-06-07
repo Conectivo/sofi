@@ -37,22 +37,22 @@
 
 						<p class="links">
 							{% if evento.presentaciones %}
-								<a href="/detalle/{{evento.id}}/" title="{% trans "presentaciones" %}"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
+								<a id="presentaciones" name="{% trans "presentaciones" %}" href="/detalle/{{evento.id}}/"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
 							{% endif %}
 							{% if evento.suscripciones %}
 								{% if evento.fecha_ini.toordinal <= fecha_hoy.toordinal and evento.fecha_fin.toordinal >= fecha_hoy.toordinal%}
-									<a href="/suscriptor/registro/{{evento.id}}/" title="{% trans "suscribir" %}"><img src="{% media_url %}images/childish_Plus.png"/></a>
+									<a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/"><img src="{% media_url %}images/childish_Plus.png"/></a>
 								{% endif %}
-								<a href="/suscriptor/reporte/{{evento.id}}/" title="{% trans "suscriptores" %}"><img src="{% media_url %}images/childish_Archive.png"/></a>
+								<a id="suscriptores" name="{% trans "suscriptores" %}" href="/suscriptor/reporte/{{evento.id}}/"><img src="{% media_url %}images/childish_Archive.png"/></a>
                             {% endif %}
 							
 							
 							{% if evento.comentario %}
 								{% get_comment_count for evento as comment_count %}
 								{% if comment_count %}
-									<a href="/comentario/{{evento.id}}/" title="{% trans "comentarios" %}"><img src="{% media_url %}images/childish_Comments.png"/>({{ comment_count }})</a>
+									<a id="comentarios" name="{% trans "comentarios" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/>({{ comment_count }})</a>
 								{% else %}
-									<a href="/comentario/{{evento.id}}/" title="{% trans "dejar comentario" %}"><img src="{% media_url %}images/childish_Comments.png"/></a>
+									<a id="dejarcomentario" name="{% trans "dejar comentario" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/></a>
 								{% endif %}
 							{% endif %}
 						</p>
