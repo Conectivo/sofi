@@ -17,15 +17,57 @@
 <script type="text/javascript" src="{% media_url %}js/jquery.qtip-1.0.0-rc3.min.js"></script>
 
 <script type="text/javascript">
-$(document).ready(function() {
+$(document).ready(function(){
+        
+        tooltip_color = 'cream';
+        
+        presentaciones = $('#presentaciones').attr("name");
+        $('#presentaciones').qtip({
+           content: presentaciones,
+           style: { name: tooltip_color, tip: true },
+           
+        });
 
-    $('#inicio').qtip({
-       content: 'Inicio',
-       style: { name: 'blue', tip: true },
-    });
-    
-    $(mytooltip).qtip("show");
+        suscribir = $('#suscribir').attr("name");
+        $('#suscribir').qtip({
+           content: suscribir,
+           style: { name: tooltip_color, tip: true },
+        });
+
+        suscriptores = $('#suscriptores').attr("name");
+        $('#suscriptores').qtip({
+           content: suscriptores,
+           style: { name: tooltip_color, tip: true },
+        });
+
+        comentarios = $('#comentarios').attr("name");
+        $('#comentarios').qtip({
+           content: comentarios,
+           style: { name: tooltip_color, tip: true },
+        });
+
+        dejarcomentario = $('#dejarcomentario').attr("name");
+        $('#dejarcomentario').qtip({
+           content: dejarcomentario,
+           style: { name: tooltip_color, tip: true },
+        });
 });
+
+    function show_inicio(){
+        var msg = $('#inicio').html();
+        $('#inicio').qtip({
+           content: msg,
+           style: { name: 'red', tip: true },
+           show: { ready: false },
+            position: {
+               corner: {
+                  target: 'topRight',
+                  tooltip: 'bottomLeft'
+               }
+            }
+        });
+    }
+
 
 </script> 
 
