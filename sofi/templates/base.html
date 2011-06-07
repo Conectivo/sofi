@@ -13,7 +13,21 @@
 <link rel="shortcut icon" href="{% media_url %}images/sofi.ico" type="image/x-icon" />
 <link rel="icon" href="{% media_url %}images/sofi.ico" type="image/x-icon" />
 <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed/rss" />
-<script type="text/javascript" src="/site_media/js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{% media_url %}js/jquery-1.6.min.js"></script>
+<script type="text/javascript" src="{% media_url %}js/jquery.qtip-1.0.0-rc3.min.js"></script>
+
+<script type="text/javascript">
+$(document).ready(function() {
+
+    $('#inicio').qtip({
+       content: 'Inicio',
+       style: { name: 'blue', tip: true },
+    });
+    
+    $(mytooltip).qtip("show");
+});
+
+</script> 
 
 {% block extra_head %}
 {% endblock %}
