@@ -4,10 +4,19 @@ from django.db import models
 from tools.thumbs import ImageWithThumbsField
 from django.utils.translation import ugettext as _
 from django.contrib.auth.models import User
-from django.db.models import signals
-from django.dispatch import Signal
-from datetime import datetime
 from tools.constantes import SINO
+from django.db.models.signals import post_init
+
+USRUARIO = None
+
+class AdminFilter(models.Manager):
+    def get_query_set(self):
+        admin = super(AdminFilter, self).get_query_set()
+        
+        if USRUARIO.is_superuser:
+            return admin
+        else:
+            return admin.filter(admin=User.objects.get(username=USRUARIO))
 
 class Evento(models.Model):
     nombre = models.CharField(max_length=120)
@@ -28,7 +37,7 @@ class Evento(models.Model):
     fecha_fin = models.DateField(verbose_name=_(u'fecha final'))
     logo = ImageWithThumbsField(upload_to='evento/files', sizes=((180,150),))
     admin = models.ForeignKey(User)
-
+    permiso = AdminFilter()
     
     def __unicode__(self):
         return self.nombre
@@ -36,22 +45,12 @@ class Evento(models.Model):
     class Meta:
         ordering = ['-fecha_ini', '-fecha_fin']
 
-
-
+def get_user(sender, instance, *args, **kwargs):
+    global USRUARIO
+    USRUARIO = instance
+    
+post_init.connect(get_user, User)
     
      
-
-usuario = None
-
-def get_user(sender, instance, signal, * args, **kwargs):
-    global usuario
-    usuario = instance
-
-def guardar(sender, instance, signal, * args, **kwargs):
-    instance.fecha = datetime.now()
-    instance.admin = usuario
-    
-signals.post_init.connect(get_user, User)    
-signals.pre_save.connect(guardar, Evento)
 
 
