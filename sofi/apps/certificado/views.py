@@ -17,24 +17,30 @@ def descargar(request, evento, key, encuesta=None):
     if suscriptor and suscriptor.otorgar:
         if suscriptor.certificado.evento.id == int(evento):
             gen_certificado = Certificado()
-            url = suscriptor.certificado.imagen_de_fondo.path
+            url = suscriptor.certificado.imagen_de_fondo_delantera.path
+            
+            if suscriptor.certificado.imagen_de_fondo_delantera.path:
+                url1 = suscriptor.certificado.imagen_de_fondo_tracera.path
+            else:
+                url1 = None
+            
             nombre_suscriptor = suscriptor.suscriptor.nombre_completo()
             
-            ancho_certificado = suscriptor.certificado.imagen_de_fondo.width / 2
+            ancho_certificado = suscriptor.certificado.imagen_de_fondo_delantera.width / 2
             ancho_nombre = (len(nombre_suscriptor) * 22 ) / 2
             posicion_x_nombre = ancho_certificado - ancho_nombre
             posicion_nombre = posicion_x_nombre, suscriptor.certificado.posicion_y_nombre
             
             posicion_key = suscriptor.certificado.posicion_x_key, suscriptor.certificado.posicion_y_key
             
-            cedula_id = "ID: %s" % str(suscriptor.suscriptor.cedula)
+            cedula_id = "ID: %s" % str(suscriptor.suscriptor.suscriptor.cedula)
             ancho_cedula_id = (len(cedula_id) * 14 ) / 2
             posicion_x_cedula_id = ancho_certificado - ancho_cedula_id
-            posicion_cedula_id = posicion_x_cedula_id, suscriptor.certificado.posicion_y_nombre + 44
+            posicion_cedula_id = posicion_x_cedula_id, suscriptor.certificado.posicion_y_nombre - 44
             
             key = suscriptor.key
             tematica = suscriptor.certificado.tematica
-            pdf = gen_certificado.generar(url, nombre_suscriptor, posicion_nombre, cedula_id, posicion_cedula_id, key, posicion_key, tematica)
+            pdf = gen_certificado.generar(url, url1,nombre_suscriptor, posicion_nombre, cedula_id, posicion_cedula_id, key, posicion_key, tematica)
             response = HttpResponse(mimetype='application/pdf')
             response['Content-Disposition'] = ('attachment; filename=%s.pdf' % key)
             response.write(pdf)
