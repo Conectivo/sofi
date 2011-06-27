@@ -9,7 +9,7 @@ from tools import email as email_tools
 from tools.constantes import SINO
 from django.contrib.sites.models import Site
 from django.utils.translation import ugettext as _
-
+from datetime import datetime
 
 class Certificado(models.Model):
     imagen_de_fondo_delantera = models.ImageField(upload_to='certificado/files', verbose_name=_(u'Imagen delantera'))
@@ -35,7 +35,7 @@ class Certificado(models.Model):
         
         for i in lista_suscritos:
             suscriptor = i
-            key = md5("%s%s" % (i.nombre_completo().encode("ascii", "replace"), str(random.randrange(1000, 1000000000)))).hexdigest()
+            key = md5("%s%s%s%s" % (i.nombre_completo().encode("ascii", "replace"), str(random.randrange(1000, 1000000000)), self.evento.nombre.encode("ascii", "replace"), datetime.now().isoformat())).hexdigest()
             certificado = self
             
             # exception para determinar si ya fue generado el CertificadoSuscriptor

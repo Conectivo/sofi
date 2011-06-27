@@ -16,11 +16,6 @@
             padding-top: 10px;
         }
         
-        #instruccion {
-            width: 800px;
-            text-align: left;
-        }
-
     </style>
     
     <script type="text/javascript">
@@ -42,33 +37,27 @@
 
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
-    <center>
-        <div id="instruccion">
-            <h2  style="text-align: center;">Encuesta</h2>
-            <br/>
-            El presente instrumento tiene por objeto evaluar la experiencia del evento denominado “{{evento}}”.
-            <br/>
-            <br/>
-            El mismo abarca la evaluación desde 4 aspectos considerados significativos en la proyección de futuros encuentros:
-            1. Contenidos; 2. Interacción; 3. Información y 4. recursos técnicos utilizados en el desarrollo del evento.
-            <br/>
-            <br/>
-            A tales efectos, le agradecemos seleccionar la casilla del indicador que, en su criterio, evalúe apropiadamente cada consideración expuesta. Agradecemos de antemano su participación y colaboración mediante sus respuestas al presente.
-            <br/>
-            <br/>
+
+        <div id="instruccion" class="post">
+            
+            <div class="title">
+                <pre>{{ descripcion }}</pre>
+            </div>
+
         </div>
         <br/>
         <div id="encuesta">
-            <form method="post" action=".">
+            <form method="post" action=".">{% csrf_token %}
                 <table>
-                    {{form.as_table}}    
+                    {{form.as_table}}
                 </table>
                 <br/>
-                <input name="guardar" id="guardar" type="submit" value="Descargar certificado"/>
+                <input type="hidden" name="key" id="id_key" value="{{key}}">
+                <input name="guardar" id="guardar" type="submit" value="{% trans "Descargar certificado" %}"/>
             </form>
         </div>
         <div id="decargar">
-            <h2>Gracias, descargando certificado...</h2>
+            <h3>{% trans "Gracias, descargando certificado..." %}</h3>
         </div>
-    </center>
+
 {% endblock %}

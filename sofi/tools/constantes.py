@@ -6,6 +6,13 @@ SINO = (
     (False, _('No'))
 )
 
+MSPN = (
+    (1, _('Mucho')),
+    (2, _('Suficiente')),
+    (3, _('Poco')),
+    (4, _('Nada')),
+)
+
 NACIONALIDAD = ((u'Afganist\xe1n', u'Afganist\xe1n'),
  ('Albania', 'Albania'),
  ('Alemania', 'Alemania'),
