@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 from encuesta.models import Encuesta, Items
 from django.contrib import admin
 from evento.models import Evento
@@ -8,7 +10,7 @@ class ItemsInline(admin.TabularInline):
 
 
 class EncuestaAdmin(admin.ModelAdmin):
-    list_display = ('nombre', 'evento')
+    list_display = ('descripcion', 'evento')
     list_filter = ('evento',)
     #search_fields = ('^suscriptor__nombres', '^suscriptor__apellidos')
 
