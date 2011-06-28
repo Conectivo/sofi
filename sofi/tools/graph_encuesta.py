@@ -8,6 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from encuesta.models import Encuesta
 import os.path
+from django.utils.translation import ugettext as _
 
 RUTA = os.path.join(os.path.dirname(__file__))
 
@@ -24,17 +25,17 @@ def generar_encuesta(evento_id, evento_nombre, items, mucho, suficiente, poco, n
     rects3 = ax.bar(ind+width*2, poco, width, color='#e85e00', linewidth=0.1)
     rects4 = ax.bar(ind+width*3, nada, width, color='#770000', linewidth=0.1)
     
-    ax.set_ylabel('Encuestados')
-    ax.set_title('Encuesta %s' % (evento_nombre))
+    ax.set_ylabel(_('Encuestados'))
+    ax.set_title(evento_nombre)
     ax.set_xticks(ind+width)
     
     ax.set_yticks((0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100))
     ax.set_yticklabels(('0%', '10%', '20%', '30%', '40%', '50%', '60%', '70%', '80%', '90%', '100%'))
     
     ax.set_xticklabels( items )
-    ax.legend( (rects1[0], rects2[0], rects3[0], rects4[0]), ('Mucho', 'Suficiente', 'Poco', 'Nada') )
+    ax.legend( (rects1[0], rects2[0], rects3[0], rects4[0]), (_('Mucho'), _('Suficiente'), _('Poco'), _('Nada')) )
     
-    plt.savefig('%s/../site_media/encuesta/files/%s.png' % (RUTA, evento_id), dpi=50)
+    plt.savefig('%s/../site_media/encuesta/files/%s.png' % (RUTA, evento_id), dpi=60)
     
     return '/site_media/encuesta/files/%s.png' % (evento_id)
 
