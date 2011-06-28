@@ -7,8 +7,9 @@ from encuesta.models import Encuesta ,Votacion, Items
 from datetime import datetime
 from django.template import RequestContext
 from django.db import transaction
+from django.contrib.auth.decorators import login_required
 
-
+@login_required
 def realizar(request, evento, key):
     
     try:
@@ -95,11 +96,11 @@ def reporte(request, evento):
         
         url = tools.graph_encuesta.generar_encuesta(evento.id, evento.nombre, list_items, mucho, suficiente, poco, nada)
         
-        items = ""
+        #items = ""
+        #
+        #for i in items_encuesta:
+        #    items += i.nombre + "\n\n"
         
-        for i in items_encuesta:
-            items += i.nombre + "\n\n"
-        
-        return render_to_response('encuesta/reporte.html', {'evento': evento, 'items': items, 'grafico': url}, context_instance=RequestContext(request))
+        return render_to_response('encuesta/reporte.html', {'evento': evento, 'items': items_encuesta, 'grafico': url, 'descripcion': encuesta.descripcion}, context_instance=RequestContext(request))
     else:
         raise Http404

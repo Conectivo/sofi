@@ -4,20 +4,20 @@
 
 {% block body %}
     {% include "evento/encabezado_evento.html" %}
-    <center>
-        <div id="grafico">
-            <h2  style="text-align: center;">{% trans "Encuesta" %}</h2>
-            <table>
-                <tr>
-                    <td style="white-space:pre; font-size: 08pt;">
-{{ items|wordwrap:"95" }}
-                    </td>
-                    <td>
-                        <img src="{{ grafico }}" alt="{{ grafico }}" />
-                    </td>
-                </tr>
-            </table>
-        </div>
-        
-    </center>
+    
+    
+    <div class="post">
+        <h2>{% trans "Encuesta" %}</h2>
+        <p>
+            <pre>{{ descripcion }}</pre>
+        </p>
+        <p>
+            {% for item in items %}
+                
+                {{ forloop.counter }} - {{ item.nombre }}
+                <br/>
+            {% endfor %}
+        </p>
+        <img src="{{ grafico }}" alt="{{ grafico }}" />
+    </div>
 {% endblock %}
