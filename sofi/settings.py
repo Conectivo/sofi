@@ -141,6 +141,7 @@ INSTALLED_APPS = (
     'encuesta',
     'comentario',
     'organizador',
+    'patrocinador',
 )
 
 # A sample logging configuration. The only tangible logging
