@@ -1,0 +1,16 @@
+{% load i18n %}			
+            {% if mis_tareas %}
+            <ul>
+                
+                {% for tarea in mis_tareas %}	
+                <li><a href="/detalle/{{ tarea.evento.id }}" title="{% trans "desde el " %} {{ tarea.evento.fecha_ini }} {% trans " al " %} {{ tarea.evento.fecha_fin }}">{{ tarea.evento.nombre }}</a></li>
+					{% for tareas in tarea.tarea_set.all %}
+						<ul>
+							<li>{{ tareas.porcentaje }}% - <a href="/organizador/{{ tareas.id }}" title="{% trans "Actualizar % de ejecución" %}">{{ tareas.descripcion.title }}</a></li>
+						</ul>
+					{% endfor %}
+				{% endfor %}
+			</ul>
+            {% else %}
+                <p>{% trans "Usted no tiene tareas para ningún evento" %}</p>
+            {% endif %}
