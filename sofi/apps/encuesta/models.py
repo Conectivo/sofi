@@ -9,19 +9,19 @@ from certificado.models import CertificadoSuscriptor
 from tools.constantes import MSPN
 
 class Encuesta(models.Model):
-    descripcion = models.TextField()
-    evento = models.ForeignKey(Evento)
+    descripcion = models.TextField(verbose_name=_(u'descripción'))
+    evento = models.ForeignKey(Evento, verbose_name=_(u'evento'))
     
     def __unicode__(self):
         return self.descripcion
     
 class Items(models.Model):
-    nombre = models.CharField(max_length=200)
-    encuesta = models.ForeignKey(Encuesta)
+    nombre = models.CharField(max_length=200, verbose_name=_(u'nombre'))
+    encuesta = models.ForeignKey(Encuesta, verbose_name=_(u'encuesta'))
 
 class Votacion(models.Model):
-    fecha = models.DateField()
-    respuesta = models.IntegerField(choices=MSPN)
-    item = models.ForeignKey(Items)
-    key = models.ForeignKey(CertificadoSuscriptor)
+    fecha = models.DateField(verbose_name=_(u'fecha'))
+    respuesta = models.IntegerField(choices=MSPN, verbose_name=_(u'respuesta'))
+    item = models.ForeignKey(Items, verbose_name=_(u'item'))
+    key = models.ForeignKey(CertificadoSuscriptor, verbose_name=_(u'key'))
     
