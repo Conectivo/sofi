@@ -12,6 +12,11 @@
 				<li><a href="/profiles/edit/">{% trans "Ver perfil" %}</a></li>
 				<li><a href="/accounts/password/change/">{% trans "Cambiar contraseña" %}</a></li>
 				<li><a href="/suscriptor/mis_suscripciones/">{% trans "Mis suscripciones" %}</a></li>
+			
+				{% if user.userprofile_set.get.organizador_set.all %}
+					<li><a href="/organizador/mis_tareas/">{% trans "Mis tareas"%}</a></li>
+				{% endif %}
+			
 				{% if user.is_staff %}
 				<li><a href="/admin/">{% trans "Panel de administración" %}</a></li>
 				{% endif %}

@@ -32,6 +32,7 @@ urlpatterns = patterns('',
     (r'^accounts/profile/$', redirect_to, {'url': '/'}),
     (r'^accounts/', include('registration.urls')),
     (r'^profiles/', include('profiles.urls')),
+    (r'^organizador/', include('organizador.urls')),
 )
 
 if settings.DEBUG:
