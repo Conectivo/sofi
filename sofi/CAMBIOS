@@ -4,6 +4,11 @@
     - Agregada internacionalización
     - Agregado módulo para registros de usuarios en el site
     - Mejorado la suscripción de usuarios a eventos
+    - Modificada las encuestas a encuestas dinámicas.
+    - Agregado módulo de patrocinadores
+    - Agregado módulo de organizadores
+    - Modificado certificado digital, agregado arte para la parte trasera
+    - Agregada funcionalidad para que solo los usuarios puedan modificar sus eventos.
     
     - Sofi Virtual Environment
         Django==1.3
