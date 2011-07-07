@@ -33,6 +33,16 @@
 							Fecha:
 							<br>
 							desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}</p>
+				            {% if evento.patrocinador_set.all %}
+							<div>
+								<p>{% trans "Patrocinadores:" %}</p>
+								{% for patrocinador in  evento.patrocinador_set.all %}
+								    &nbsp;
+									<a href="{{ patrocinador.url }}" title="{{ patrocinador.nombre }}"><img alt="{{ patrocinador.nombre }}" src="{{ patrocinador.logo.url_100x64 }}"/></>
+								{% endfor %}
+							</div>
+							<br>
+							{% endif %}
 						</div>
 
 						<p class="links">
