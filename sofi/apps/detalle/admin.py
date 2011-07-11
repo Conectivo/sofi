@@ -8,12 +8,13 @@ class PonenteAdmin(admin.ModelAdmin):
     
     #Filtra todos los FK pertenecientes al creador del evento
     def formfield_for_foreignkey(self, db_field, request, **kwargs):
-
+    
         if not request.user.is_superuser:
-
-            if db_field.name == "evento":
-                kwargs["queryset"] = Evento.objects.filter(admin=request.user)
-
+    
+            if db_field.name == "presentacion":
+                #kwargs["queryset"] = Evento.objects.filter(admin=request.user)
+                kwargs["queryset"] = Presentacion.objects.filter(evento__admin=request.user)
+    
         return super(PonenteAdmin, self).formfield_for_foreignkey(db_field, request, **kwargs)
 
     #Filtra la lista de encuestas pertenecientes al creador 
@@ -23,7 +24,7 @@ class PonenteAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             return qs
         
-        return qs.filter(evento__admin=request.user)        
+        return qs.filter(presentacion__evento__admin=request.user)
 
     
 admin.site.register(Ponente, PonenteAdmin)
