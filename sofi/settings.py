@@ -142,6 +142,7 @@ INSTALLED_APPS = (
     'comentario',
     'organizador',
     'patrocinador',
+    'notificaciones',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -172,8 +173,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = ''
-EMAIL_HOST_USER = ''
+DEFAULT_FROM_EMAIL = 'olivaresa@cenditel.gob.ve'
+EMAIL_HOST_USER = 'aolivares'
 
 # Theme site directory, default THEME = 'mrtechie_1'
 THEME = 'mrtechie_1'

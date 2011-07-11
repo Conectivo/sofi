@@ -1,6 +1,14 @@
 # -*- coding: utf-8 -*-
 from django.utils.translation import ugettext as _
 
+DIAS_ANTI = (
+    (5,5),
+    (4,4),
+    (3,3),
+    (2,2),
+    (1,1),
+)
+
 PORCENTAJE = (
     (0, 0),
     (10, 10),
