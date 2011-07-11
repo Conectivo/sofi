@@ -28,10 +28,11 @@ class UserProfile(models.Model):
         pass
     
     def __unicode__(self):
-            return unicode("%s" % self.user.username)
+        #return unicode("%s" % self.user.username)
+        return unicode("%s %s" % (self.nombre, self.apellido))
     
-    def nombre_completo(self):
-        return "%s %s" % (self.nombre.title(), self.apellido.title())
+    #def nombre_completo(self):
+    #    return "%s %s" % (self.nombre.title(), self.apellido.title())
 
     class Meta:
         verbose_name = _(u'Perfil')
