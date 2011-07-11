@@ -9,6 +9,7 @@
     - Agregado módulo de organizadores
     - Modificado certificado digital, agregado arte para la parte trasera
     - Agregada funcionalidad para que solo los usuarios puedan modificar sus eventos.
+    - Agregado módulo para notificaciones a organizadores, ponentes y suscriptores.
     
     - Sofi Virtual Environment
         Django==1.3
