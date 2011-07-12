@@ -36,7 +36,7 @@
 							{% trans "desde" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</p>
                             {% if evento.media_video %}
 							    <br>
-                                {% oembed %}
+                                {% oembed 320x240 %}
                                     {{ evento.media_video }}
                                 {% endoembed %}
                             {% endif %}
