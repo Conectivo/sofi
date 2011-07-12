@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'profiles',
     'registration',
     'oembed',
+    'google_analytics',
     'configuracion',
     'evento',
     'detalle',
