@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 {% load i18n %}
+{% load oembed_tags %}
+{% load oembed_slideshare %}
 {% block head_title %}{% trans "Detalle" %}{% endblock %}
 
 {% block body %}
@@ -55,6 +57,25 @@
                             <td class="negrita margen_izquierdo">{% trans "Descargar" %}</td>
                             <td class="margen_izquierdo">
                                 <a href="{{presentacion.archivo.url}}"><img src="/site_media/images/down.png" alt="Descargar"/></a>
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% if presentacion.media_slideshare %}
+                        <tr>
+                            <td class="negrita margen_izquierdo">{% trans "Presentación" %}</td>
+                            <td class="margen_izquierdo">
+                                {% trans "Presentación" %}
+                                {% slideshare presentacion.media_slideshare %}
+                            </td>
+                        </tr>
+                        {% endif %}
+                        {% if presentacion.media_video %}
+                        <tr>
+                            <td class="negrita margen_izquierdo">{% trans "Video" %}</td>
+                            <td class="margen_izquierdo">
+                                {% oembed %}
+                                    {{ presentacion.media_video }}
+                                {% endoembed %}
                             </td>
                         </tr>
                         {% endif %}
