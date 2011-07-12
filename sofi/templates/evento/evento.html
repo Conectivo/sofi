@@ -3,6 +3,7 @@
 {% load smart_if %}
 {% load comments i18n %}
 {% load app %}
+{% load oembed_tags %}
 
 {% block head_title %}{% trans "Evento" %}{% endblock %}
 
@@ -25,14 +26,20 @@
 							<p>{{ evento.resumen|wordwrap:"95" }}
 							{% if evento.lugar %}
 							<br>
-							Lugar:
+							{% trans "Lugar:" %}
 							<br>
 							{{ evento.lugar|wordwrap:"95" }}
 							{% endif %}
 							<br>
-							Fecha:
+							{% trans "Fecha:" %}
 							<br>
-							desde {{ evento.fecha_ini|date:"d/m/Y" }} al {{ evento.fecha_fin|date:"d/m/Y" }}</p>
+							{% trans "desde" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</p>
+                            {% if evento.media_video %}
+							    <br>
+                                {% oembed %}
+                                    {{ evento.media_video }}
+                                {% endoembed %}
+                            {% endif %}
 				            {% if evento.patrocinador_set.all %}
 							<div>
 								<p>{% trans "Patrocinadores:" %}</p>

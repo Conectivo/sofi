@@ -26,6 +26,7 @@ class Evento(models.Model):
     fecha_ini = models.DateField(verbose_name=_(u'fecha inicial'))
     fecha_fin = models.DateField(verbose_name=_(u'fecha final'))
     logo = ImageWithThumbsField(upload_to='evento/files', sizes=((180,150),))
+    media_video = models.URLField(blank=True, verbose_name=_(u'Vídeo'))
     admin = models.ForeignKey(User)
 
     
