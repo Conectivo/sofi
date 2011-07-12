@@ -133,6 +133,8 @@ INSTALLED_APPS = (
     #'django_extensions',
     'profiles',
     'registration',
+    'oembed',
+    'oembed_slideshare',
     'configuracion',
     'evento',
     'detalle',

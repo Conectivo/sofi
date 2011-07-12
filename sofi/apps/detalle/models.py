@@ -15,6 +15,8 @@ class Presentacion(models.Model):
     url = models.URLField(blank=True, verify_exists=False)
     evento = models.ForeignKey(Evento, verbose_name=_(u'evento'))
     archivo = models.FileField(upload_to='detalle/files', blank=True, verbose_name=_(u'archivo'))
+    media_slideshare = models.URLField(blank=True, verbose_name=_(u'Presentación SlideShare.net'))
+    media_video = models.URLField(blank=True, verbose_name=_(u'Vídeo'))
     
     def ponente(self):
         return  self.ponente_set.get()
