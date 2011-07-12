@@ -10,14 +10,17 @@
     - Modificado certificado digital, agregado arte para la parte trasera
     - Agregada funcionalidad para que solo los usuarios puedan modificar sus eventos.
     - Agregado módulo para notificaciones a organizadores, ponentes y suscriptores.
+    - Agregada opciones para multimedia, videos (youtube, vimeo, ...), presentaciones (slideshare.net)
+    - Agregada estadísticas de google analytics para el site
     
     - Sofi Virtual Environment
         Django==1.3
         PIL==1.1.7
         distribute==0.6.10
+        django-google-analytics==1
+        django-oembed==0.1.3
         django-profiles==0.2
         django-registration==0.7
-        ipython==0.10.2
         matplotlib==1.0.0
         numpy==1.5.1
         reportlab==2.5
