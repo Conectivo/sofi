@@ -134,7 +134,6 @@ INSTALLED_APPS = (
     'profiles',
     'registration',
     'oembed',
-    'oembed_slideshare',
     'configuracion',
     'evento',
     'detalle',
