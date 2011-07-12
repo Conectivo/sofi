@@ -1,7 +1,6 @@
 {% extends "base.html" %}
 {% load i18n %}
 {% load oembed_tags %}
-{% load oembed_slideshare %}
 {% block head_title %}{% trans "Detalle" %}{% endblock %}
 
 {% block body %}
@@ -64,8 +63,10 @@
                         <tr>
                             <td class="negrita margen_izquierdo">{% trans "Presentación" %}</td>
                             <td class="margen_izquierdo">
-                                {% trans "Presentación" %}
-                                {% slideshare presentacion.media_slideshare %}
+                                {% oembed 320x240 %}
+                                    {{ presentacion.media_slideshare }}
+                                {% endoembed %}
+
                             </td>
                         </tr>
                         {% endif %}
@@ -73,7 +74,7 @@
                         <tr>
                             <td class="negrita margen_izquierdo">{% trans "Video" %}</td>
                             <td class="margen_izquierdo">
-                                {% oembed %}
+                                {% oembed 320x240 %}
                                     {{ presentacion.media_video }}
                                 {% endoembed %}
                             </td>
