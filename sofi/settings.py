@@ -175,8 +175,8 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
-DEFAULT_FROM_EMAIL = 'olivaresa@cenditel.gob.ve'
-EMAIL_HOST_USER = 'aolivares'
+DEFAULT_FROM_EMAIL = 'email@gmail.com'
+EMAIL_HOST_USER = 'username'
 
 # Theme site directory, default THEME = 'mrtechie_1'
 THEME = 'mrtechie_1'
@@ -187,3 +187,4 @@ AUTH_PROFILE_MODULE = "suscriptor.UserProfile"
 
 # Cantidad de eventos a mostrar para empezar la paginación
 EVENTOS_PAG = 6
+
