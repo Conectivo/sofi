@@ -5,9 +5,6 @@
 
 {% block extra_head%}
         <style type="text/css">
-            p {
-                width: 200px;
-            }
             
             form {
                 background-color: #f5f5f5;
@@ -35,15 +32,15 @@
 
 {% block body %}
 
-<div id="id" align="center">
-  <h2  style="text-align: center;">{% trans "Comentario" %}</h2>
+<div id="id">
+  <h3>{% trans "Comentario" %}</h3>
   <br />
   <form action="{% comment_form_target %}" method="post">{% csrf_token %}
     {% if next %}<input type="hidden" name="next" value="{{ next }}" />{% endif %}
     {% if form.errors %}
-    <h1>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h1>
+    <h3>{% blocktrans count form.errors|length as counter %}Please correct the error below{% plural %}Please correct the errors below{% endblocktrans %}</h3>
     {% else %}
-    <h1>{% trans "Preview your comment" %}</h1>
+    <h3>{% trans "Preview your comment" %}</h3>
       <blockquote>{{ comment|linebreaks }}</blockquote>
       <p> 
       {% trans "and" %} <input type="submit" name="submit" class="submit-post" value="{% trans "Post your comment" %}" id="submit" /> {% trans "or make changes" %}:
@@ -57,7 +54,9 @@
         <p
           {% if field.errors %} class="error"{% endif %}
           {% ifequal field.name "honeypot" %} style="display:none;"{% endifequal %}>
-          {{ field.label_tag }} {{ field }}
+          {{ field.label_tag }}
+          <br>
+          {{ field }}
         </p>
       {% endif %}
     {% endfor %}
