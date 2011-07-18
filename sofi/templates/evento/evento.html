@@ -68,9 +68,8 @@
 							{% endif %}
 							
 							{% if evento.comentario %}
-								{% get_comment_count for evento as comment_count %}
-								{% if comment_count %}
-									<a id="comentarios" name="{% trans "comentarios" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/>({{ comment_count }})</a>
+								{% if evento.comment_set.count %}
+									<a id="comentarios" name="{% trans "comentarios" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/>({{ evento.comment_set.count }})</a>
 								{% else %}
 									<a id="dejarcomentario" name="{% trans "dejar comentario" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/></a>
 								{% endif %}
