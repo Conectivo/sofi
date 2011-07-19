@@ -46,6 +46,12 @@ Para realizar pruebas y/o desarrollo puede ejecutarlo de la siguiente manera:
         cd sofi
     * Crear la base de datos y usuario de administración
         python manage.py syncdb
+        
+        Se creará un usuario para la administración del sistema:
+            usuario: admin
+            clave: admin
+        Se recomienda cambiar la clave inmediatamente.
+
     * Ejecutar la aplicación
         python manage.py runserver
     * Desde un browser
