@@ -57,9 +57,14 @@
 								<a id="presentaciones" name="{% trans "presentaciones" %}" href="/detalle/{{evento.id}}/"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
 							{% endif %}
 							{% if evento.suscripciones %}
-								{% if evento.fecha_ini.toordinal <= fecha_hoy.toordinal and evento.fecha_fin.toordinal >= fecha_hoy.toordinal%}
+								{% if fecha_hoy.toordinal < evento.fecha_ini.toordinal %}
 									<a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/"><img src="{% media_url %}images/childish_Plus.png"/></a>
+								{% else %}
+								    {% if evento.suscripcionesd and fecha_hoy.toordinal >= evento.fecha_ini.toordinal and fecha_hoy.toordinal <= evento.fecha_fin.toordinal %}
+									    <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/"><img src="{% media_url %}images/childish_Plus.png"/></a>
+								    {% endif %}
 								{% endif %}
+								
 								<a id="suscriptores" name="{% trans "suscriptores" %}" href="/suscriptor/reporte/{{evento.id}}/"><img src="{% media_url %}images/childish_Archive.png"/></a>
                             {% endif %}
 							

@@ -20,6 +20,7 @@ class Evento(models.Model):
     publicar_tf = models.BooleanField(choices=SINO, verbose_name=_(u'publicar en redes sociales'))
     presentaciones = models.BooleanField(choices=SINO, verbose_name=_(u'presentaciones'))
     suscripciones = models.BooleanField(choices=SINO, verbose_name=_(u'suscripciones'))
+    suscripcionesd = models.BooleanField(choices=SINO, verbose_name=_(u'suscripciones durante el evento'))
     publicar = models.BooleanField(choices=SINO, verbose_name=_(u'publicar'))
     comentario = models.BooleanField(default=True, verbose_name=_(u'comentarios'))
     fecha = models.DateField(verbose_name=_(u'fecha publicación'))
