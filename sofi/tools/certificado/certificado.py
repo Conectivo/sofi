@@ -16,8 +16,8 @@ RUTA = os.path.join(os.path.dirname(__file__))
 class Certificado():
     def __init__(self):
         self.directorio = False
-        pdfmetrics.registerFont(TTFont('DejaVuSans', 'tools/certificado/font/DejaVuSans.ttf'))
-        pdfmetrics.registerFont(TTFont('DejaVuSans-Bold', 'tools/certificado/font/DejaVuSans-Bold.ttf'))
+        pdfmetrics.registerFont(TTFont('DejaVuSans', RUTA + '/font/DejaVuSans.ttf'))
+        pdfmetrics.registerFont(TTFont('DejaVuSans-Bold', RUTA + '/font/DejaVuSans-Bold.ttf'))
         addMapping('DejaVuSans', 0, 0, 'DejaVuSans')
         addMapping('DejaVuSans-Bold', 0, 0, 'DejaVuSans-Bold')
 

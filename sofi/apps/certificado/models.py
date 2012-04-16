@@ -27,7 +27,7 @@ class Certificado(models.Model):
         
 
     def __unicode__(self):
-        return "Certificado - %s" % self.evento
+        return "Certificado - %s" % self.evento.nombre
 
     def __agregaCertificadoSuscriptor(self):
         lista_suscritos = Suscriptor.objects.filter(evento=self.evento)
