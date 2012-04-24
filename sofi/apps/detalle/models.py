@@ -19,7 +19,10 @@ class Presentacion(models.Model):
     media_video = models.URLField(blank=True, verbose_name=_(u'Vídeo'))
     
     def ponente(self):
-        return  self.ponente_set.get()
+        nombre_ponente = ""
+        for i in self.ponente_set.all():
+            nombre_ponente += i.suscriptor.nombre_completo() + ", "
+        return nombre_ponente
     
     def __unicode__(self):
         return self.titulo
