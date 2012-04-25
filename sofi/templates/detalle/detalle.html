@@ -20,6 +20,10 @@
                         <tr id="titulo">
                             <td colspan="2"><h3>{{presentacion.titulo}}</h3></td>
                         </tr>
+                        <tr id="tipo">
+                            <td class="negrita margen_izquierdo">{% trans "Tipo" %}</td>
+                            <td class="margen_izquierdo">{{presentacion.tipo}}
+                        </tr>
                         {% if presentacion.descripcion %}
                         <tr>
                             <td class="negrita margen_izquierdo">{% trans "Descripci&#243;n" %}</td>
