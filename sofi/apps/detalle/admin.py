@@ -1,4 +1,4 @@
-from detalle.models import Presentacion, Ponente
+from detalle.models import Presentacion, Ponente, TipoPresentacion
 from django.contrib import admin
 
 class PonenteAdmin(admin.ModelAdmin):
@@ -54,3 +54,11 @@ class PresentacionAdmin(admin.ModelAdmin):
         return qs.filter(evento__admin=request.user)        
 
 admin.site.register(Presentacion, PresentacionAdmin)
+
+
+class TipoPresentacionAdmin(admin.ModelAdmin):
+    list_display = ('tipo',)
+    search_fields = ('tipo',)
+    list_filter = ['tipo']
+
+admin.site.register(TipoPresentacion, TipoPresentacionAdmin)

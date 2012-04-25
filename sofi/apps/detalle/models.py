@@ -6,8 +6,21 @@ from tools.thumbs import ImageWithThumbsField
 from django.utils.translation import ugettext as _
 from suscriptor.models import UserProfile
 
+class TipoPresentacion(models.Model):
+    tipo = models.CharField(max_length=50, verbose_name=_(u'tipo de presentación'))
+
+    def __unicode__(self):
+        return self.tipo
+    
+    class Meta:
+        ordering = ['tipo']
+        verbose_name = _(u'Tipo de Presentación')
+        verbose_name_plural = _(u'Tipo de Presentaciones')
+
+
 class Presentacion(models.Model):
     titulo = models.CharField(max_length=120, verbose_name=_(u'título'))
+    tipo = models.ForeignKey(TipoPresentacion, verbose_name=_(u'tipo de presentación'))
     descripcion = models.TextField(blank=True, verbose_name=_(u'descripción'))
     lugar = models.TextField(blank=True, verbose_name=_(u'lugar'))
     fecha = models.DateField(verbose_name=_(u'fecha'))
