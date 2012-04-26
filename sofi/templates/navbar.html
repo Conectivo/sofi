@@ -1,0 +1,26 @@
+{% load i18n %}
+
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="brand" href="#">Sofi</a> <!-- Nombre corto (slug) -->
+            <ul class="nav">
+                {% if user.is_authenticated %}
+                <li><a href="/profiles/edit">{% trans "Perfil" %}</a></li>
+                <li><a href="/suscriptor/mis_suscripciones/">{% trans "Mis suscripciones" %}</a></li>
+                {% if user.userprofile_set.get.organizador_set.all %}
+                <li><a href="/organizador/mis_tareas/">{% trans "Mis tareas"%}</a></li>
+                {% endif %}
+                {% if user.is_staff %}
+                <li><a href="/admin/">{% trans "Panel de administración" %}</a></li>
+                {% endif %}
+                <li><a href="/accounts/logout/">{% trans "Salir" %}</a></li>
+                {% else %}
+                <li><a href="/accounts/login/">{% trans "Entrar" %}</a></li>
+                <li><a href="/accounts/register/">{% trans "Crear cuenta" %}</a></li>
+                <li><a href="/accounts/password/reset/">{% trans "Recuperar contraseña" %}</a></li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</div>
