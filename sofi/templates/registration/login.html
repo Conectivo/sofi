@@ -1,10 +1,32 @@
-{% extends "base.html" %}
+{% extends "login.html" %}
 {% load i18n %}
-{% block head_title %}{% trans "Entrar al sistema" %}{% endblock %}
+{% block head_title %}{% trans "Sofi :: Iniciar sesión" %}{% endblock %}
 
 {% block body %}
-<h3>{% trans "Entrar al sistema" %}</h3>
-<p>{% trans "Para suscribirse a un evento debe ingresar su usuario y contraseña"%}</p>
+<h1>Sofi</h1>
+
+<form action="." method="post" id="login-form" class="well">
+    {% csrf_token %}
+    <div class="form-row">
+        {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
+        <label for="id_username" class="required">{% trans 'Username:' %}</label> {{ form.username }}
+    </div>
+    <div class="form-row">
+        {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
+        <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
+        <input type="hidden" name="this_is_the_login_form" value="1" />
+        <input type="hidden" name="next" value="{{ next }}" />
+    </div>
+    <div class="submit-row">
+        <label>&nbsp;</label><input type="submit" value="{% trans "Entrar" %}" class="btn btn-primary" />
+    </div>
+    <div id="forgot"><a href="/accounts/password/reset/">{% trans "Recuperar contraseña" %}</a></div>
+</form>
+
+
+
+
+
 {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
 <p class="errornote">
 {% blocktrans count form.errors.items|length as counter %}Please correct the error below.{% plural %}Please correct the errors below.{% endblocktrans %}
@@ -19,24 +41,7 @@
 {% endfor %}
 {% endif %}
 
-<div id="content-main">
-<form action="." method="post" id="login-form">{% csrf_token %}
-  <div class="form-row">
-    {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %}
-    <label for="id_username" class="required">{% trans 'Username:' %}</label> {{ form.username }}
-  </div>
-  <div class="form-row">
-    {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %}
-    <label for="id_password" class="required">{% trans 'Password:' %}</label> {{ form.password }}
-    <input type="hidden" name="this_is_the_login_form" value="1" />
-    <input type="hidden" name="next" value="{{ next }}" />
-  </div>
-  <div class="submit-row">
-    <label>&nbsp;</label><input type="submit" value="{% trans "Entrar" %}" />
-  </div>
-</form>
 <script type="text/javascript">
-document.getElementById('id_username').focus()
+    document.getElementById('id_username').focus()
 </script>
-</div>
 {% endblock %}

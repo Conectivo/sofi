@@ -1,0 +1,15 @@
+#login {
+  width: 300px;
+  height: 450px;
+  margin: 100px auto;
+}
+
+.well {
+  padding: 30px;
+}
+
+#forgot {
+  font-size: 12px;
+  margin-top: 20px;
+  text-align: right;
+}
