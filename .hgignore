@@ -1,0 +1,7 @@
+syntax: glob
+
+*.swp
+*.pyc
+*.db
+site_media/evento/*
+site_media/patrocinador/*

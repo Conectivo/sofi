@@ -31,7 +31,7 @@ class UserProfile(models.Model):
         if self.nombre and self.apellido:
             return unicode("%s %s" % (self.nombre.title(), self.apellido.title()))
         else:
-            return unicode("(%s) - %s" % (self.user.username, _(u"El perfil de este usuario no ha sido creado!!!")))
+            return unicode("%s" % (self.user.username))
     
     def nombre_completo(self):
         if self.nombre and self.apellido:
