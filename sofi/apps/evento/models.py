@@ -1,5 +1,7 @@
 # -*- coding: utf-8 -*-
 
+import datetime
+
 from django.db import models
 from tools.thumbs import ImageWithThumbsField
 from django.utils.translation import ugettext as _
@@ -37,6 +39,8 @@ class Evento(models.Model):
     class Meta:
         ordering = ['-fecha_ini', '-fecha_fin']
 
-     
+    @staticmethod
+    def get_active():
+        return Evento.objects.filter(fecha_fin__gte=datetime.date.today())
 
 
