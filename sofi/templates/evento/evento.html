@@ -5,12 +5,12 @@
 {% load app %}
 {% load oembed_tags %}
 
-{% block head_title %}{% trans "Evento" %}{% endblock %}
+{% block head_title %}{% trans "Eventos" %}{% endblock %}
 
 {% block body %}
-    {% if eventos.object_list %}
+    {% if eventos.all %}
    
-                    {% for evento in eventos.object_list %}
+                    {% for evento in eventos.all %}
                     {% if evento.publicar %}
 					<div class="post">
 						<div class="title">
