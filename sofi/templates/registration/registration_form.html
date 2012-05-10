@@ -1,50 +1,41 @@
-{% extends "base.html" %}
+{% extends "register.html" %}
 {% load i18n %}
 {% block head_title %}{% trans "Registro de usuario" %}{% endblock %}
+
 {% block body %}
-<h3>{% trans "Registro de usuario"%}</h3>  
-<p>{% trans "Rellene el formulario (todos los campos son obligatorios), y su cuenta será creada, se le enviara un mensaje de correo electrónico con instrucciones para terminar el registro." %}</p>
+{% include "registration/navbar.html" %}
 
-<form method="post" action="">{% csrf_token %}
-<table>
-    <tr>   
-     <td>
-        {% if form.username.errors %}
-          {{ form.username.errors }}
-        {% endif %}
-        <label for="id_username">{% trans "Usuario" %}:</label>
-    </td>
-      <td>{{ form.username|safe }}</td>
-    </tr>
-    
-    <tr>
-    <td>
-        {% if form.email.errors %}
-            {{ form.email.errors }}
-        {% endif %} 
-        <label for="id_email">{% trans "Correo electrónico"%}:</label>
-    </td>
-     <td> {{ form.email|safe }}</td>
-    <tr>
-    <td>
-        {% if form.password1.errors %}
-            {{ form.password1.errors }}
-        {% endif %}
-        <label for="id_password1">{% trans "Contraseña"%}:</label>
-    </td>
-      <td>{{ form.password1|safe }}</td>
-    </tr>
-    <tr>
-    <td>
-        {% if form.password2.errors %}
-            {{ form.password2.errors }}
-        {% endif %}
-        <label for="id_password2">{% trans "Contraseña (otra vez, por seguridad)" %}:</label>
-    </td>
-      <td>{{ form.password2|safe }}</td>
-    </tr>
-</table>
-    <input type="submit" value="{% trans "Registrar" %}">
-  </form>
+<div id="container">
+    <p class="instructions">{% trans "Rellene el formulario (todos los campos son obligatorios) y se le enviará un mensaje de correo electrónico con instrucciones para terminar el registro." %}</p>
 
+    <form method="post" action="" class="form-horizontal">{% csrf_token %}
+
+        <div class="control-group">
+            {% if form.username.errors %} {{ form.username.errors }} {% endif %}
+            <label for="id_username" class="control-label">{% trans "Usuario" %}:</label>
+            <div class="controls">{{ form.username|safe }}</div>
+        </div>
+
+        <div class="control-group">
+            {% if form.email.errors %} {{ form.email.errors }} {% endif %}
+            <label for="id_email" class="control-label">{% trans "Correo electrónico" %}:</label>
+            <div class="controls">{{ form.email|safe }}</div>
+        </div>
+
+        <div class="control-group">
+            {% if form.password1.errors %} {{ form.password1.errors }} {% endif %}
+            <label for="id_password1" class="control-label">{% trans "Contraseña" %}:</label>
+            <div class="controls">{{ form.password1|safe }}</div>
+        </div>
+
+        <div class="control-group">
+            {% if form.password2.errors %} {{ form.password2.errors }} {% endif %}
+            <label for="id_password2" class="control-label">{% trans "Repetir Contrañesa" %}:</label>
+            <div class="controls">{{ form.password2|safe }}</div>
+        </div>
+        <div class="submit-row">
+            <input type="submit" value="{% trans "Crear cuenta" %}" class="btn btn-primary" />
+        </div>
+    </form>
+</div>
 {% endblock %}
