@@ -1,16 +1,14 @@
-{% extends "base.html" %}
+{% extends "register.html" %}
 {% load i18n %}
+{% load humanize %}
 {% block head_title %}{% trans "Registro" %}{% endblock %}
+
 {% block body %}
+{% include "registration/navbar.html" %}
 
-{% block maincontents %}
-
-<h3>{% trans "Gracias por registrarse"%}</h3>
-<p> {% trans "Se han enviado un mensaje a su dirección de correo electrónico con las instrucciones para completar el registro." %}</p>
-
-
-{% endblock %}
-
-{% block related %}{% endblock %}
-
+<div id="container">
+    <h2>{% trans "Gracias por registrarse"%}</h2>
+    <p class="instructions"> {% trans "Se han enviado un mensaje a su dirección de correo electrónico con las instrucciones para completar el registro." %}</p>
+    <br/><br/>
+</div>
 {% endblock %}
