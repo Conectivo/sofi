@@ -3,16 +3,8 @@
 {% block head_title %}{% trans "Sofi :: Iniciar sesión" %}{% endblock %}
 
 {% block body %}
-<div class="navbar">
-    <div class="navbar-inner">
-        <div class="container">
-            <a class="brand" href="#">Sofi</a>
-            <ul class="nav pull-right">
-                <li class="pull-right site-name">{% if site_name %} {{ site_name }} {% endif %}</li>
-            </ul>
-        </div>
-    </div>
-</div>
+
+{% include "registration/navbar.html" %}
 <form action="." method="post" id="login-form">
     {% csrf_token %}
     <div class="form-row">
@@ -30,9 +22,8 @@
     <div class="submit-row">
         <label>&nbsp;</label><input type="submit" value="{% trans "Entrar" %}" class="btn btn-primary" />
     </div>
-    <div id="forgot" class="recover-link"><a href="/accounts/password/reset/">{% trans "Recuperar contraseña" %}</a></div>
+    <div id="forgot" class="back-link"><a href="/accounts/password/reset/">{% trans "Recuperar contraseña" %}</a></div>
 </form>
-<div id="back" class="recover-link"><a href="/">{% trans "Volver a Eventos" %}</a></div>
 
 {% if form.errors and not form.non_field_errors and not form.this_is_the_login_form.errors %}
 <div class="alert">
