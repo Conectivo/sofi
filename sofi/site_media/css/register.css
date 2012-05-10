@@ -1,0 +1,25 @@
+form {
+  width: 400px;
+  padding: 20px 40px 40px 40px;
+  margin: 0 auto;
+}
+
+#register {
+  width: 500px;
+  margin: 100px auto;
+}
+
+#container {
+  background-color: #fff;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.instructions {
+  font-size: 13px;
+  padding: 10px 20px 0px 20px;
+
+}
+
