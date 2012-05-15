@@ -3,6 +3,6 @@ from django.views.generic.simple import direct_to_template
 
 
 urlpatterns = patterns('',
-    url(r'^$', 'evento.views.listEventos', name="evento"),
-    url(r'^(\d+)/$', 'evento.views.listEventos', name="evento"),
+    url(r'^$', 'evento.views.index', name="evento"),
+    url(r'^(\d+)/$', 'evento.views.index', name="evento"),
 )
