@@ -5,3 +5,8 @@ syntax: glob
 *.db
 site_media/evento/*
 site_media/patrocinador/*
+
+# Ignore virtualenv folders
+sofi/lib/
+sofi/bin/
+sofi/include/

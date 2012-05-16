@@ -7,12 +7,13 @@ from django.contrib import admin
 admin.autodiscover()
 
 
-from tools.feed import Rss, Atom
+#from tools.feed import Rss, Atom
 
-feeds = {
-    'rss': Rss,
-    'atom': Atom,
-}
+feeds = {}
+#feeds = {
+#    'rss': Rss,
+#    'atom': Atom,
+#}
 
 
 
@@ -22,7 +23,7 @@ urlpatterns = patterns('',
     (r'^suscriptor/', include('suscriptor.urls')),
     (r'^acercade/', direct_to_template, {'template': 'acercade/acercade.html'}),
     (r'^licencia/', direct_to_template, {'template': 'acercade/licencia.html'}),
-    (r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
+    #(r'^feed/(?P<url>.*)/$', 'django.contrib.syndication.views.feed', {'feed_dict': feeds}),
     (r'^certificado/', include('certificado.urls')),
     (r'^encuesta/', include('encuesta.urls')),
     (r'^comments/', include('django.contrib.comments.urls')),
