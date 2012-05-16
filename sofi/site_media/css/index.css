@@ -18,6 +18,11 @@ h1 {
   margin-bottom: 20px;
 }
 
+h3 {
+  line-height: 18px;
+  color: #000;
+}
+
 #header_wrapper {
   width: 100%;
   background-color: #ddd;
@@ -29,6 +34,45 @@ h1 {
   margin: 0 auto;
   border: 1px solid #000;
   background-color: #000;
+}
+
+.row {
+  margin: 0px 10px 0 10px;
+}
+
+.span4 {
+  width: 440px;
+  height: 450px;
+  /*border: 1px solid #000;*/
+  margin: 0 10px 20px 10px;
+}
+
+.event .info {
+  height: 180px;
+  white-space: wrap;
+  margin: 5px 10px 0 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  -webkit-text-overflow: ellipsis;
+}
+
+.event .image {
+  height: 252px;
+  background-color: #000;
+}
+
+.event .date {
+  font-size: 12px;
+  line-height: 18px;
+  margin-bottom: 8px;
+  color: #999;
+}
+
+.event .description {
+  font-size: 13px;
+  text-align: justify;
+  color: #666;
 }
 
 .title {
