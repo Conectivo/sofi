@@ -7,7 +7,7 @@
     {% for evento in eventos.all %}
       {% if evento.publicar %}
         <div class="span4 event">
-          <a href="/detalle/{{evento.id}}/"><div class="image"></div></a>
+          <a href="/detalle/{{evento.id}}/"><div class="image" style="background: url('{{ MEDIA_URL}}{{ evento.logo }}');"></div></a>
           <div class="info">
               <h3><a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a></h3>
               <div class="date">
