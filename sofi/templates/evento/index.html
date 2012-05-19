@@ -1,51 +1,29 @@
-{% load i18n %}
-{% load app %}
-{% load googleanalytics %}
+{% extends "base.html" %}
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-        <title>{% if site_name %}{{ site_name }} : {% endif %}{% block head_title %}{% endblock %}</title>
-        <meta name="keywords" content="" />
-        <meta name="description" content="" />
-
-        <!-- link rel="stylesheet" href="{% media_url %}themes/{% theme %}/default.css" / -->
-        <link rel="stylesheet" href="{% media_url %}css/bootstrap.css" />
-        <link rel="stylesheet" href="{% media_url %}css/bootstrap-responsive.css" />
-        <link rel="stylesheet" href="{% media_url %}css/common.css" />
-        <link rel="stylesheet" href="{% media_url %}css/index.css" />
-        <link rel="shortcut icon" href="{% media_url %}images/sofi.ico" type="image/x-icon" />
-        <link rel="icon" href="{% media_url %}images/sofi.ico" type="image/x-icon" />
-        <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="/feed/rss" />
-        <script type="text/javascript" src="{% media_url %}js/jquery-1.6.min.js"></script>
-        <script type="text/javascript" src="{% media_url %}js/jquery.qtip-1.0.0-rc3.min.js"></script>
-
-        {% block extra_head %}
-        {% endblock %}
-        {% google_analytics %}
-
-    </head>
-    <body>
-        <div id="content_wrapper">
-            <div id="content">
-            {% include "navbar.html" %}
-            <h1>Próximos eventos</h1>
-
-            <div class="row show-grid">
-                <div class="span4 event">
-                    <a href=""><div class="image"></div></a>
-                    <div class="info">
-                        <h3>Titulo</h3>
-                        <div class="date">Blah</div>
-                        <div class="description">The path of the righteous man is beset on all sides by the iniquities of the selfish and the tyranny of evil men. Blessed is he who, in the name of charity and good will, shepherds the weak through the valley of darkness, for he is truly his brother's keeper and the finder of lost children. And I will strike down upon thee with great vengeance and furious anger those who would attempt to poison and destroy My brothers. And you will know My name is the Lord when I lay My vengeance upon thee.</div>
-                    </div>
-                </div>
-            </div>
-
-            <hr/>
-            {% include "footer.html" %}
-            </div>
+{% block section_title %}Próximos eventos{% endblock %}
+{% block body %}
+  {% if eventos.all %}
+    <div class="row show-grid">
+    {% for evento in eventos.all %}
+      {% if evento.publicar %}
+        <div class="span4 event">
+          <a href="/detalle/{{evento.id}}/"><div class="image"></div></a>
+          <div class="info">
+              <h3><a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a></h3>
+              <div class="date">
+              {% ifequal evento.fecha_ini evento.fecha_fin %}
+                {{ evento.fecha_ini }}
+              {% else %}
+                Desde el {{ evento.fecha_ini }} hasta el {{ evento.fecha_fin }}
+              {% endifequal %}
+              </div>
+              <div class="description">{{ evento.resumen }}</div>
+          </div>
         </div>
-    </body>
-</html>
+      {% endif %}
+    {% endfor %}
+    </div>
+  {% else %}
+  <p>No hay eventos disponibles</p>
+  {% endif %}
+{% endblock %}
