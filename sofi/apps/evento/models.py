@@ -13,7 +13,8 @@ from django.db.models.signals import post_init
 class Evento(models.Model):
     nombre = models.CharField(max_length=120, verbose_name=_(u'nombre'))
     resumen = models.TextField(verbose_name=_(u'resumen'))
-    lugar = models.TextField(blank=True, verbose_name=_(u'lugar'))
+    lugar = models.CharField(max_length=120, verbose_name=_(u'lugar'))
+    direccion = models.TextField(verbose_name=_(u'dirección'))
     email = models.EmailField()
     cta_twitter = models.CharField(max_length=50, blank=True, verbose_name=_(u'twitter'))
     pass_twitter = models.CharField(max_length=12, blank=True, verbose_name=_(u'contraseña twitter'))
@@ -32,15 +33,14 @@ class Evento(models.Model):
     media_video = models.URLField(blank=True, verbose_name=_(u'Vídeo'))
     admin = models.ForeignKey(User)
 
-    
+
     def __unicode__(self):
         return self.nombre
-    
+
     class Meta:
         ordering = ['-fecha_ini', '-fecha_fin']
 
     @staticmethod
     def get_active():
         return Evento.objects.filter(fecha_fin__gte=datetime.date.today())
-
 
