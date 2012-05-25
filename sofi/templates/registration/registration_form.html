@@ -1,37 +1,33 @@
-{% extends "base_register.html" %}
+{% extends "base_window.html" %}
 {% load i18n %}
-{% block head_title %}{% trans "Registro de usuario" %}{% endblock %}
+{% block window_title %}Sofi :: {% trans "Registro de usuario" %}{% endblock %}
+{% block window_style %}register.css{% endblock %}
 
 {% block body %}
-{% include "registration/navbar.html" %}
 
-<div id="container">
+<div id="create" class="form-container">
     <p class="instructions">{% trans "Rellene el formulario (todos los campos son obligatorios) y se le enviará un mensaje de correo electrónico con instrucciones para terminar el registro." %}</p>
 
     <form method="post" action="" class="form-horizontal">{% csrf_token %}
 
-        <div class="control-group">
-            {% if form.username.errors %} {{ form.username.errors }} {% endif %}
+        <div class="control-group {% if form.username.errors %}error{% endif %}">
             <label for="id_username" class="control-label">{% trans "Usuario" %}:</label>
-            <div class="controls">{{ form.username|safe }}</div>
+            <div class="controls">{{ form.username|safe }} {% if form.username.errors %}<span class="help-inline">{{ form.username.errors }}</span>{% endif %} </div>
         </div>
 
-        <div class="control-group">
-            {% if form.email.errors %} {{ form.email.errors }} {% endif %}
+        <div class="control-group {% if form.email.errors %}error{% endif %}">
             <label for="id_email" class="control-label">{% trans "Correo electrónico" %}:</label>
-            <div class="controls">{{ form.email|safe }}</div>
+            <div class="controls">{{ form.email|safe }} {% if form.email.errors %}<span class="help-inline">{{ form.email.errors }}</span>{% endif %} </div>
         </div>
 
-        <div class="control-group">
-            {% if form.password1.errors %} {{ form.password1.errors }} {% endif %}
+        <div class="control-group {% if form.password1.errors %}error{% endif %}">
             <label for="id_password1" class="control-label">{% trans "Contraseña" %}:</label>
-            <div class="controls">{{ form.password1|safe }}</div>
+            <div class="controls">{{ form.password1|safe }} {% if form.password1.errors %}<span class="help-inline">{{ form.password1.errors }}</span>{% endif %} </div>
         </div>
 
-        <div class="control-group">
-            {% if form.password2.errors %} {{ form.password2.errors }} {% endif %}
+        <div class="control-group {% if form.password2.errors %}error{% endif %}">
             <label for="id_password2" class="control-label">{% trans "Repetir Contrañesa" %}:</label>
-            <div class="controls">{{ form.password2|safe }}</div>
+            <div class="controls">{{ form.password2|safe }} {% if form.password2.errors %}<span class="help-inline">{{ form.password2.errors }}</span>{% endif %} </div>
         </div>
         <div class="submit-row">
             <input type="submit" value="{% trans "Crear cuenta" %}" class="btn btn-primary" />

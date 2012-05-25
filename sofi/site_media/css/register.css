@@ -1,32 +1,35 @@
 h2 {
-  padding: 20px;
+    padding: 20px;
+    text-align: center;
 }
 
 form {
-  width: 400px;
-  padding: 20px 40px 40px 40px;
-  margin: 0 auto;
+    padding-top: 20px;
 }
 
-#register {
-  width: 500px;
-  margin: 100px auto;
+#window {
+    width: 600px;
+    margin: 100px auto;
 }
 
-#container {
-  background-color: #fff;
+.form-container {
+    background-color: #fff;
+}
+
+#create {
+    height: 320px;
 }
 
 .navbar {
-  margin-bottom: 0px;
+    margin-bottom: 0px;
 }
 
 .instructions {
-  font-size: 13px;
-  padding: 10px 20px 0px 20px;
+    font-size: 13px;
+    padding: 10px 20px 0px 20px;
 }
 
 .warning {
-  font-size: 13px;
-  color: #000;
+    font-size: 13px;
+    color: #000;
 }

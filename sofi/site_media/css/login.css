@@ -18,3 +18,9 @@ h4 {
   padding: 30px;
   background-color: #fff;
 }
+
+.submit-row {
+    width: auto;
+    margin-right: 20px;
+    text-align: right;
+}
