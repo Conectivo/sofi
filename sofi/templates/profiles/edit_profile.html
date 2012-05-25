@@ -2,20 +2,72 @@
 {% load i18n %}
 {% block head_title %}{% trans "Perfil de usuario" %}{% endblock %}
 {% block body %}
-    <h3>{% trans "Perfil de usuario para" %} ({{ profile.user }}) </h3>
+
+    <h1>{% trans "Perfil de" %} {{ profile.user}}</h1>
+
+
     {% if form.errors %}
-    <p class="errorlist">{% trans "Necesita corregir los siguientes campos:" %} {{ form.non_field_errors }}</p>
+    <div class="alert alert-error">
+        {% trans "Necesita corregir los siguientes campos:" %}
+        <div class="errorlist">{{ form.non_field_errors }}</div>
+    </div>
     {% endif %}
+
     {% if form.is_multipart %}
-    <form enctype="multipart/form-data" method="post" action=".">{% csrf_token %}
+    <form enctype="multipart/form-data" method="post" action="." class="form-horizontal">{% csrf_token %}
     {% else %}
-    <form method="post" action=".">{% csrf_token %}
+    <form method="post" action="." class="form-horizontal">{% csrf_token %}
     {% endif %}
-    <fieldset>
-        <table>
-            {{ form.as_table }}
-        </table>
-    </fieldset><br/>
-    <input type="submit" value={% trans "Guardar" %} />
-    </form><br><br>
+
+    <div class="control-group {% if form.nombre.errors %}error{% endif %}">
+        <label for="id_nombre" class="control-label">{% trans "Nombre" %}:</label>
+        <div class="controls">{{ form.nombre|safe }} {% if form.nombre.errors %}<span class="help-inline">{{ form.nombre.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.apellido.errors %}error{% endif %}">
+        <label for="id_apellido" class="control-label">{% trans "Apellido" %}:</label>
+        <div class="controls">{{ form.apellido|safe }} {% if form.apellido.errors %}<span class="help-inline">{{ form.apellido.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.cedula.errors %}error{% endif %}">
+        <label for="id_cedula" class="control-label">{% trans "Cédula" %}:</label>
+        <div class="controls">{{ form.cedula|safe }} {% if form.cedula.errors %}<span class="help-inline">{{ form.cedula.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.nacionalidad.errors %}error{% endif %}">
+        <label for="id_nacionalidad" class="control-label">{% trans "Nacionalidad" %}:</label>
+        <div class="controls">{{ form.nacionalidad|safe }} {% if form.nacionalidad.errors %}<span class="help-inline">{{ form.nacionalidad.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.profesion.errors %}error{% endif %}">
+        <label for="id_profesion" class="control-label">{% trans "Profesión" %}:</label>
+        <div class="controls">{{ form.profesion|safe }} {% if form.profesion.errors %}<span class="help-inline">{{ form.profesion.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.organization.errors %}error{% endif %}">
+        <label for="id_organizacion" class="control-label">{% trans "Organización" %}:</label>
+        <div class="controls">{{ form.organizacion|safe }} {% if form.organizacion.errors %}<span class="help-inline">{{ form.organizacion.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.cta_twitter.errors %}error{% endif %}">
+        <label for="id_cta_twitter" class="control-label">{% trans "Twitter" %}:</label>
+        <div class="controls">{{ form.cta_twitter|safe }} {% if form.cta_twitter.errors %}<span class="help-inline">{{ form.cta_twitter.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.cta_facebbok.errors %}error{% endif %}">
+        {% if form.cta_facebook.errors %} {{ form.cta_facebook.errors }} {% endif %}
+        <label for="id_cta_facebook" class="control-label">{% trans "Facebook" %}:</label>
+        <div class="controls">{{ form.cta_facebook|safe }} {% if form.cta_facebook.errors %}<span class="help-inline">{{ form.cta_facebook.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="control-group {% if form.informacion.errors %}error{% endif %}">
+        {% if form.informacion.errors %} {{ form.informacion.errors }} {% endif %}
+        <label for="id_informacion" class="control-label">{% trans "Recibir información" %}:</label>
+        <div class="controls">{{ form.informacion|safe }} {% if form.informacion.errors %}<span class="help-inline">{{ form.informacion.errors }}</span>{% endif %}</div>
+    </div>
+
+    <div class="submit-row">
+        <input type="submit" value="{% trans "Guardar" %}" class="btn btn-primary" />
+    </div>
+    </form>
 {% endblock %}

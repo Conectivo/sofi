@@ -1,182 +1,118 @@
 * {
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 }
 
 html, body {
-  height: 100%;
+    height: 100%;
 }
 
 body {
-  font-size: 18px;
-  line-height: 22px;
-  color: #777;
+    font-size: 18px;
+    line-height: 22px;
+    color: #777;
 }
 
 h1 {
-  color: #069;
-  margin-bottom: 20px;
+    color: #069;
+    margin: 40px 20px;
 }
 
 h3 {
-  line-height: 18px;
-  color: #000;
+    line-height: 18px;
+    color: #000;
 }
 
 #header_wrapper {
-  width: 100%;
-  background-color: #ddd;
+    width: 100%;
+    background-color: #ddd;
 }
 
 #header {
-  width: 940px;
-  height: 280px;
-  margin: 0 auto;
-  border: 1px solid #000;
-  background-color: #000;
-}
-
-.row {
-  margin: 0px 10px 0 10px;
-}
-
-.span4 {
-  width: 440px;
-  height: 450px;
-  /*border: 1px solid #000;*/
-  margin: 0 10px 20px 10px;
-}
-
-.event .info {
-  height: 180px;
-  white-space: wrap;
-  margin: 5px 10px 0 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  -o-text-overflow: ellipsis;
-  -webkit-text-overflow: ellipsis;
-}
-
-.event .image {
-  height: 252px;
-  background-color: #000;
-}
-
-.event .date {
-  font-size: 12px;
-  line-height: 18px;
-  margin-bottom: 8px;
-  color: #999;
-}
-
-.event .description {
-  font-size: 13px;
-  text-align: justify;
-  color: #666;
-}
-
-.section_title {
-  margin: 40px 20px;
-}
-
-.location {
-  color: #eee;
-  font-size: 28px;
-  text-shadow: #333 1px 1px 2px;
-  text-align: center;
+    width: 940px;
+    height: 280px;
+    margin: 0 auto;
+    border: 1px solid #000;
+    background-color: #000;
 }
 
 #content_wrapper {
-  width: 100%;
-  background-color: #eee;
+    width: 100%;
+    background-color: #eee;
 }
 
 #content {
-  width: 940px;
-  background-color: #fff;
-  margin: 0 auto;
+    width: 940px;
+    background-color: #fff;
+    margin: 0 auto;
 }
 
 .navbar-inner {
-  -webkit-border-radius: 0px !important;
+    -webkit-border-radius: 0px !important;
 }
 
 .navbar a {
-  font-size: 12px;
+    font-size: 12px;
 }
 
 .navbar .username {
-  font-size: 12px;
-  padding: 9px 10px 11px;
-  line-height: 19px;
-  float: right;
+    font-size: 12px;
+    padding: 9px 10px 11px;
+    line-height: 19px;
+    float: right;
 }
 
-#about {
-  margin: 0 40px;
-  padding-top: 40px;
+.row {
+    margin: 0px 10px 0 10px;
 }
 
-.section {
-  margin: 60px 40px 40px 40px;
+.span4 {
+    width: 440px;
+    height: 450px;
+    /*border: 1px solid #000;*/
+    margin: 0 10px 20px 10px;
 }
 
-#address {
-  float: left;
-  width: 390px;
-  padding-right: 30px;
+.event .info {
+    height: 180px;
+    white-space: wrap;
+    margin: 5px 10px 0 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    -webkit-text-overflow: ellipsis;
 }
 
-#map {
-  float: left;
-  width: 370px;
-  height: 230px;
-  padding: 0px 0 0 50px;
+.event .image {
+    height: 252px;
+    background-color: #000;
 }
 
-.table h4 {
-  margin-bottom: 10px;
+.event .date {
+    font-size: 12px;
+    line-height: 18px;
+    margin-bottom: 8px;
+    color: #999;
 }
 
-#speaks .table td {
-  font-size: 15px;
+.event .description {
+    font-size: 13px;
+    text-align: justify;
+    color: #666;
 }
 
-#speaks .table .time {
-  font-weight: bold;
-  width: 80px;
+.submit-row {
+    width: 380px;
+    text-align: right;
 }
 
-#speaks .table .type {
-  width: 80px;
-  text-align: center;
+.alert {
+    width: 800px;
+    margin: 0 auto;
+    font-size: 13px;
+    margin-bottom: 20px;
 }
 
-#speaks .table .desc {
-  text-align: justify;
-}
-
-#speaks .table .speaker {
-  width: 120px;
-  text-align: center;
-}
-
-.note {
-  font-size: 13px;
-  color: #999;
-}
-
-#footer {
-  width: 940px;
-  margin: 0 auto;
-  padding: 30px 0:
-}
-
-#footer .legal {
-  text-align: center;
-  font-size: 12px;
-}
-
-#footer .links {
-  text-align: center;
+.errorlist {
+    font-size: 13px;
 }
