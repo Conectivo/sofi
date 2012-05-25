@@ -1,32 +1,25 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% block head_title %}{% trans "Reporte" %}{% endblock %}
+
+{% block section_title %}{% trans "Participantes" %}{% endblock %}
 
 {% block body %}
-    {% include "evento/encabezado_evento.html" %}
     {% if suscriptores %}
-            <div id="reporte">
-                <p><h3>{% trans "Suscriptores" %}</h3></p>
-                <table>
-                    <thead>
-                        <tr>
-                            <td>#</td>
-                            <td class="negrita">{% trans "Usuario" %}</td>
-                            <td class="negrita">{% trans "Organización" %}</td>
-                            <td class="negrita">{% trans "Nacionalidad" %}</td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {% for suscriptor in suscriptores %}
-                        <tr>
-                            <td class="negrita">{{forloop.counter}}</td>
-                            <td><a href="/profiles/{{suscriptor.suscriptor.user}}">{{suscriptor.suscriptor.user}}</a></td>
-                            <td>{{suscriptor.suscriptor.organizacion|title}}</td>
-                            <td>{{suscriptor.suscriptor.nacionalidad|upper}}</td>
-                        </tr>
-                        {% endfor %}
-                    </tbody>
-                </table>
-            </div>
+    <p class="instructions">{% trans "Lista de participantes para el evento" %} <a href="/detalle/{{ evento.id }}" title="">{{ evento.nombre }}</a>:</p>
+
+    <table class="table table-stripped">
+        <tbody>
+            {% for suscriptor in suscriptores %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td><a href="/profiles/{{suscriptor.suscriptor.user}}">{{suscriptor.suscriptor.user}} ({{suscriptor.suscriptor.user}})</a></td>
+                <td>{{suscriptor.suscriptor.cedula}}</td>
+                <td>{{suscriptor.suscriptor.nacionalidad|upper}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="instructions">{% trans "Aún no se han registrado participantes para el evento" %} <a href="/detalle/{{ evento.id }}" title="">{{ evento.nombre }}</a></p>
     {% endif %}
 {% endblock %}

@@ -6,13 +6,14 @@
             <a class="brand" href="/">Sofi</a> <!-- Nombre corto (slug) -->
             {% if user.is_authenticated %}
             <ul class="nav">
+                <li><a href="/suscriptor/suscripciones/">{% trans "Suscripciones" %}</a></li>
                 <li><a href="/profiles/edit">{% trans "Perfil" %}</a></li>
-                <li><a href="/suscriptor/mis_suscripciones/">{% trans "Mis suscripciones" %}</a></li>
                 {% if user.userprofile_set.get.organizador_set.all %}
-                <li><a href="/organizador/mis_tareas/">{% trans "Mis tareas"%}</a></li>
+                <li><a href="/organizador/mis_tareas/">{% trans "Tareas"%}</a></li>
                 {% endif %}
+                <li><a href="/accounts/password/change">{% trans "Cambiar contraseña" %}</a></li>
                 {% if user.is_staff %}
-                <li><a href="/admin/">{% trans "Panel de administración" %}</a></li>
+                <li><a href="/admin/">{% trans "Administración" %}</a></li>
                 {% endif %}
             </ul>
             <ul class="nav pull-right">

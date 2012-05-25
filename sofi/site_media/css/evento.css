@@ -124,3 +124,8 @@ h1 {
   font-size: 13px;
   color: #999;
 }
+
+#actions {
+    width: 540px;
+    margin: 0 auto;
+}
