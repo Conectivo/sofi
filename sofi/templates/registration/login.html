@@ -1,6 +1,7 @@
-{% extends "login.html" %}
+{% extends "base_window.html" %}
 {% load i18n %}
-{% block head_title %}{% trans "Sofi :: Iniciar sesión" %}{% endblock %}
+{% block window_title %}Sofi :: Iniciar sesión{% endblock %}
+{% block window_style %}login.css{% endblock %}
 
 {% block body %}
 
@@ -9,7 +10,8 @@
     <div class="form-row">
         <!-- {% if not form.this_is_the_login_form.errors %}{{ form.username.errors }}{% endif %} -->
         {{ form.username.errors }}
-        <label for="id_username" class="required">{% trans 'Username:' %}</label> {{ form.username }}
+        <label for="id_username" class="required">{% trans 'Username:' %}</label>
+        {{ form.username }} {% if form.username.errors %}<span class="help-inline">{{ form.username.errors }}</span>{% endif %}
     </div>
     <div class="form-row">
         <!-- {% if not form.this_is_the_login_form.errors %}{{ form.password.errors }}{% endif %} -->

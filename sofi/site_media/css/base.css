@@ -101,18 +101,8 @@ h3 {
     color: #666;
 }
 
-.submit-row {
-    width: 380px;
-    text-align: right;
-}
-
 .alert {
     width: 800px;
     margin: 0 auto;
-    font-size: 13px;
     margin-bottom: 20px;
-}
-
-.errorlist {
-    font-size: 13px;
 }
