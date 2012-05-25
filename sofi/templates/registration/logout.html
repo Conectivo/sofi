@@ -1,10 +1,11 @@
 {% extends "base_window.html" %}
 {% load i18n %}
-{% block window_title %}Sofi :: Logout{% endblock %}
+{% block window_title %}Sofi :: {% trans "Cerrar sesión" %}{% endblock %}
 {% block window_style %}logout.css{% endblock %}
 
 {% block body %}
 <div id="container">
-    <p>{% trans "Su sesión ha sido cerrada. Gracias por el tiempo que ha dedicado hoy al sitio web." %}</p>
+    <h2>{% trans "Su sesión ha sido cerrada"%}</h2>
+    <p>{% trans "Gracias por el tiempo que ha dedicado hoy al sitio web." %}</p>
 </div>
 {% endblock %}

@@ -2,3 +2,8 @@ p {
     padding: 40px 20px;
     text-align: center;
 }
+
+#container {
+    height: 150px;
+    background-color: #fff;
+}
