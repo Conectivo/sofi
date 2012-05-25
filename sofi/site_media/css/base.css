@@ -18,9 +18,19 @@ h1 {
     margin: 40px 20px;
 }
 
+h2 {
+    padding: 20px 20px 0 20px;
+    text-align: center;
+}
+
 h3 {
     line-height: 18px;
     color: #000;
+}
+
+form {
+    margin-top: 40px;
+    margin-left: 30px;
 }
 
 #header_wrapper {
@@ -110,4 +120,16 @@ h3 {
 .submit-row {
     width: 380px;
     text-align: right;
+}
+
+.instructions {
+    padding: 0 40px;
+}
+
+.suscriptions-list {
+    margin: 20px 60px;
+}
+
+.suscriptions-list span {
+    font-size: 16px;
 }

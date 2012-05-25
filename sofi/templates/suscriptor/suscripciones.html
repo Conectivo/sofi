@@ -1,9 +1,29 @@
 {% extends "base.html" %}
 {% load i18n %}
-{% load mis_suscripciones %}
 
-{% block head_title %}{% trans "Suscriptor" %}{% endblock %}
+{% block section_title %}{% trans "Suscripciones" %}{% endblock %}
+
 {% block body %}
-    <h3>{% trans "Mis suscripciones" %}</h3>
-    <p>{% show_suscripciones user %}</>
+    {% if suscripciones %}
+    <p class="instructions">{% trans "Usted está suscrito a los siguientes eventos:" %}</p>
+    <ul class="suscriptions-list">
+        {% for suscripcion in suscripciones %}
+        <li>
+            <a href="/detalle/{{ suscripcion.evento.id }}" title="">{{ suscripcion.evento.nombre }}</a>:
+            <span>
+            {% ifequal suscripcion.evento.fecha_ini suscripcion.evento.fecha_fin %}
+                {{ suscripcion.evento.fecha_ini }}
+            {% else %}
+                Desde el {{ suscripcion.evento.fecha_ini }} hasta el {{ suscripcion.evento.fecha_fin }}
+            {% endifequal %}
+            {% trans "en" %}
+            {{ suscripcion.evento.lugar }}
+            </span>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="instructions">{% trans "Usted no esta suscrito a ningún evento" %}</p>
+    <br/>
+    {% endif %}
 {% endblock %}

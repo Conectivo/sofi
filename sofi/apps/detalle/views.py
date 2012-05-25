@@ -4,7 +4,7 @@ from django.contrib.sites.models import Site
 from django.template import RequestContext
 
 
-def show(request, id, template_name='detalle/detalle.html'):
+def show(request, id, template_name='evento/evento.html'):
     evento = Evento.objects.get(id=id)
 
     template = render_to_response(template_name, {'evento': evento, 'site_name': Site.objects.get(id=1).name}, context_instance=RequestContext(request))

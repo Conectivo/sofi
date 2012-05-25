@@ -1,113 +1,92 @@
-{% extends "base.html" %}
+{% extends "base_evento.html" %}
 {% load i18n %}
-{% load smart_if %}
-{% load comments i18n %}
-{% load app %}
 {% load oembed_tags %}
-
-{% block head_title %}{% trans "Eventos" %}{% endblock %}
+{% block head_title %}{% trans "Detalle" %}{% endblock %}
 
 {% block body %}
-    {% if eventos.all %}
-   
-                    {% for evento in eventos.all %}
-                    {% if evento.publicar %}
-					<div class="post">
-						<div class="title">
-							{% if evento.presentaciones %}
-								<h2><a href="/detalle/{{evento.id}}/">{{ evento.nombre }}</a></h2>
-							{% else %}
-								<h2>{{ evento.nombre }}</h2>
-							{% endif %}
 
-							<p><small>{% trans "Publicado el" %} {{ evento.fecha }} {% trans "por" %} <a href="/profiles/{{ evento.admin }}">{{ evento.admin }}</a></small></p>
-						</div>
-						<div class="entry">
-							<p>{{ evento.resumen|wordwrap:"95" }}
-							{% if evento.lugar %}
-							<br>
-							{% trans "Lugar:" %}
-							<br>
-							{{ evento.lugar|wordwrap:"95" }}
-							{% endif %}
-							<br>
-							{% trans "Fecha:" %}
-							<br>
-							{% trans "desde" %} {{ evento.fecha_ini|date:"d/m/Y" }} {% trans "al" %} {{ evento.fecha_fin|date:"d/m/Y" }}</p>
-                            {% if evento.media_video %}
-							    <br>
-                                {% oembed 320x240 %}
-                                    {{ evento.media_video }}
-                                {% endoembed %}
-                            {% endif %}
-				            {% if evento.patrocinador_set.all %}
-							<div>
-								<p>{% trans "Patrocinadores:" %}</p>
-								{% for patrocinador in  evento.patrocinador_set.all %}
-								    &nbsp;
-									<a href="{{ patrocinador.url }}" title="{{ patrocinador.nombre }}"><img alt="{{ patrocinador.nombre }}" src="{{ patrocinador.logo.url_100x64 }}"/></>
-								{% endfor %}
-							</div>
-							<br>
-							{% endif %}
-						</div>
-
-						<p class="links">
-							{% if evento.presentaciones %}
-								<a id="presentaciones" name="{% trans "presentaciones" %}" href="/detalle/{{evento.id}}/"><img src="{% media_url %}images/childish_Slideshow.png"/></a>
-							{% endif %}
-							{% if evento.suscripciones %}
-								{% if fecha_hoy.toordinal < evento.fecha_ini.toordinal %}
-									<a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/"><img src="{% media_url %}images/childish_Plus.png"/></a>
-								{% else %}
-								    {% if evento.suscripcionesd and fecha_hoy.toordinal >= evento.fecha_ini.toordinal and fecha_hoy.toordinal <= evento.fecha_fin.toordinal %}
-									    <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/"><img src="{% media_url %}images/childish_Plus.png"/></a>
-								    {% endif %}
-								{% endif %}
-								
-								<a id="suscriptores" name="{% trans "suscriptores" %}" href="/suscriptor/reporte/{{evento.id}}/"><img src="{% media_url %}images/childish_Archive.png"/></a>
-                            {% endif %}
-							
-							{% if evento.encuesta_set.all %}
-								<a id="comentarios" name="{% trans "encuesta" %}" href="/encuesta/reporte/{{evento.id}}/"><img src="{% media_url %}images/childish_Chart-Bar.png"/></a>
-							{% endif %}
-							
-							{% if evento.comentario %}
-								{% if evento.comment_set.count %}
-									<a id="comentarios" name="{% trans "comentarios" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/>({{ evento.comment_set.count }})</a>
-								{% else %}
-									<a id="dejarcomentario" name="{% trans "dejar comentario" %}" href="/comentario/{{evento.id}}/"><img src="{% media_url %}images/childish_Comments.png"/></a>
-								{% endif %}
-							{% endif %}
-						</p>
-					</div>
-                    {% endif %}
-                    {%endfor%}
-        </div>
-	{% else %}
-		<h2><p>{% trans "No se encuentran Eventos" %}</p></h2>
-	{% endif %}
-{% endblock %}
-
-<!-- Codigo que permite mostrar el avance en la paginacion de los eventos -->
-{% block pagination %}
-<div id="paginacion">
-	{% if eventos.has_previous %}
-		  <a href="/{{ eventos.previous_page_number }}/">{% trans "Anterior" %}</a>&nbsp;
-	{% endif %}
-			
-{% if rango_paginas %}
-	{% for p in rango_paginas %}
-	{% ifnotequal eventos.number p %}
-		<a href="/{{ p }}/">{{p}}</a>
-	{% else %}
-		<a>{{p}}</a>
-	{% endifnotequal %}
-	{% endfor %}
-	{% endif %}
-	
-{% if eventos.has_next %}
-		&nbsp;<a href="/{{ eventos.next_page_number }}/">{% trans "Siguiente" %}</a>
-	{% endif %}
+<div id="about">
+    <h1>Acerca del evento</h1>
+    <p>{{ evento.resumen }}</p>
 </div>
+
+<div id="when" class="section">
+    <h1>¿Cuándo y dónde?</h1>
+    <div id="address">
+        <p>El evento se llevará a cabo 
+        {% ifequal evento.fecha_ini evento.fecha_fin %}
+        el día <strong>{{ evento.fecha_ini }}</strong>
+        {% else %}
+        desde el <strong>{{ evento.fecha_ini }} hasta el {{ evento.fecha_fin }}</strong>
+        {% endifequal %}</p>
+
+        <p>
+            <strong>{{ evento.lugar }}</strong><br/>
+            Normally, both your asses would be dead as fucking fried chicken, but you happen to pull this shit while I'm in a transitional period so I don't wanna kill you, I wanna help you
+        </p>
+    </div>
+    <div id="map">
+        <a href="https://maps.google.com/maps/ms?msa=0&amp;msid=214461262170601445219.0004bd52563d2d82d0d6b&amp;ie=UTF8&amp;t=m&amp;ll=10.496747,-66.851624&amp;spn=0.00211,0.003208&amp;z=17&amp;source=embed" target="_blank" title="Ver en Google Maps"><img src="/site_media/images/mapa.gif" alt="Ver en Google Maps" border="0" width="304" height="204"></a>
+    </div>
+    <div class="clearfix"></div>
+</div>
+
+{% if evento.presentacion_set.count > 0 %}
+<div id="speaks" class="section">
+    <h1>Agenda de ponencias</h1>
+    <table class="table table-stripped">
+        <tbody>
+            {% for presentacion in evento.presentacion_set.all %}
+            <tr>
+                <td class="time">{{ presentacion.hora|time:"P" }}</td>
+                <td class="type">{{ presentacion.tipo }}</td>
+                <td class="desc">
+                    {% if presentacion.url %}
+                    <h4><a href="{{presentacion.url}}">{{ presentacion.titulo }}</a></h4>
+                    {% else %}
+                    <h4>{{ presentacion.titulo }}</h4>
+                    {% endif %}
+                    {% if presentacion.descripcion %}<p>{{ presentacion.descripcion }}</p>{% endif %}
+                    {% if presentacion.lugar %}<p>Lugar: {{ presentacion.lugar }}</p>{% endif %}
+
+                </td>
+                <td class="speaker">{% for ponente in presentacion.ponente_set.all %} {{ ponente }}<br/> {% endfor %} </td>
+                <td>{% if presentacion.archivo %}<a href="{{presentacion.archivo.url}}"><img src="/site_media/images/down.png" alt="Descargar"/></a>{% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <p class="note">(*) Cronograma sujeto a confirmaciones y modificaciones</p>
+</div>
+{% endif %}
+
+
+{% if evento.patrocinador_set.count > 0 %}
+<div id="sponsors" class="section">
+    <h1>Apoyan</h1>
+    {% for patrocinador in  evento.patrocinador_set.all %}
+        <a href="{{ patrocinador.url }}" title="{{ patrocinador.nombre }}"><img alt="{{ patrocinador.nombre }}" src="{{ patrocinador.logo.url_100x64 }}"/></a>
+    {% endfor %}
+</div>
+{% endif %}
+
+<div id="actions">
+{% if evento.suscripciones %}
+    {% if fecha_hoy.toordinal < evento.fecha_ini.toordinal %}
+    <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+    {% else %}
+        {% if evento.suscripcionesd and fecha_hoy.toordinal >= evento.fecha_ini.toordinal and fecha_hoy.toordinal <= evento.fecha_fin.toordinal %}
+            <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+        {% endif %}
+    {% endif %}
+
+    <a id="suscriptores" name="{% trans "suscriptores" %}" href="/suscriptor/reporte/{{evento.id}}/" class="btn btn-large">{% trans "Ver participantes" %}</a>
+{% endif %}
+
+{% if evento.presentaciones %}
+    <a id="presentaciones" name="{% trans "presentaciones" %}" href="/detalle/{{evento.id}}/" class="btn btn-large">{% trans "Ver presentaciones" %}</a>
+{% endif %}
+
+</div>
+
 {% endblock %}

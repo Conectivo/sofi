@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% load i18n %}
+
+{% block section_title %}{% trans "Perfil de usuario" %}{% endblock %}
+
+{% block body %}
+
+    <form method="post" action="." class="form-horizontal">
+        <div class="control-group">
+            <label for="id_nombre" class="control-label">{% trans "Nombre" %}:</label>
+            <div class="controls">{{ profile.nombre }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_apellido" class="control-label">{% trans "Apellido" %}:</label>
+            <div class="controls">{{ profile.apellido }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_cedula" class="control-label">{% trans "Cédula" %}:</label>
+            <div class="controls">{{ profile.cedula }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_nacionalidad" class="control-label">{% trans "Nacionalidad" %}:</label>
+            <div class="controls">{{ profile.nacionalidad }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_profesion" class="control-label">{% trans "Profesión" %}:</label>
+            <div class="controls">{{ profile.profesion }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_organizacion" class="control-label">{% trans "Organización" %}:</label>
+            <div class="controls">{{ profile.organizacion|default:"--" }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_cta_twitter" class="control-label">{% trans "Twitter" %}:</label>
+            <div class="controls">{{ profile.cta_twitter|default:"--" }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_cta_facebook" class="control-label">{% trans "Facebook" %}:</label>
+            <div class="controls">{{ profile.cta_facebook|default:"--" }}</div>
+        </div>
+
+        <div class="control-group">
+            <label for="id_informacion" class="control-label">{% trans "Recibir información" %}:</label>
+            <div class="controls">{{ profile.informacion }}</div>
+        </div>
+
+    </form>
+{% endblock %}
