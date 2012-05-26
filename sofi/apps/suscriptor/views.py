@@ -23,8 +23,8 @@ def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
     if suscriptor_profile:
         suscriptor_profile = suscriptor_profile.get()
         if suscriptor_profile.nombre and suscriptor_profile.apellido and suscriptor_profile.cedula and suscriptor_profile.nacionalidad:
-
-            if not Suscriptores.objects.filter(suscriptor=suscriptor_profile, evento=evento):
+            if not suscriptor_profile.is_suscribed(evento):
+            #if not Suscriptores.objects.filter(suscriptor=suscriptor_profile, evento=evento):
 
                 try:
                     suscribir = Suscriptores(suscriptor=suscriptor_profile, evento=evento)

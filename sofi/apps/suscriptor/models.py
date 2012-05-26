@@ -26,13 +26,13 @@ class UserProfile(models.Model):
 
     class Admin():
         pass
-    
+
     def __unicode__(self):
         if self.nombre and self.apellido:
             return unicode("%s %s" % (self.nombre.title(), self.apellido.title()))
         else:
             return unicode("%s" % (self.user.username))
-    
+
     def nombre_completo(self):
         if self.nombre and self.apellido:
             return unicode("%s %s" % (self.nombre.title(), self.apellido.title()))
@@ -42,20 +42,24 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = _(u'Perfil')
         verbose_name_plural = _(u'Perfiles')
-    
+
+    def is_suscribed(self, evento):
+        return Suscriptores.objects.filter(suscriptor=self, evento=evento)
+
+
 signals.post_save.connect(user_post_save, User)
 
 
 class Suscriptores(models.Model):
     suscriptor = models.ForeignKey(UserProfile, verbose_name=_(u'suscriptor'))
     evento = models.ForeignKey(Evento, verbose_name=_(u'evento'))
-    
+
     def nombre_completo(self):
         return "%s %s" % (self.suscriptor.nombre.title(), self.suscriptor.apellido.title())
-    
+
     def __unicode__(self):
         return "%s %s" % (self.suscriptor.nombre.title(), self.suscriptor.apellido.title())
-    
+
     class Meta:
         ordering = ['suscriptor__nacionalidad', 'suscriptor__nombre', 'suscriptor__apellido']
-        
+
