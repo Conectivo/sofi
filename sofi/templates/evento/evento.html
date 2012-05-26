@@ -72,11 +72,15 @@
 
 <div id="actions">
 {% if evento.suscripciones %}
-    {% if fecha_hoy.toordinal < evento.fecha_ini.toordinal %}
-    <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+    {% if is_suscribed %}
+        <a id="suscribir" name="{% trans "suscrito" %}" href="#" class="btn btn-success btn-large">{% trans "Suscrito" %}</a>
     {% else %}
-        {% if evento.suscripcionesd and fecha_hoy.toordinal >= evento.fecha_ini.toordinal and fecha_hoy.toordinal <= evento.fecha_fin.toordinal %}
-            <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+        {% if fecha_hoy.toordinal < evento.fecha_ini.toordinal %}
+        <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+        {% else %}
+            {% if evento.suscripcionesd and fecha_hoy.toordinal >= evento.fecha_ini.toordinal and fecha_hoy.toordinal <= evento.fecha_fin.toordinal %}
+                <a id="suscribir" name="{% trans "suscribir" %}" href="/suscriptor/registro/{{evento.id}}/" class="btn btn-primary btn-large">{% trans "Suscribirme al evento" %}</a>
+            {% endif %}
         {% endif %}
     {% endif %}
 
