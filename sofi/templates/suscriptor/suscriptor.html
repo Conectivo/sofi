@@ -4,10 +4,18 @@
 {% block section_title %}{% trans "Suscripción" %}{% endblock %}
 
 {% block body %}
-    {% if ok %}
+    {% if ok == 1 %}
         <p class="instructions">{% trans "Sus datos fueron guardados, gracias por suscribirse a este evento." %}</p>
-    {% else %}
+    {% elif ok == 0 %}
         <p class="instructions">{% trans "Sus datos ya se encuentran en nuestro sistema para este evento." %}</p>
+    {% elif ok == -1 %}
+        <p class="instructions">{% trans "Ocurrió un error al intentar la suscripción al evento. Póngase en contacto con el administrador del sitio" %}</p>
+    {% elif ok == 9 %}
+    <p class="instructions">{% trans "Para suscribirse a un evento debe completar su perfil de usuario. Llene los campos que faltan e intentelo de nuevo." %}</p>
+    <div class="generic-buttons">
+         <a id="volver" name="{% trans "home" %}" href="/" class="btn btn-large">{% trans "Volver a Eventos" %}</a>
+         <a id="perfil" name="{% trans "perfil" %}" href="/profiles/edit" class="btn btn-primary btn-large">{% trans "Completar Perfil" %}</a>
+    </div>
     {% endif %}
 <br/>
 {% endblock %}

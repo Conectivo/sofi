@@ -133,3 +133,8 @@ form {
 .suscriptions-list span {
     font-size: 16px;
 }
+
+.generic-buttons {
+    width: 320px;
+    margin: 20px auto;
+}
