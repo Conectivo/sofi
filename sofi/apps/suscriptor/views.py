@@ -24,14 +24,11 @@ def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
         suscriptor_profile = suscriptor_profile.get()
         if suscriptor_profile.nombre and suscriptor_profile.apellido and suscriptor_profile.cedula and suscriptor_profile.nacionalidad:
             if not suscriptor_profile.is_suscribed(evento):
-            #if not Suscriptores.objects.filter(suscriptor=suscriptor_profile, evento=evento):
-
                 try:
                     suscribir = Suscriptores(suscriptor=suscriptor_profile, evento=evento)
                     suscribir.save()
 
                     dominio = Site.objects.get_current().domain
-
                     asunto = _(u'Suscripción a evento')
                     mensaje = _(u'Estimado(a)') + ' ' + suscriptor_profile.nombre_completo() + ' ' + _(u'su suscripción al evento') + ' \\"' + evento.nombre  + '\\" ' + _(u'en') + ' ' + dominio + ', ' + _(u'se ha realizado con éxito.') + '\n\n' + _(u'gracias') + '...'
                     direccion_emisor = evento.email
@@ -40,11 +37,11 @@ def suscribir(request, id_evento, template='suscriptor/suscriptor.html'):
                     os.system(mail.encode('UTF-8'))
                     ok = 1
                 except Exception:
-                    ok = 0
+                    ok = -1
             else:
                 ok = 0
         else:
-            return HttpResponseRedirect('/profiles/edit/')
+            ok = 9
 
     return render_to_response(template,{'evento': evento, 'site_name': Site.objects.get_current().name, 'ok': ok}, context_instance=RequestContext(request))
 
