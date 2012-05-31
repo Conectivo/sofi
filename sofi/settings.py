@@ -173,10 +173,21 @@ LOGGING = {
 # Close session 
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True
 
+#email account
 EMAIL_HOST = 'localhost'
 EMAIL_PORT = 25
 DEFAULT_FROM_EMAIL = 'email@gmail.com'
 EMAIL_HOST_USER = 'username'
+
+#email gmail server account
+'''
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'youremail@gmail.com'
+EMAIL_HOST_PASSWORD = 'yourpassword'
+EMAIL_PORT = 587
+'''
+
 
 # Theme site directory, default THEME = 'mrtechie_1'
 THEME = 'mrtechie_1'
