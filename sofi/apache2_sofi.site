@@ -1,0 +1,28 @@
+    <VirtualHost *:80>
+
+        DocumentRoot /var/www
+        ServerAdmin webmaster@localhost
+        ServerName servidor.com
+
+        <Location "/">
+            SetHandler python-program
+            PythonHandler django.core.handlers.modpython
+            SetEnv DJANGO_SETTINGS_MODULE sofi.settings
+            PythonDebug On
+            PythonPath "['/<RUTA>', '/<RUTA>/sofi', '/<RUTA>/sofi/apps'] + sys.path"
+        </Location>
+
+        Alias /media/ /var/lib/python-support/python2.5/django/contrib/admin/media/
+        <Location /media/>
+            SetHandler none
+            Options -Indexes
+        </Location>
+
+        Alias /site_media/ /<RUTA>/sofi/site_media/
+        <location /site_media/>
+            SetHandler none
+            Options -Indexes
+        </Location>
+
+    </VirtualHost>
+
