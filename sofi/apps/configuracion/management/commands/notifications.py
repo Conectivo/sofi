@@ -24,7 +24,7 @@ class Command(BaseCommand):
             eventos = Evento.objects.filter(fecha_fin__gte=fecha_hoy)
             
             for i in eventos:
-                notificaciones = i.notificaciones_set.get()
+                notificaciones = i.notificaciones_set.get_empty_query_set()
                 
                 if notificaciones:
                     
