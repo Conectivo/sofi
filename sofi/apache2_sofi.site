@@ -12,8 +12,8 @@
             PythonPath "['/<RUTA>', '/<RUTA>/sofi', '/<RUTA>/sofi/apps'] + sys.path"
         </Location>
 
-        Alias /media/ /var/lib/python-support/python2.5/django/contrib/admin/media/
-        <Location /media/>
+        Alias /admin_media/ /var/lib/python-support/python2.5/django/contrib/admin/media/
+        <Location /admin_media/>
             SetHandler none
             Options -Indexes
         </Location>
