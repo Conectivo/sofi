@@ -32,7 +32,7 @@ admin.site.register(Certificado, CertificadoAdmin)
 class CertificadoSuscriptorAdmin(admin.ModelAdmin):
     list_display = ('suscriptor', 'key', 'evento','certificado', 'otorgar',)
     list_filter = ('certificado',)
-    search_fields = ('^suscriptor__nombres', '^suscriptor__apellidos')
+    search_fields = ('^suscriptor__suscriptor__nombre', '^suscriptor__suscriptor__apellido')
 
     #Filtra la lista pertenecientes al creador 
     def queryset(self, request):
