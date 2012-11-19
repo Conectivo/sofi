@@ -49,7 +49,7 @@ class Certificado():
         tematica_pdf = pdf.beginText(50,562)
         tematica_pdf.textLines(tematica.splitlines())
         pdf.drawText(tematica_pdf)
-        pdf.drawString(key_xy[0],10, key)
+        pdf.drawString(key_xy[0],key_xy[1], key)
         pdf.showPage()
 
         pdf.save()
