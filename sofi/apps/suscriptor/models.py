@@ -24,5 +24,7 @@ class Suscriptor(models.Model):
         return "%s %s" % (self.nombres.title(), self.apellidos.title())
     
     class Meta:
+        verbose_name = "Suscriptor"
+        verbose_name_plural = "Suscriptores"
         ordering = ['pais', 'nombres', 'apellidos']
         
