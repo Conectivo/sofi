@@ -1,0 +1,6 @@
+# python-numpy
+numpy==1.5.1
+
+# python-imaging
+PIL==1.1.7
+
