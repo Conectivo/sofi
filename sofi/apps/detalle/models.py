@@ -5,7 +5,7 @@ from evento.models import Evento
 from tools.thumbs import ImageWithThumbsField
 
 class Presentacion(models.Model):
-    titulo = models.CharField(max_length=120, verbose_name='título')
+    titulo = models.CharField(max_length=120, verbose_name='Título')
     descripcion = models.TextField(blank=True, verbose_name='Descripción')
     lugar = models.TextField(blank=True)
     fecha = models.DateField()
@@ -24,6 +24,8 @@ class Presentacion(models.Model):
         return self.titulo
     
     class Meta:
+        verbose_name = "Presentación"
+        verbose_name_plural = "Presentaciones "
         ordering = ['fecha', 'hora']
 
 
@@ -32,13 +34,11 @@ class Ponente(models.Model):
     profesion = models.CharField(max_length=21, blank=True, verbose_name='profesión')
     email = models.EmailField()
     foto = ImageWithThumbsField(upload_to='detalle/files', blank=True, sizes=((80,100),))
-    institucion = models.CharField(max_length=50, blank=True, verbose_name='institución')
-    curriculum = models.TextField(blank=True, verbose_name='Curriculum')
+    institucion = models.CharField(max_length=50, blank=True, verbose_name='Institución')
+    curriculum = models.TextField(blank=True, verbose_name='Currículum')
     estado = models.CharField(max_length=15, blank= True)
     pais = models.CharField(max_length=10, verbose_name='país')
-    presentacion = models.ManyToManyField(Presentacion, verbose_name='presentación')
-    
-    
+    presentacion = models.ManyToManyField(Presentacion, verbose_name='Presentación')
 
     def eventos(self):
         nombre = ""
@@ -56,7 +56,7 @@ class Ponente(models.Model):
         return self.nombre
 
     class Meta:
+        verbose_name = "Ponente"
+        verbose_name_plural = "Ponentes"
         ordering = ['nombre']
         
-        
-
