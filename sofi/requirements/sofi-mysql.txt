@@ -1,0 +1,4 @@
+-r sofi.txt
+
+#MySQL python-mysqldb
+MySQL-python==1.2.4
