@@ -37,3 +37,7 @@ class Encuesta(models.Model):
     
     def __unicode__(self):
         return self.evento.nombre
+    
+    class Meta:
+        verbose_name = "Encuesta"
+        verbose_name_plural = "Encuestas"
