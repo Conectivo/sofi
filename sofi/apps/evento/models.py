@@ -1,3 +1,5 @@
+# -*- encoding: utf-8 -*-
+
 from django.db import models
 from tools.thumbs import ImageWithThumbsField
 
@@ -25,5 +27,7 @@ class Evento(models.Model):
         return self.nombre
     
     class Meta:
+        verbose_name = "Evento"
+        verbose_name_plural = "Eventos"
         ordering = ['-fecha_ini', '-fecha_fin']
 
