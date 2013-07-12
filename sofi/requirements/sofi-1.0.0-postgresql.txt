@@ -1,0 +1,4 @@
+-r sofi-1.0.0.txt
+
+#PostgreSQL python-psycopg2
+psycopg2==2.5.1
