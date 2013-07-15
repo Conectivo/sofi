@@ -66,7 +66,14 @@ Tercero, crea la base de datos de Sofi 1.0 con el siguiente comando:
 
 .. note::
 
-  Cuando pregunte le dices que **'yes'** y responda adecuadamente a las preguntas.
+  En un momento de la creación de la base de datos Django le realizara la siguiente pregunta:
+  
+  You just installed Django's auth system, which means you don't have any superusers defined.
+  
+  Would you like to create one now? (yes/no): 
+
+  Usted le responde **yes**, seguidamente debe responder adecuadamente 
+  a las siguientes preguntas que Django le realizara.
 
 Cuarto, inicie el servidor de ejecución Django con el siguiente comando: 
 
