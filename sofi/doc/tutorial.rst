@@ -20,7 +20,7 @@ En este paso usted debe iniciar sesión de usuario dentro del sistema,
 inicialmente con el usuario que creo al momento de crear la base de datos
 con Django.
 
-.. figure::  ../capturas_pantalla/0.png
+.. figure::  ./capturas_pantalla/0.png
    :width: 1024px
    :alt: Iniciar sesión de usuario.
    :align: center
@@ -32,7 +32,7 @@ con Django.
 Luego de haber iniciado la sesión de usuario usted accede al panel de 
 administración del sistema Sofi como se muestra a continuación:
 
-.. figure::  ../capturas_pantalla/1.png
+.. figure::  ./capturas_pantalla/1.png
    :width: 1024px
    :alt: panel de administración Sofi
    :align: center
@@ -47,7 +47,7 @@ Registro de Evento
 Ya iniciado sesión de usuario usted puede hacer clic en el enlace **Add** 
 o **Añadir** del modulo Eventos para registrar un nuevo evento en el sistema Sofi.
 
-.. figure::  ../capturas_pantalla/2.png
+.. figure::  ./capturas_pantalla/2.png
    :width: 1024px
    :alt: Registro de un Evento.
    :align: center
@@ -57,7 +57,7 @@ o **Añadir** del modulo Eventos para registrar un nuevo evento en el sistema So
 Luego de haber creado el nuevo evento usted puede ver como va quedando la ficha 
 del evento registro como se muestra a continuación:
 
-.. figure::  ../capturas_pantalla/3.png
+.. figure::  ./capturas_pantalla/3.png
    :width: 1024px
    :alt: Evento registrado.
    :align: center
@@ -72,7 +72,7 @@ Una ves registrado un evento usted puede hacer clic en el enlace **Add**
 o **Añadir** del modulo ``Presentacions`` para registrar una nueva presentación 
 disponible para el evento registrado en el sistema Sofi.
 
-.. figure::  ../capturas_pantalla/4.png
+.. figure::  ./capturas_pantalla/4.png
    :width: 1024px
    :alt: Registro de una presentación
    :align: center
@@ -88,7 +88,7 @@ Una ves registrado un evento usted puede hacer clic en el enlace **Add**
 o **Añadir** del modulo ``Ponentes`` para registrar un nuevo ponente a una 
 presentación asociada a un evento registrado en el sistema Sofi.
 
-.. figure::  ../capturas_pantalla/5.png
+.. figure::  ./capturas_pantalla/5.png
    :width: 1024px
    :alt: Registro de un ponente
    :align: center
@@ -99,7 +99,7 @@ Nuevamente después de haber creado una nueva presentación y un nuevo ponente
 asociado a esta usted puede ver como va quedando la ficha del evento registro 
 como se muestra a continuación:
 
-.. figure::  ../capturas_pantalla/6.png
+.. figure::  ./capturas_pantalla/6.png
    :width: 1024px
    :alt: Ficha del evento básica
    :align: center
@@ -110,7 +110,7 @@ Si hace clic en enlace en la parte inferior derecha llamado **suscribir** puede
 acceder al formulario de registro de asistencia/participantes del evento como 
 se muestra a continuación:
 
-.. figure::  ../capturas_pantalla/7.png
+.. figure::  ./capturas_pantalla/7.png
    :width: 1024px
    :alt: Formulario de registro de participantes
    :align: center
