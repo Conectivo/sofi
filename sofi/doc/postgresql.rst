@@ -42,9 +42,6 @@ conexión a la base de datos como se describe a continuación:
         }
     }
 
-Y crea la base de datos como se describe acá:
-
-
 Referencias
 -----------
 
