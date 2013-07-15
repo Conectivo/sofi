@@ -1,0 +1,9 @@
+-f http://pypi.python.org/packages/source/s/setuptools/setuptools-0.9.1.tar.gz
+
+Sphinx == 1.0.8
+docutils == 0.8.1
+Jinja2 == 2.5.5
+Pygments == 1.4
+roman == 1.4.0
+collective.recipe.sphinxbuilder == 0.7.0
+collective.sphinx.includedoc == 0.2
