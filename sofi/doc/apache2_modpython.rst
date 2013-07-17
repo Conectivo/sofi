@@ -57,8 +57,7 @@ muestra a continuación:
             PythonHandler myvirtualdjango
             SetEnv DJANGO_SETTINGS_MODULE sofi.settings
             SetEnv PYTHON_EGG_CACHE /var/tmp/egg
-            #PythonDebug Off
-            PythonDebug On
+            PythonDebug Off
             PythonPath "['/<RUTA>/bin','/<RUTA>/lib/python2.7/site-packages','/<RUTA>/sofi', '/<RUTA>/sofi/sofi', '/<RUTA>/apps'] + sys.path"
         </Location>
 
@@ -123,10 +122,22 @@ de instalación de Sofi, con el siguiente comando:
 .. code-block:: console
 
     # chown -R :www-data /<RUTA>/sofi
+    # chmod g+rw /<RUTA>/sofi/sofi/sofi.db
 
 .. tip::
 
   Debe cambiar **<RUTA>** por la ruta adecuada en el contexto de la explicación.
+
+.. warning::
+
+  Si usted esta solo usando el servidor Web para ejecutar Sofi le recomiendo que 
+  deshabilite el sitio por defecto de Apache ya que esta configuración VirtualHost 
+  es para un solo sitio Web dentro del servidor Web Apache.
+  
+  Para esto ejecute el siguiente comando: ``a2dissite default``.
+  
+  De no ser así necesita adaptar su configuración VirtualHost de Sofi para que 
+  conviva con los demás sitios Web.
 
 Reinicie y recargue el servicio de Apache, con los siguientes comandos:
 

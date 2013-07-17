@@ -20,7 +20,7 @@ para hacer esto posible ejecute el siguiente comando:
 
 .. code-block:: console
 
-    # aptitude install build-essential python-dev python-pip python-setuptools
+    # aptitude install build-essential python-dev python-pip python-setuptools libfreetype6-dev libpng-dev
     # pip install virtualenv
     # exit
 
