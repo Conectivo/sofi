@@ -86,7 +86,7 @@ muestra a continuación:
 
 .. tip::
 
-  Debe cambiar **<RUTA>** por la ruta adecuada en el contexto de la explicación
+  Debe cambiar **<RUTA>** por la ruta adecuada en el contexto de la explicación.
 
 Después debe habilitar la configuración VirtualHost creada como 
 un sitio disponible para Apache:
@@ -109,6 +109,10 @@ ruta a la ruta real de su instalación):
     
     from django.core.handlers.modpython import handler
 
+.. tip::
+
+  Debe cambiar **<RUTA>** por la ruta adecuada en el contexto de la explicación.
+
 En el archivo ``settings.py`` de tu aplicación debes cambiar la variable 
 ``DEBUG`` de **True** a **False**
 
@@ -119,6 +123,10 @@ de instalación de Sofi, con el siguiente comando:
 .. code-block:: console
 
     # chown -R :www-data /<RUTA>/sofi
+
+.. tip::
+
+  Debe cambiar **<RUTA>** por la ruta adecuada en el contexto de la explicación.
 
 Reinicie y recargue el servicio de Apache, con los siguientes comandos:
 
