@@ -122,7 +122,7 @@ de instalación de Sofi, con el siguiente comando:
 .. code-block:: console
 
     # chown -R :www-data /<RUTA>/sofi
-    # chmod g+rw /<RUTA>/sofi/sofi/sofi.db
+    # chmod g+rw /<RUTA>/sofi/sofi.db
 
 .. tip::
 
@@ -148,14 +148,14 @@ Reinicie y recargue el servicio de Apache, con los siguientes comandos:
 
 .. note::
 
-  Luego accedes a Sofi en la siguiente dirección http://localhost/
+  Luego accedes a Sofi en la siguiente dirección http://TU-SITIO-WEB/
   
-  Opcionalmente puede acceder a la interfaz administrativa en la siguiente dirección http://localhost/admin/
+  Opcionalmente puede acceder a la interfaz administrativa en la siguiente dirección http://TU-SITIO-WEB/admin/
 
 .. tip::
 
   Cada ves que cambies algo en tu aplicación Sofi debe recargar las configuraciones 
-  del servidor Apache, con el comando: **service apache2 reload**
+  del servidor Apache, con el comando: ``service apache2 reload``
 
 Referencias
 -----------
