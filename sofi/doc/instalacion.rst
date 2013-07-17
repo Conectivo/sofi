@@ -78,9 +78,9 @@ Tercero, inicie el servidor de ejecución Django con el siguiente comando:
 
 .. note::
 
-  Luego accedes a Sofi 2.0 en la siguiente dirección http://127.0.0.1:8000/
+  Luego accedes a Sofi 2.0 en la siguiente dirección http://localhost:8000/
   
-  Opcionalmente puede acceder a la interfaz administrativa en la siguiente dirección http://127.0.0.1:8000/admin/
+  Opcionalmente puede acceder a la interfaz administrativa en la siguiente dirección http://localhost:8000/admin/
 
 Cuarto, Si no va a instalar `paquetes Egg Python`_ adicionales a su aplicación Sofi, 
 desactive en `entorno virtual Python`_ creado con el siguiente comando: 
