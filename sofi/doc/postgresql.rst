@@ -13,7 +13,7 @@ Sofi con PostgresSQL
 Para entornos de pruebas y producción es posible usar el servidor de base de 
 datos PostgresSQL, para hacer esto posible ejecute el siguiente comando:
 
-.. code-block:: python
+.. code-block:: console
 
     # aptitude install postgresql
     # exit
@@ -22,7 +22,7 @@ Luego active su entorno virtual Python si no lo tiene activado para instalar
 el adaptador de base de datos para PostgreSQL en Python `psycopg2`_, para esto 
 ejecute el siguiente comando:
 
-.. code-block:: python
+.. code-block:: console
 
     $ pip install -r ./requeriments/sofi-postgresql.txt
 
