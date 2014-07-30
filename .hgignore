@@ -2,6 +2,8 @@ syntax: glob
 
 *.swp
 *.pyc
+*.pyo
+*~
 *.db
 site_media/evento/*
 site_media/patrocinador/*
@@ -10,3 +12,4 @@ site_media/patrocinador/*
 sofi/lib/
 sofi/bin/
 sofi/include/
+python2.*
