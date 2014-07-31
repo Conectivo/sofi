@@ -23,7 +23,7 @@ la interfaz Python a MySQL `MySQL-python`_, para esto ejecute el siguiente coman
 
 .. code-block:: console
 
-    $ pip install -r ./requeriments/sofi-mysql.txt
+    $ pip install -r ./requirements/sofi-mysql.txt
 
 Seguidamente edita su archivo ``settings.py``, y ajusta las configuraciones de 
 conexión a la base de datos como se describe a continuación:

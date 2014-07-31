@@ -24,7 +24,7 @@ ejecute el siguiente comando:
 
 .. code-block:: python
 
-    $ pip install -r ./requeriments/sofi-postgresql.txt
+    $ pip install -r ./requirements/sofi-postgresql.txt
 
 Seguidamente edita su archivo ``settings.py``, y ajusta las configuraciones de 
 conexión a la base de datos como se describe a continuación:
