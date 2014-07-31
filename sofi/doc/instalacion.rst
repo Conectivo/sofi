@@ -55,8 +55,8 @@ con los siguientes comandos:
 .. code-block:: console
 
     $ cd sofi/
-    $ pip install -r ./requeriments/compilado.txt
-    $ pip install -r ./requeriments/sofi.txt
+    $ pip install -r ./requirements/compilado.txt
+    $ pip install -r ./requirements/sofi.txt
 
 Tercero, crea la base de datos de Sofi 1.0 con el siguiente comando:
 
