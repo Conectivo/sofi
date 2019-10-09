@@ -1,4 +1,4 @@
--f http://hivelocity.dl.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.0/matplotlib-1.0.0.tar.gz
+-f http://downloads.sourceforge.net/project/matplotlib/matplotlib/matplotlib-1.0/matplotlib-1.0.0.tar.gz
 
 #Python==2.6.6
 Django==1.3
