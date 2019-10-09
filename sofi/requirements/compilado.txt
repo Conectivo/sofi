@@ -1,6 +1,7 @@
+-f https://dist.plone.org/thirdparty/PIL-1.1.7.tar.gz
+
 # python-numpy
 numpy==1.5.1
 
 # python-imaging
 PIL==1.1.7
-
