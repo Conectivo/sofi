@@ -1,7 +1,8 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 
-import ImageFont, ImageDraw, Image, sys, StringIO
+import sys, StringIO
+from PIL import ImageFont, ImageDraw, Image
 from hashlib import md5
 from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import letter,landscape
