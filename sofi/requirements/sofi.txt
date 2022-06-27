@@ -11,5 +11,5 @@ django-registration==0.7
 django-thumbs==0.4
 #ipython==0.10.2
 matplotlib==1.0.0
-reportlab==2.5
+reportlab==3.5.55
 wsgiref==0.1.2
